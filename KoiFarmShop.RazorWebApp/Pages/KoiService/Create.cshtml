@@ -1,0 +1,83 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.KoiService.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PetService</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PetService.Name" class="control-label"></label>
+                <input asp-for="PetService.Name" class="form-control" />
+                <span asp-validation-for="PetService.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.PetServiceCategoryId" class="control-label"></label>
+                <select asp-for="PetService.PetServiceCategoryId" class ="form-control" asp-items="ViewBag.PetServiceCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.BasePrice" class="control-label"></label>
+                <input asp-for="PetService.BasePrice" class="form-control" />
+                <span asp-validation-for="PetService.BasePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.Duration" class="control-label"></label>
+                <input asp-for="PetService.Duration" class="form-control" />
+                <span asp-validation-for="PetService.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.ImageUrl" class="control-label"></label>
+                <input asp-for="PetService.ImageUrl" class="form-control" />
+                <span asp-validation-for="PetService.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.AvailableFrom" class="control-label"></label>
+                <input asp-for="PetService.AvailableFrom" class="form-control" />
+                <span asp-validation-for="PetService.AvailableFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.AvailableTo" class="control-label"></label>
+                <input asp-for="PetService.AvailableTo" class="form-control" />
+                <span asp-validation-for="PetService.AvailableTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.TravelCost" class="control-label"></label>
+                <input asp-for="PetService.TravelCost" class="form-control" />
+                <span asp-validation-for="PetService.TravelCost" class="text-danger"></span>
+            </div>
+        @*     <div class="form-group">
+                <label asp-for="PetService.CreatedDate" class="control-label"></label>
+                <input asp-for="PetService.CreatedDate" class="form-control" />
+                <span asp-validation-for="PetService.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetService.ModifiedDate" class="control-label"></label>
+                <input asp-for="PetService.ModifiedDate" class="form-control" />
+                <span asp-validation-for="PetService.ModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PetService.IsDeleted" /> @Html.DisplayNameFor(model => model.PetService.IsDeleted)
+                </label>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
