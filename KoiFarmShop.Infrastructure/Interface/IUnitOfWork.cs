@@ -11,6 +11,8 @@ namespace KoiFarmShop.Infrastructure.Interface
     {
         IUserRepository UserRepository { get; }
         IPetRepository PetRepository { get; }
+        IPetTypeRepository PetTypeRepository { get; }
+        IPetHabitatRepository PetHabitatRepository { get; }
 
         IPetServiceRepository PetServiceRepository { get; }
         IPetServiceCategoryRepository PetServiceCategoryRepository { get; }

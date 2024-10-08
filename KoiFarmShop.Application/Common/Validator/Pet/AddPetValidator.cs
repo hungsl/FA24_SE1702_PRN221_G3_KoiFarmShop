@@ -13,7 +13,11 @@ namespace KoiFarmShop.Application.Common.Validator.Pet
     {
         public AddPetValidator(UnitOfWork unitOfWork) : base(unitOfWork)
         {
-            AddPetNameRules(request => request.PetName);
+            AddPetNameRules(request => request.Name);
+            AddPetAgeRules(request => request.Age);
+            AddPetGenderRules(request => request.Gender);
+            AddPetLengthRules(request => request.Length);
+            AddPetWeightRules(request => request.Weight);
         }
 
     }

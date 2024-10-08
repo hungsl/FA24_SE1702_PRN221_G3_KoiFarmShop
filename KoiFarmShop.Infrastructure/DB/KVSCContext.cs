@@ -29,6 +29,8 @@ namespace KoiFarmShop.Infrastructure.DB
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Veterinarian> Veterinarians { get; set; }
         public DbSet<VeterinarianSchedule> VeterinarianSchedules { get; set; }
+        public DbSet<PetType> PetTypes { get; set; }
+        public DbSet<PetHabitat> PetHabitats { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,6 +46,8 @@ namespace KoiFarmShop.Infrastructure.DB
             modelBuilder.Entity<Appointment>().ToTable("Appointment");
             modelBuilder.Entity<Veterinarian>().ToTable("Veterinarian");
             modelBuilder.Entity<VeterinarianSchedule>().ToTable("VeterinarianSchedule");
+            modelBuilder.Entity<PetType>().ToTable("PetType");
+            modelBuilder.Entity<PetHabitat>().ToTable("PetHabitat");
 
             // User has many Pets
             modelBuilder.Entity<User>()
@@ -77,6 +81,7 @@ namespace KoiFarmShop.Infrastructure.DB
                 .HasOne(a => a.Customer)
                 .WithMany(u => u.Appointments)
                 .HasForeignKey(a => a.CustomerId);
+
 
             modelBuilder.Entity<Appointment>()
                 .HasOne(a => a.Pet)
@@ -117,6 +122,18 @@ namespace KoiFarmShop.Infrastructure.DB
                 .HasOne(vs => vs.Veterinarian)
                 .WithMany(v => v.VeterinarianSchedules)
                 .HasForeignKey(vs => vs.VeterinarianId);
+
+            modelBuilder.Entity<Pet>()
+                .HasOne(p => p.PetType)
+                .WithMany(pt => pt.Pets)
+                .HasForeignKey(p => p.PetTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PetType>()
+                .HasOne(pt => pt.PetHabitat)
+                .WithMany(ph => ph.PetTypes)
+                .HasForeignKey(pt => pt.PetHabitatId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Call base method
             base.OnModelCreating(modelBuilder);

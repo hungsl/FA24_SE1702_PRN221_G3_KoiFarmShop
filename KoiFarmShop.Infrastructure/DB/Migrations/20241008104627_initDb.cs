@@ -46,6 +46,21 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PetHabitat",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    HabitatType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PetHabitat", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PetServiceCategory",
                 columns: table => new
                 {
@@ -87,6 +102,29 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PetType",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GeneralType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SpecificType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PetHabitatId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PetType", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PetType_PetHabitat_PetHabitatId",
+                        column: x => x.PetHabitatId,
+                        principalTable: "PetHabitat",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PetService",
                 columns: table => new
                 {
@@ -115,36 +153,6 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pet",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
-                    Breed = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Length = table.Column<double>(type: "float", nullable: false),
-                    Weight = table.Column<double>(type: "float", nullable: false),
-                    LastHealthCheck = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HealthStatus = table.Column<int>(type: "int", nullable: false),
-                    OwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pet", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Pet_User_OwnerId",
-                        column: x => x.OwnerId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Veterinarian",
                 columns: table => new
                 {
@@ -164,6 +172,43 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     table.ForeignKey(
                         name: "FK_Veterinarian_User_UserId",
                         column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Length = table.Column<double>(type: "float", nullable: false),
+                    Weight = table.Column<double>(type: "float", nullable: false),
+                    LastHealthCheck = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HealthStatus = table.Column<int>(type: "int", nullable: false),
+                    OwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PetTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pet", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Pet_PetType_PetTypeId",
+                        column: x => x.PetTypeId,
+                        principalTable: "PetType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Pet_User_OwnerId",
+                        column: x => x.OwnerId,
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -195,6 +240,31 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         principalTable: "PetService",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VeterinarianSchedule",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VeterinarianId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    IsAvailable = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VeterinarianSchedule", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_VeterinarianSchedule_Veterinarian_VeterinarianId",
+                        column: x => x.VeterinarianId,
+                        principalTable: "Veterinarian",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -236,31 +306,6 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         name: "FK_Appointment_User_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "VeterinarianSchedule",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VeterinarianId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    IsAvailable = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VeterinarianSchedule", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_VeterinarianSchedule_Veterinarian_VeterinarianId",
-                        column: x => x.VeterinarianId,
-                        principalTable: "Veterinarian",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -339,9 +384,19 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 column: "OwnerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Pet_PetTypeId",
+                table: "Pet",
+                column: "PetTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PetService_PetServiceCategoryId",
                 table: "PetService",
                 column: "PetServiceCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PetType_PetHabitatId",
+                table: "PetType",
+                column: "PetHabitatId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Veterinarian_UserId",
@@ -389,7 +444,13 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 name: "PetServiceCategory");
 
             migrationBuilder.DropTable(
+                name: "PetType");
+
+            migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "PetHabitat");
         }
     }
 }

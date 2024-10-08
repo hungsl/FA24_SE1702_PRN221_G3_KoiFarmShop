@@ -203,16 +203,16 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("Breed")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Color")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("HealthStatus")
                         .HasColumnType("int");
@@ -240,6 +240,9 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("PetTypeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<double>("Weight")
                         .HasColumnType("float");
 
@@ -247,7 +250,33 @@ namespace KoiFarmShop.Infrastructure.Migrations
 
                     b.HasIndex("OwnerId");
 
+                    b.HasIndex("PetTypeId");
+
                     b.ToTable("Pet", (string)null);
+                });
+
+            modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetHabitat", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("HabitatType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PetHabitat", (string)null);
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetService", b =>
@@ -333,6 +362,39 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PetServiceCategory", (string)null);
+                });
+
+            modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GeneralType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PetHabitatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SpecificType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PetHabitatId");
+
+                    b.ToTable("PetType", (string)null);
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.User", b =>
@@ -542,7 +604,15 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("KoiFarmShop.Domain.Entities.PetType", "PetType")
+                        .WithMany("Pets")
+                        .HasForeignKey("PetTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Owner");
+
+                    b.Navigation("PetType");
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetService", b =>
@@ -554,6 +624,17 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("PetServiceCategory");
+                });
+
+            modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetType", b =>
+                {
+                    b.HasOne("KoiFarmShop.Domain.Entities.PetHabitat", "PetHabitat")
+                        .WithMany("PetTypes")
+                        .HasForeignKey("PetHabitatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("PetHabitat");
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.Veterinarian", b =>
@@ -593,6 +674,11 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Navigation("Appointments");
                 });
 
+            modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetHabitat", b =>
+                {
+                    b.Navigation("PetTypes");
+                });
+
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetService", b =>
                 {
                     b.Navigation("ComboServiceItems");
@@ -601,6 +687,11 @@ namespace KoiFarmShop.Infrastructure.Migrations
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetServiceCategory", b =>
                 {
                     b.Navigation("PetServices");
+                });
+
+            modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetType", b =>
+                {
+                    b.Navigation("Pets");
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.User", b =>

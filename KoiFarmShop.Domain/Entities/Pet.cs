@@ -10,7 +10,7 @@ namespace KoiFarmShop.Domain.Entities
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public string Breed { get; set; }
+        public string Gender { get; set; }
         public string ImageUrl { get; set; }
         public string Color { get; set; }
         public double Length { get; set; }
@@ -23,6 +23,8 @@ namespace KoiFarmShop.Domain.Entities
         public User Owner { get; set; } // Reference to the User
 
         // Thêm quan hệ với Appointment
+        public Guid PetTypeId { get; set; }
+        public PetType PetType { get; set; } // Reference to PetType
         public ICollection<Appointment> Appointments { get; set; } // Quan hệ nhiều với Appointment
 
     }

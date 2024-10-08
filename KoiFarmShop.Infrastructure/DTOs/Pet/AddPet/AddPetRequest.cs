@@ -8,9 +8,16 @@ namespace KoiFarmShop.Infrastructure.DTOs.Pet.AddPet
 {
     public class AddPetRequest
     {
-        public Guid PetId { get; set; }
-        public string PetName { get; set; }
-        public double Age { get; set; }
+        public Guid OwnerId { get; set; } //Pet Owner Id
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public Guid PetTypeId { get; set; }
+        public string Gender { get; set; }
+        public string ImageUrl { get; set; }
         public string Color { get; set; }
+        public double Length { get; set; }
+        public double Weight { get; set; }
+        public DateTime LastHealthCheck { get; set; }
+        public int HealthStatus { get; set; }
     }
 }
