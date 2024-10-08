@@ -273,3 +273,4 @@ C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebAp
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\obj\Debug\net8.0\KoiFarmShop.RazorWebApp.sourcelink.json

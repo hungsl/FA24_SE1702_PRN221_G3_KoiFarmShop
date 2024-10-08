@@ -15,3 +15,4 @@ C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Applicatio
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Application\obj\Debug\net8.0\refint\KoiFarmShop.Application.dll
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Application\obj\Debug\net8.0\KoiFarmShop.Application.pdb
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Application\obj\Debug\net8.0\ref\KoiFarmShop.Application.dll
+C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Application\obj\Debug\net8.0\KoiFarmShop.Application.sourcelink.json

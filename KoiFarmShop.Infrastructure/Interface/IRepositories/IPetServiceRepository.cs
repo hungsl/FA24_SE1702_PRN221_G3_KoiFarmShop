@@ -15,6 +15,6 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
         public Task<int> DeleteServiceAsync(Guid id);
         public Task<int> GetServiceByPetServiceCategoryIdAsync(Guid id);
         public Task<List<PetService>> GetByIdsAsync(List<Guid> serviceIds);
-
+        public Task<(int totalItems, List<PetService> petServices)> GetAllServiceWithSearchAsync(string searchTerm, int pageIndex, int pageSize);
     }
 }

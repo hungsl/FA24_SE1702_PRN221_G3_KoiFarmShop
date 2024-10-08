@@ -28,6 +28,25 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return await _context.PetServices.Include(i => i.PetServiceCategory).Where(s => !s.IsDeleted).ToListAsync();
         }
 
+        public async Task<(int totalItems, List<PetService> petServices)> GetAllServiceWithSearchAsync(string searchTerm, int pageIndex, int pageSize)
+        {
+            var query = _context.Set<PetService>().AsQueryable(); ;
+
+            // Tìm kiếm theo tên dịch vụ
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(p => p.Name.Contains(searchTerm));
+            }
+
+            // Phân trang
+            var totalItems = await query.CountAsync();
+            var petServices = await query
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToListAsync();
+            return (totalItems, petServices);
+        }
+
         public async Task<PetService> GetServiceByIdAsync(Guid id)
         {
             return await _context.PetServices.FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted);

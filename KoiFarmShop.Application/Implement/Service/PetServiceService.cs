@@ -5,7 +5,6 @@ using KoiFarmShop.Application.Common.Result;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DTOs.Common.Message;
 using KoiFarmShop.Infrastructure.Interface;
-using KoiFarmShop.Infrastructure.DTOs.Common;
 using KoiFarmShop.Infrastructure.DTOs.User.Login;
 using System;
 using System.Collections.Generic;
@@ -13,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
+using System.Linq.Dynamic.Core;
+using KoiFarmShop.Infrastructure.DTOs.Common;
 
 namespace KoiFarmShop.Application.Implement.Service
 {
@@ -73,6 +74,21 @@ namespace KoiFarmShop.Application.Implement.Service
         {
             var petServices = await _unitOfWork.PetServiceRepository.GetAllServicesAsync();
             return Result.SuccessWithObject(petServices);
+        }
+
+        public async Task<Result> GetAllPetServicesAsync(string searchTerm, int pageIndex, int pageSize)
+        {
+            var petServices = await _unitOfWork.PetServiceRepository.GetAllServiceWithSearchAsync(searchTerm, pageIndex, pageSize);
+
+            var pagedResult = new PagedResultSearch<PetService>
+            {
+                Items = petServices.petServices,
+                TotalItems = petServices.totalItems,
+                PageIndex = pageIndex,
+                PageSize = pageSize
+            };
+
+            return Result.SuccessWithObject(pagedResult);
         }
 
         public async Task<Result> GetPetServiceByIdAsync(Guid id)
