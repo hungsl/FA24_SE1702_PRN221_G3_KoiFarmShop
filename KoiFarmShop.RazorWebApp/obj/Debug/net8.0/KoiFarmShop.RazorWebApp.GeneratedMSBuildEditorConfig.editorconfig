@@ -17,79 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = KoiFarmShop.RazorWebApp
 build_property.RootNamespace = KoiFarmShop.RazorWebApp
-build_property.ProjectDir = C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\
+build_property.ProjectDir = D:\FPT\7_Semester\PRN221\projects\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp
+build_property.MSBuildProjectDirectory = D:\FPT\7_Semester\PRN221\projects\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Error.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Index.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Create.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pRmlzaFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Delete.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pRmlzaFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Details.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pRmlzaFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Edit.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pRmlzaFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Index.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiFish/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pRmlzaFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Create.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pU2VydmljZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Delete.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pU2VydmljZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Details.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pU2VydmljZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Edit.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pU2VydmljZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Index.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/KoiService/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS29pU2VydmljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Privacy.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/_ViewImports.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/_ViewStart.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Downloads/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Shared/_Layout.cshtml]
+[D:/FPT/7_Semester/PRN221/projects/FA24_SE1702_PRN221_G3_KoiFarmShop/KoiFarmShop.RazorWebApp/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-l4l9cr4am5

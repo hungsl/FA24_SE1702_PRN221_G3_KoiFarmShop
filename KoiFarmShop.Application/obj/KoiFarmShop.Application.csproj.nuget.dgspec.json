@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj": {}
+    "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj": {
+    "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj",
+        "projectUniqueName": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj",
         "projectName": "KoiFarmShop.Application",
-        "projectPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\obj\\",
+        "projectPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj"
+              "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj": {
+                "projectPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj"
               },
-              "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj"
+              "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj": {
+                "projectPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj"
               }
             }
           }
@@ -81,21 +86,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj": {
+    "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj",
+        "projectUniqueName": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj",
         "projectName": "KoiFarmShop.Domain",
-        "projectPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\obj\\",
+        "projectPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,6 +112,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -157,21 +167,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj": {
+    "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj",
+        "projectUniqueName": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj",
         "projectName": "KoiFarmShop.Infrastructure",
-        "projectPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\obj\\",
+        "projectPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\KoiFarmShop.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -179,14 +193,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj"
+              "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj": {
+                "projectPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj"
               }
             }
           }
@@ -275,7 +290,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
