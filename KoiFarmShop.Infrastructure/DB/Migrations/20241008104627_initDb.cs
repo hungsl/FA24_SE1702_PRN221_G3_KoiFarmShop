@@ -346,6 +346,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Appointment_CustomerId",
                 table: "Appointment",
+
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
