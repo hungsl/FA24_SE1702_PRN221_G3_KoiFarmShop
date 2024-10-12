@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KoiFarmShop.RazorWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73df03f75e809906c68866e8b175f7ee9b422e68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb177a02eb5220f50635c3f1d8daecfd3a140e08")]
 [assembly: System.Reflection.AssemblyProductAttribute("KoiFarmShop.RazorWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KoiFarmShop.RazorWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

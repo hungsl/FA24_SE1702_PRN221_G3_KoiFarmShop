@@ -3,7 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\koifarmshop.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\wwwroot\\css\\chat.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\wwwroot\\css\\chat.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\koifarmshop.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\koifarmshop.wpfapp\\koifarmshop.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|solutionrelative:koifarmshop.wpfapp\\koifarmshop.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|solutionrelative:koifarmshop.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,16 +59,8 @@
       "RelativeMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|solutionrelative:koifarmshop.wpfapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.wpfapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\koifarmshop.wpfapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|solutionrelative:koifarmshop.wpfapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\koifarmshop.wpfapp\\koifarmshop.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}|KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj|solutionrelative:koifarmshop.wpfapp\\koifarmshop.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|c:\\users\\asus\\downloads\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}|KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|solutionrelative:koifarmshop.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF2D0272-24D2-4CCB-BDF1-0AA068A77CBD}|KoiFarmShop.Domain\\KoiFarmShop.Domain.csproj|C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\koifarmshop.domain\\enum\\errortype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -275,7 +295,7 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -283,44 +303,85 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-12T12:47:18.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "chat.css",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\wwwroot\\css\\chat.css",
+              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\wwwroot\\css\\chat.css",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\wwwroot\\css\\chat.css",
+              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\wwwroot\\css\\chat.css",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADYAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-12T12:47:06.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:41:24.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml",
+              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-12T12:39:43.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T12:37:02.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "KoiFarmShop.WPFApp\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAJ0AAAAAAAAAAAAiwK8AAAApAAAA",
+              "ViewState": "AQIAAJ0AAAAAAAAAAAAiwLAAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-12T03:25:07.052Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "LoginValidator.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
-              "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:10:27.458Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\App.xaml",
-              "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\App.xaml",
-              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\App.xaml",
-              "RelativeToolTip": "KoiFarmShop.WPFApp\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-12T03:57:17.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "IPetServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Interface\\IService\\IPetServiceService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Application\\Interface\\IService\\IPetServiceService.cs",
@@ -333,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\appsettings.Development.json",
               "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\appsettings.Development.json",
@@ -346,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "KoiFarmShop.WPFApp.csproj",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj",
               "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\KoiFarmShop.WPFApp.csproj",
@@ -359,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "PetServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Implement\\Service\\PetServiceService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Application\\Implement\\Service\\PetServiceService.cs",
@@ -372,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "AddPetServiceRequest.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\DTOs\\PetService\\AddPetService\\AddPetServiceRequest.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Infrastructure\\DTOs\\PetService\\AddPetService\\AddPetServiceRequest.cs",
@@ -386,6 +447,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
+              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Program.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwDIAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T06:41:38.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\App.xaml",
+              "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\App.xaml",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\App.xaml",
+              "RelativeToolTip": "KoiFarmShop.WPFApp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-12T03:57:17.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "LoginValidator.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
+              "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
+              "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\User\\LoginValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T04:10:27.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\App.xaml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\App.xaml.cs",
@@ -398,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.WPFApp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "KoiFarmShop.WPFApp\\MainWindow.xaml",
@@ -410,20 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Program.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
-              "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T06:41:38.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "AppointmentForComboValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\AppointmentForComboValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\AppointmentForComboValidator.cs",
@@ -431,11 +517,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\AppointmentForComboValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:07:22.001Z"
+              "WhenOpened": "2024-10-12T04:07:22.001Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "ResultExtensions.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Result\\ResultExtensions.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Result\\ResultExtensions.cs",
@@ -443,11 +530,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Result\\ResultExtensions.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:07:12.715Z"
+              "WhenOpened": "2024-10-12T04:07:12.715Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "AppointmentForServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\AppointmentForServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\AppointmentForServiceValidator.cs",
@@ -455,11 +543,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\AppointmentForServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:07:26.146Z"
+              "WhenOpened": "2024-10-12T04:07:26.146Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "ComboServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\ComboServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\ComboServiceValidator.cs",
@@ -467,11 +556,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\ComboServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:07:31.271Z"
+              "WhenOpened": "2024-10-12T04:07:31.271Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "PetServiceCategoryValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetServiceCategoryValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetServiceCategoryValidator.cs",
@@ -479,11 +569,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetServiceCategoryValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:07:34.691Z"
+              "WhenOpened": "2024-10-12T04:07:34.691Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "PetServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetServiceValidator.cs",
@@ -491,11 +582,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:07:40.627Z"
+              "WhenOpened": "2024-10-12T04:07:40.627Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 42,
               "Title": "PetValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetValidator.cs",
@@ -503,11 +595,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\PetValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:20.292Z"
+              "WhenOpened": "2024-10-12T04:08:20.292Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "UserValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Abstract\\UserValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\UserValidator.cs",
@@ -515,11 +608,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Abstract\\UserValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:24.101Z"
+              "WhenOpened": "2024-10-12T04:08:24.101Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 44,
               "Title": "MakeAppointmentForComboValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Appointment\\MakeAppointmentForComboValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Appointment\\MakeAppointmentForComboValidator.cs",
@@ -527,11 +621,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Appointment\\MakeAppointmentForComboValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:27.626Z"
+              "WhenOpened": "2024-10-12T04:08:27.626Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 45,
               "Title": "MakeAppointmentForServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Appointment\\MakeAppointmentForServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Appointment\\MakeAppointmentForServiceValidator.cs",
@@ -539,11 +634,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Appointment\\MakeAppointmentForServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:31.131Z"
+              "WhenOpened": "2024-10-12T04:08:31.131Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 46,
               "Title": "AddPetValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\Pet\\AddPetValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\Pet\\AddPetValidator.cs",
@@ -551,11 +647,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\Pet\\AddPetValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:35.399Z"
+              "WhenOpened": "2024-10-12T04:08:35.399Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 47,
               "Title": "AddComboServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddComboServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddComboServiceValidator.cs",
@@ -563,11 +660,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddComboServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:41.287Z"
+              "WhenOpened": "2024-10-12T04:08:41.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 48,
               "Title": "AddPetServiceCategoryValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddPetServiceCategoryValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddPetServiceCategoryValidator.cs",
@@ -575,11 +673,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddPetServiceCategoryValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:44.216Z"
+              "WhenOpened": "2024-10-12T04:08:44.216Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 49,
               "Title": "AddPetServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddPetServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddPetServiceValidator.cs",
@@ -587,11 +686,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Common\\Validator\\PetService\\AddPetServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:47.136Z"
+              "WhenOpened": "2024-10-12T04:08:47.136Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 50,
               "Title": "AppointmentService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\AppointmentService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\AppointmentService.cs",
@@ -599,11 +699,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\AppointmentService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:10:37.351Z"
+              "WhenOpened": "2024-10-12T04:10:37.351Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 51,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\AuthService.cs",
@@ -611,11 +712,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\AuthService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:11:04.846Z"
+              "WhenOpened": "2024-10-12T04:11:04.846Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 52,
               "Title": "ComboServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\ComboServiceService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\ComboServiceService.cs",
@@ -623,11 +725,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\ComboServiceService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:11:13.426Z"
+              "WhenOpened": "2024-10-12T04:11:13.426Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 53,
               "Title": "FireBaseService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\FireBaseService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\FireBaseService.cs",
@@ -635,11 +738,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\FireBaseService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:11:44.379Z"
+              "WhenOpened": "2024-10-12T04:11:44.379Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 54,
               "Title": "PetServiceCategoryService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\PetServiceCategoryService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\PetServiceCategoryService.cs",
@@ -647,11 +751,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\PetServiceCategoryService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:11:52.096Z"
+              "WhenOpened": "2024-10-12T04:11:52.096Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 55,
               "Title": "PetServiceLogic.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\PetServiceLogic.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\PetServiceLogic.cs",
@@ -659,11 +764,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\PetServiceLogic.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:11:57.916Z"
+              "WhenOpened": "2024-10-12T04:11:57.916Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 56,
               "Title": "PetServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\PetServiceService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\PetServiceService.cs",
@@ -671,11 +777,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\PetServiceService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:12:01.719Z"
+              "WhenOpened": "2024-10-12T04:12:01.719Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 57,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Implement\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Implement\\Service\\UserService.cs",
@@ -683,11 +790,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Implement\\Service\\UserService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:12:08.131Z"
+              "WhenOpened": "2024-10-12T04:12:08.131Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 58,
               "Title": "IAppointmentService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IAppointmentService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IAppointmentService.cs",
@@ -695,11 +803,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IAppointmentService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:10:51.367Z"
+              "WhenOpened": "2024-10-12T04:10:51.367Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 59,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IAuthService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IAuthService.cs",
@@ -707,11 +816,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IAuthService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:12:20.053Z"
+              "WhenOpened": "2024-10-12T04:12:20.053Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 60,
               "Title": "IComboServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IComboServiceService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IComboServiceService.cs",
@@ -719,11 +829,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IComboServiceService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:12:24.572Z"
+              "WhenOpened": "2024-10-12T04:12:24.572Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 61,
               "Title": "IFirebaseService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IFirebaseService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IFirebaseService.cs",
@@ -731,11 +842,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IFirebaseService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:12:28.373Z"
+              "WhenOpened": "2024-10-12T04:12:28.373Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 62,
               "Title": "IPetServiceCategoryService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IPetServiceCategoryService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IPetServiceCategoryService.cs",
@@ -743,11 +855,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IPetServiceCategoryService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:06:26.939Z"
+              "WhenOpened": "2024-10-12T04:06:26.939Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 63,
               "Title": "IPetServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IPetServiceService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IPetServiceService.cs",
@@ -755,11 +868,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IPetServiceService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:06:06.644Z"
+              "WhenOpened": "2024-10-12T04:06:06.644Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 64,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\Interface\\IService\\IUserService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\Interface\\IService\\IUserService.cs",
@@ -767,11 +881,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\Interface\\IService\\IUserService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:12:42.316Z"
+              "WhenOpened": "2024-10-12T04:12:42.316Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "ErrorType.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\Enum\\ErrorType.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Domain\\Enum\\ErrorType.cs",
@@ -779,11 +894,12 @@
               "RelativeToolTip": "KoiFarmShop.Domain\\Enum\\ErrorType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:10.96Z"
+              "WhenOpened": "2024-10-12T04:08:10.96Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Appointment.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\Entities\\Appointment.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Domain\\Entities\\Appointment.cs",
@@ -791,11 +907,12 @@
               "RelativeToolTip": "KoiFarmShop.Domain\\Entities\\Appointment.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T04:08:04.522Z"
+              "WhenOpened": "2024-10-12T04:08:04.522Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 65,
               "Title": "KoiFarmShop.Application.csproj",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Applications\\KoiFarmShop.Application.csproj",
               "RelativeDocumentMoniker": "KoiFarmShop.Applications\\KoiFarmShop.Application.csproj",
@@ -803,11 +920,12 @@
               "RelativeToolTip": "KoiFarmShop.Applications\\KoiFarmShop.Application.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-12T04:05:01.469Z"
+              "WhenOpened": "2024-10-12T04:05:01.469Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Create.cshtml.cs",
@@ -815,11 +933,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Create.cshtml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T07:48:51.299Z"
+              "WhenOpened": "2024-10-07T07:48:51.299Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "PetService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Domain\\Entities\\PetService.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Domain\\Entities\\PetService.cs",
@@ -827,11 +946,12 @@
               "RelativeToolTip": "KoiFarmShop.Domain\\Entities\\PetService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T07:16:32.817Z"
+              "WhenOpened": "2024-10-07T07:16:32.817Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Index.cshtml",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Index.cshtml",
@@ -839,11 +959,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Index.cshtml",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAADIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T07:56:59.098Z"
+              "WhenOpened": "2024-10-07T07:56:59.098Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "PetServiceRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\Implement\\Repositories\\PetServiceRepository.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Infrastructure\\Implement\\Repositories\\PetServiceRepository.cs",
@@ -851,11 +972,12 @@
               "RelativeToolTip": "KoiFarmShop.Infrastructure\\Implement\\Repositories\\PetServiceRepository.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAgwCgAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T05:50:38.026Z"
+              "WhenOpened": "2024-10-08T05:50:38.026Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Index.cshtml.cs",
@@ -863,11 +985,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Index.cshtml.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T07:56:58.084Z"
+              "WhenOpened": "2024-10-07T07:56:58.084Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Create.cshtml",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Create.cshtml",
@@ -875,11 +998,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Create.cshtml",
               "ViewState": "AQIAACwAAAAAAAAAAAApwEsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T07:53:38.661Z"
+              "WhenOpened": "2024-10-07T07:53:38.661Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "IPetServiceRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\Interface\\IRepositories\\IPetServiceRepository.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Infrastructure\\Interface\\IRepositories\\IPetServiceRepository.cs",
@@ -887,11 +1011,12 @@
               "RelativeToolTip": "KoiFarmShop.Infrastructure\\Interface\\IRepositories\\IPetServiceRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T05:53:27.632Z"
+              "WhenOpened": "2024-10-08T05:53:27.632Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "PagedResultSearch.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\DTOs\\Common\\PagedResultSearch.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Infrastructure\\DTOs\\Common\\PagedResultSearch.cs",
@@ -899,11 +1024,12 @@
               "RelativeToolTip": "KoiFarmShop.Infrastructure\\DTOs\\Common\\PagedResultSearch.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T05:54:57.755Z"
+              "WhenOpened": "2024-10-08T05:54:57.755Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Delete.cshtml",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Delete.cshtml",
@@ -911,11 +1037,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Delete.cshtml",
               "ViewState": "AQIAADkAAAAAAAAAAAAAAE8AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T07:45:39.879Z"
+              "WhenOpened": "2024-10-07T07:45:39.879Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "Delete.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Delete.cshtml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Delete.cshtml.cs",
@@ -928,7 +1055,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Details.cshtml",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Details.cshtml",
@@ -936,11 +1063,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Details.cshtml",
               "ViewState": "AQIAAEIAAAAAAAAAAAAAAEsAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T07:31:24.077Z"
+              "WhenOpened": "2024-10-07T07:31:24.077Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "Details.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Details.cshtml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Details.cshtml.cs",
@@ -948,11 +1076,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Details.cshtml.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAgwCUAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T07:30:14.549Z"
+              "WhenOpened": "2024-10-07T07:30:14.549Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "AsyncTaskMethodBuilder.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\AppData\\Local\\Temp\\.vsdbgsrc\\943866804c986b3f1c185b0aaf5a6b2eb778d67c9141c5459bf5f86981d49a11\\AsyncTaskMethodBuilder.cs",
               "RelativeDocumentMoniker": "..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\943866804c986b3f1c185b0aaf5a6b2eb778d67c9141c5459bf5f86981d49a11\\AsyncTaskMethodBuilder.cs",
@@ -960,11 +1089,12 @@
               "RelativeToolTip": "..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\943866804c986b3f1c185b0aaf5a6b2eb778d67c9141c5459bf5f86981d49a11\\AsyncTaskMethodBuilder.cs [Read Only]",
               "ViewState": "AQIAAHcAAAAAAAAAAAAawH8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T06:51:00.7Z"
+              "WhenOpened": "2024-10-07T06:51:00.7Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "PetServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Common\\Validator\\Abstract\\PetServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Application\\Common\\Validator\\Abstract\\PetServiceValidator.cs",
@@ -972,11 +1102,12 @@
               "RelativeToolTip": "KoiFarmShop.Application\\Common\\Validator\\Abstract\\PetServiceValidator.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAmwCoAAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:37:53.465Z"
+              "WhenOpened": "2024-10-07T04:37:53.465Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "AddPetServiceValidator.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Common\\Validator\\PetService\\AddPetServiceValidator.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Application\\Common\\Validator\\PetService\\AddPetServiceValidator.cs",
@@ -984,11 +1115,12 @@
               "RelativeToolTip": "KoiFarmShop.Application\\Common\\Validator\\PetService\\AddPetServiceValidator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:37:23.681Z"
+              "WhenOpened": "2024-10-07T04:37:23.681Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "PetServiceErrorMessage.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Infrastructure\\DTOs\\Common\\Message\\PetServiceErrorMessage.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.Infrastructure\\DTOs\\Common\\Message\\PetServiceErrorMessage.cs",
@@ -996,11 +1128,12 @@
               "RelativeToolTip": "KoiFarmShop.Infrastructure\\DTOs\\Common\\Message\\PetServiceErrorMessage.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAmwBQAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:12:30.647Z"
+              "WhenOpened": "2024-10-07T04:12:30.647Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "Edit.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Edit.cshtml.cs",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Edit.cshtml.cs",
@@ -1008,11 +1141,12 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Edit.cshtml.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAawCwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T04:10:04.302Z"
+              "WhenOpened": "2024-10-07T04:10:04.302Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Downloads\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Edit.cshtml",
               "RelativeDocumentMoniker": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Edit.cshtml",
@@ -1020,7 +1154,8 @@
               "RelativeToolTip": "KoiFarmShop.RazorWebApp\\Pages\\KoiService\\Edit.cshtml",
               "ViewState": "AQIAACwAAAAAAAAAAAAAAD8AAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T04:09:36.743Z"
+              "WhenOpened": "2024-10-07T04:09:36.743Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -274,3 +274,4 @@ C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebAp
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\obj\Debug\net8.0\KoiFarmShop.RazorWebApp.pdb
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\obj\Debug\net8.0\KoiFarmShop.RazorWebApp.genruntimeconfig.cache
 C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\obj\Debug\net8.0\ref\KoiFarmShop.RazorWebApp.dll
+C:\Users\ASUS\Downloads\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.RazorWebApp\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
