@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoiFarmShop.WPFApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1218">
-    <Grid>
+        Title="MainWindow" Height="769" Width="1256">
+    <Grid Height="636" VerticalAlignment="Top">
         <!-- Input Group for Pet Service -->
-        <GroupBox Header="PET SERVICE INPUT" FontWeight="Bold" Width="1200" Height="250" VerticalAlignment="Top">
+        <GroupBox Header="PET SERVICE INPUT" FontWeight="Bold" Width="1200" Height="260" VerticalAlignment="Top">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -67,8 +67,10 @@
                 <Label Content="Image URL" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="6"/>
                 <StackPanel Orientation="Horizontal" Grid.Column="7" Grid.Row="2">
                     <TextBox Name="txtImageUrl" Width="140" Height="25" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <Button Content="Insert" Width="60" Click="BtnSelectImage_Click"/>
+                    <Button Content="Insert" Width="50" Click="BtnSelectImage_Click"/>
                 </StackPanel>
+
+                
 
                 <!-- Save, Reset, Delete buttons -->
                 <Button Grid.Column="7" Content="Save" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="60" Height="25" Name="BtnSave" Click="BtnSave_Click"/>
@@ -76,10 +78,15 @@
                 <Button Grid.Column="7" Content="Delete" HorizontalAlignment="Right" Grid.Row="3" VerticalAlignment="Center" Width="60" Height="25" Name="BtnDelete" Click="BtnDelete_Click"/>
             </Grid>
         </GroupBox>
-
+        
+        <!-- Image Display -->
+        <Border BorderBrush="Gray" BorderThickness="0" Margin="5" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Height="200" VerticalAlignment="Top">
+            <Image Name="imgDisplay" Width="100" Height="100" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        </Border>
+        
         <!-- Search Group -->
         <GroupBox Header="SEARCH" FontWeight="Bold" Width="1200" Height="80" VerticalAlignment="Top" Margin="0,185,0,0">
-            <Grid Margin="5">
+            <Grid Margin="12,0,-2,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
@@ -102,7 +109,7 @@
 
         <!-- Data List Group -->
         <GroupBox Header="SERVICE DATA LIST" FontWeight="Bold" Width="1200" Height="200" VerticalAlignment="Top" Margin="0,270,0,0">
-            <DataGrid x:Name="grdServices" Width="1150" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" MouseDoubleClick="grdServices_MouseDoubleClick">
+            <DataGrid x:Name="grdServices" Width="1150" Height="306" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" MouseDoubleClick="grdServices_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="80"/>
                     <DataGridTextColumn Header="Service Name" Binding="{Binding Name}" Width="150"/>
@@ -114,5 +121,15 @@
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
+        <!-- DNS Lookup -->
+        <StackPanel VerticalAlignment="Bottom" Margin="10" MaxHeight="150" Width="1200">
+            <Label HorizontalAlignment="Left" Content="Enter a domain name (e.g., google.com):"/>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtDomainName" Width="400" Margin="0,0,5,0"/>
+                <Button Content="Lookup IP" Click="BtnLookup_Click" Width="100"/>
+            </StackPanel>
+                <TextBox x:Name="txtResult" Height="150" Width="Auto" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True" MaxWidth="400" Margin="0,5,0,0"/>
+        </StackPanel>
+
     </Grid>
 </Window>

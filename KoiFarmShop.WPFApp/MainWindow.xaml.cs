@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Drawing;
+using System.Net;
 
 namespace KoiFarmShop.WPFApp
 {
@@ -42,6 +43,7 @@ namespace KoiFarmShop.WPFApp
                     MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
+
                 var petService = new AddPetServiceRequest
                 {
                     Name = txtServiceName.Text,
@@ -84,15 +86,28 @@ namespace KoiFarmShop.WPFApp
         }
         private void BtnSelectImage_Click(object sender, RoutedEventArgs e)
         {
-            var openFileDialog = new OpenFileDialog
+            try
             {
+                var openFileDialog = new OpenFileDialog
+                {
                 Title = "Chọn Ảnh",
                 Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
-            };
+                };
 
-            if (openFileDialog.ShowDialog() == true)
-            {
+                if (openFileDialog.ShowDialog() == true)
+                {
                 txtImageUrl.Text = openFileDialog.FileName; // Gán đường dẫn ảnh vào TextBox
+                }
+            
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(txtImageUrl.Text, UriKind.Absolute);
+                bitmap.EndInit();
+                imgDisplay.Source = bitmap; // Hiển thị ảnh trong Image control
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading image: {ex.Message}");
             }
         }
         private async void LoadData()
@@ -129,17 +144,29 @@ namespace KoiFarmShop.WPFApp
 
                         if (serviceResult.IsSuccess  && serviceResult.Object != null)
                         {
-                            petService = serviceResult.Object as PetService; // Đảm bảo lấy được dịch vụ đã được cập nhật
+                            petService = serviceResult.Object as PetService; 
 
                             txtPetServiceId.Text = petService.Id.ToString();
-                            txtServiceName.Text = petService.Name; // Đảm bảo TextBox tên dịch vụ
-                            cboServiceCategory.SelectedValue = petService.PetServiceCategoryId; // Lấy loại dịch vụ
-                            txtBasePrice.Text = petService.BasePrice.ToString(); // Giá cơ bản
-                            txtDuration.Text = petService.Duration?.ToString(); // Thời gian
-                            dpAvailableFrom.SelectedDate = petService.AvailableFrom; // Ngày khả dụng từ
-                            dpAvailableTo.SelectedDate = petService.AvailableTo; // Ngày khả dụng đến
-                            txtTravelCost.Text = petService.TravelCost.ToString(); // Chi phí di chuyển
-                            txtImageUrl.Text = petService.ImageUrl; // Đường dẫn hình ảnh
+                            txtServiceName.Text = petService.Name;
+                            cboServiceCategory.SelectedValue = petService.PetServiceCategoryId; 
+                            txtBasePrice.Text = petService.BasePrice.ToString();
+                            txtDuration.Text = petService.Duration?.ToString();
+                            dpAvailableFrom.SelectedDate = petService.AvailableFrom;
+                            dpAvailableTo.SelectedDate = petService.AvailableTo; 
+                            txtTravelCost.Text = petService.TravelCost.ToString(); 
+                            txtImageUrl.Text = petService.ImageUrl;
+                            try
+                            {
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.UriSource = new Uri(txtImageUrl.Text, UriKind.Absolute);
+                                bitmap.EndInit();
+                                imgDisplay.Source = bitmap; // Hiển thị ảnh trong Image control
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error loading image: {ex.Message}");
+                            }
                         }
                     }
                 }
@@ -156,6 +183,8 @@ namespace KoiFarmShop.WPFApp
             txtTravelCost.Text = string.Empty; 
             txtImageUrl.Text = string.Empty;
             txtPetServiceId.Text= string.Empty;
+            imgDisplay.Source = null;
+
         }
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
@@ -211,6 +240,26 @@ namespace KoiFarmShop.WPFApp
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while searching for services: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void BtnLookup_Click(object sender, RoutedEventArgs e)
+        {
+            string domainName = txtDomainName.Text;//Lấy tên miền mà người dùng đã nhập vào ô
+            txtResult.Clear(); // Xóa kết quả trước đó từ ô txtResult
+
+            try
+            {
+                // Truy vấn DNS để lấy địa chỉ IP
+                var hostEntry = Dns.GetHostEntry(domainName);
+                txtResult.AppendText($"IP addresses for {domainName}:\n");
+                foreach (var ip in hostEntry.AddressList)//Lặp qua danh sách các địa chỉ IP được trả về từ truy vấn DNS.
+                {
+                    txtResult.AppendText(ip.ToString() + "\n");// Thêm mỗi địa chỉ IP vào ô kết quả
+                }
+            }
+            catch (Exception ex)
+            {
+                txtResult.AppendText($"Error: {ex.Message}");
             }
         }
     }
