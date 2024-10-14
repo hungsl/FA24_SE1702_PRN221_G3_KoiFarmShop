@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Drawing;
 using System.Net;
+using System.Net.Sockets;
 
 namespace KoiFarmShop.WPFApp
 {
@@ -23,6 +24,8 @@ namespace KoiFarmShop.WPFApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private UdpClient udpServer;
+        private UdpClient udpClient;
         private readonly IPetServiceService _petServiceService;
         private readonly IPetServiceCategoryService _petCategoryService;
 
@@ -32,6 +35,8 @@ namespace KoiFarmShop.WPFApp
             InitializeComponent();
             _petServiceService = petServiceService;
             _petCategoryService = petCategoryService;
+            Task.Run(() => StartUdpServer());
+            Task.Run(() => StartUdpClient());
             LoadData(); // Khởi tạo dữ liệu tại đây
         }
         private async void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -260,6 +265,52 @@ namespace KoiFarmShop.WPFApp
             catch (Exception ex)
             {
                 txtResult.AppendText($"Error: {ex.Message}");
+            }
+        }
+        private async void StartUdpServer()
+        {
+            try
+            {
+                udpServer = new UdpClient(11000);
+                IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                MessageBox.Show("UDP Server started and listening on port 11000...");
+
+                while (true)
+                {
+                    // Receive message from any client
+                    var result = await udpServer.ReceiveAsync();
+                    string receivedMessage = Encoding.UTF8.GetString(result.Buffer);
+                    MessageBox.Show($"Server received: {receivedMessage}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in Server: {ex.Message}");
+            }
+        }
+
+        private void StartUdpClient()
+        {
+            udpClient = new UdpClient();
+            try
+            {
+                // Delay for 3 seconds before sending a message
+                Thread.Sleep(3000);
+
+                udpClient.Connect("127.0.0.1", 11000);
+                string message = "Hello from UDP Client!";
+                byte[] sendBytes = Encoding.UTF8.GetBytes(message);
+
+                udpClient.Send(sendBytes, sendBytes.Length);
+                MessageBox.Show("Client sent message to the server.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in Client: {ex.Message}");
+            }
+            finally
+            {
+                udpClient.Close();
             }
         }
     }
