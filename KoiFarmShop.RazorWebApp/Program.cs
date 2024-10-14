@@ -25,7 +25,8 @@ namespace KoiFarmShop.RazorWebApp
             builder.Services.RegisterServices();
             // Add services to the container.
             builder.Services.AddRazorPages();
-           
+
+            builder.Services.AddSignalR();
 
 
             var app = builder.Build();
@@ -46,6 +47,8 @@ namespace KoiFarmShop.RazorWebApp
             app.UseAuthorization();
 
             app.MapRazorPages();
+
+            app.MapHub<Hubs.ChatHub>("/chathub");
 
             app.Run();
         }
