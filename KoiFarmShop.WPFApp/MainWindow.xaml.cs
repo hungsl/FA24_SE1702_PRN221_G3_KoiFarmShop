@@ -262,6 +262,8 @@ namespace KoiFarmShop.WPFApp
                 txtResult.AppendText($"Error: {ex.Message}");
             }
         }
+        /*demo client server Danh*/
+
     }
 
 }

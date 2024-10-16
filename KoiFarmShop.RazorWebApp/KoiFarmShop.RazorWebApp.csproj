@@ -18,14 +18,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KoiFarmShop.Application\KoiFarmShop.Application.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.Domain\KoiFarmShop.Domain.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.Infrastructure\KoiFarmShop.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\ComboService\" />
     <Folder Include="Pages\SignalR\" />
   </ItemGroup>
 
