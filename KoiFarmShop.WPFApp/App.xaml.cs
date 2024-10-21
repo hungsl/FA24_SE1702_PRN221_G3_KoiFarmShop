@@ -23,6 +23,11 @@ using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using KVSC.Infrastructure.Implement.Repositories;
+using Google.Cloud.Storage.V1;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using System.IO;
 
 namespace KoiFarmShop.WPFApp
 {
@@ -48,7 +53,22 @@ namespace KoiFarmShop.WPFApp
 
             services.AddDbContext<KVSCContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDb")));
+            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "koiveterinaryservicecent-925db-firebase-adminsdk-vus2r-93ba231cea.json");
+            try
+            {
+                FirebaseApp.Create(new AppOptions()
+                {
+                    Credential = GoogleCredential.FromFile(credentialPath)
+                });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as necessary
+                throw new Exception("Failed to initialize Firebase.", ex);
+            }
 
+            // Register the Google Cloud Storage client and any Firebase related services
+            services.AddSingleton(StorageClient.Create(GoogleCredential.FromFile(credentialPath)));
             #region Common
             //Common
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
@@ -84,7 +104,7 @@ namespace KoiFarmShop.WPFApp
             services.AddSingleton<IComboServiceRepository, ComboServiceRepository>();
             services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
 
-
+           
             #endregion
 
 

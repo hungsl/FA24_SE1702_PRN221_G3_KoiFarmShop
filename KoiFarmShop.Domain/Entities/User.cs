@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KVSC.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace KoiFarmShop.Domain.Entities
         public ICollection<Pet> Pets { get; set; }
         public Veterinarian Veterinarian { get; set; }
         public ICollection<AppointmentVeterinarian> AppointmentVeterinarians { get; set; }//dành cho veterinarians
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Cart> Carts { get; set; }
 
         // Thêm quan hệ với Appointment
         public ICollection<Appointment> Appointments { get; set; } // Quan hệ nhiều với Appointment

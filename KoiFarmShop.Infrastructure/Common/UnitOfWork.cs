@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Cloud.Storage.V1;
+using KVSC.Infrastructure.Interface.IRepositories;
+using KVSC.Infrastructure.Implement.Repositories;
 
 namespace KoiFarmShop.Infrastructure.Common
 {
@@ -21,7 +23,10 @@ namespace KoiFarmShop.Infrastructure.Common
         public IPetServiceCategoryRepository PetServiceCategoryRepository { get; private set; }
         public IComboServiceRepository ComboServiceRepository { get; private set; }
         public IAppointmentRepository AppointmentRepository { get; private set; }
-        public UnitOfWork(KVSCContext context)
+        public IProductRepository ProductRepository { get; private set; }
+        public IProductCategoryRepository ProductCategoryRepository { get; private set; }
+        public IFirebaseRepository FirebaseRepository { get; private set; }
+        public UnitOfWork(KVSCContext context, StorageClient storageClient)
         {
             _context = context;
             UserRepository = new UserRepository(_context);
@@ -30,6 +35,9 @@ namespace KoiFarmShop.Infrastructure.Common
             PetServiceCategoryRepository = new PetServiceCategoryRepository(_context);
             ComboServiceRepository = new ComboServiceRepository(_context);
             AppointmentRepository = new AppointmentRepository(_context);
+            ProductRepository = new ProductRepository(_context);
+            ProductCategoryRepository = new ProductCategoryRepository(_context);
+            FirebaseRepository = new FirebaseRepository(storageClient);
         }
 
         public int Complete()

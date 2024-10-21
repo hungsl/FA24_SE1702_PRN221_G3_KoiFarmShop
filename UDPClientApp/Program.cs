@@ -9,17 +9,26 @@ namespace KoiFarmShop.UDPClientApp
     {
         static void Main(string[] args)
         {
-            UdpClient udpClient = new UdpClient();
+            // Create a UDP client for listening on port 11000
+            UdpClient udpServer = new UdpClient(11000);
+            IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
+
+            Console.WriteLine("Server is listening on port 11000...");
+
             try
             {
-                // Send a message to the server
-                udpClient.Connect("127.0.0.1", 11000);
-                string message = "Hello from UDP Client!";
-                byte[] sendBytes = Encoding.UTF8.GetBytes(message);
+                while (true)
+                {
+                    // Receive the data sent by the client
+                    byte[] data = udpServer.Receive(ref remoteEP);
+                    string message = Encoding.ASCII.GetString(data);
+                    Console.WriteLine($"Received from client: {message}");
 
-                udpClient.Send(sendBytes, sendBytes.Length);
-
-                Console.WriteLine("Message sent to the server.");
+                    // Echo the message back to the client
+                    string response = $"Server received: {message}";
+                    byte[] responseData = Encoding.ASCII.GetBytes(response);
+                    udpServer.Send(responseData, responseData.Length, remoteEP);
+                }
             }
             catch (Exception ex)
             {
@@ -27,7 +36,7 @@ namespace KoiFarmShop.UDPClientApp
             }
             finally
             {
-                udpClient.Close();
+                udpServer.Close();
             }
         }
     }

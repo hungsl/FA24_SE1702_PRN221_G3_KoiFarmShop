@@ -10,7 +10,7 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 {
     public interface IFirebaseRepository
     {
-        //Task<AddImageResponse> UploadImageAsync(AddImageRequest request);
-        //Task<GetImageResponse> GetImageAsync(GetImageRequest request);
+        Task<AddImageResponse> UploadImageAsync(AddImageRequest request);
+        Task<GetImageResponse> GetImageAsync(GetImageRequest request);
     }
 }

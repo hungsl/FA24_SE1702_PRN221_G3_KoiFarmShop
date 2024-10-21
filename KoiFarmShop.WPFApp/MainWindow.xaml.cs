@@ -70,7 +70,7 @@ namespace KoiFarmShop.WPFApp
                       result.IsSuccess ? "Success" : "Error",
                       MessageBoxButton.OK,
                       result.IsSuccess ? MessageBoxImage.Information : MessageBoxImage.Warning);
-
+                SendNotification($"Service {(petServiceId.HasValue ? "updated" : "created")}: {petService.Name}");
                 LoadData();
             }
             catch (Exception ex)
@@ -95,15 +95,15 @@ namespace KoiFarmShop.WPFApp
             {
                 var openFileDialog = new OpenFileDialog
                 {
-                Title = "Chọn Ảnh",
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+                    Title = "Chọn Ảnh",
+                    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
                 };
 
                 if (openFileDialog.ShowDialog() == true)
                 {
-                txtImageUrl.Text = openFileDialog.FileName; // Gán đường dẫn ảnh vào TextBox
+                    txtImageUrl.Text = openFileDialog.FileName; // Gán đường dẫn ảnh vào TextBox
                 }
-            
+
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(txtImageUrl.Text, UriKind.Absolute);
@@ -126,13 +126,13 @@ namespace KoiFarmShop.WPFApp
 
             // Đổ dữ liệu vào ComboBox cho việc chọn loại dịch vụ
             cboServiceCategory.ItemsSource = serviceCategories;
-            cboServiceCategory.DisplayMemberPath = "Name";  
-            cboServiceCategory.SelectedValuePath = "Id";   
+            cboServiceCategory.DisplayMemberPath = "Name";
+            cboServiceCategory.SelectedValuePath = "Id";
 
             // Đổ dữ liệu vào ComboBox tìm kiếm loại dịch vụ
             cboSearchServiceCategory.ItemsSource = serviceCategories;
-            cboSearchServiceCategory.DisplayMemberPath = "Name"; 
-            cboSearchServiceCategory.SelectedValuePath = "Id";    
+            cboSearchServiceCategory.DisplayMemberPath = "Name";
+            cboSearchServiceCategory.SelectedValuePath = "Id";
         }
         private async void grdServices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -145,20 +145,20 @@ namespace KoiFarmShop.WPFApp
                     var petService = row.Item as PetService;
                     if (petService != null)
                     {
-                        var serviceResult = await _petServiceService.GetPetServiceByIdAsync(petService.Id); 
+                        var serviceResult = await _petServiceService.GetPetServiceByIdAsync(petService.Id);
 
-                        if (serviceResult.IsSuccess  && serviceResult.Object != null)
+                        if (serviceResult.IsSuccess && serviceResult.Object != null)
                         {
-                            petService = serviceResult.Object as PetService; 
+                            petService = serviceResult.Object as PetService;
 
                             txtPetServiceId.Text = petService.Id.ToString();
                             txtServiceName.Text = petService.Name;
-                            cboServiceCategory.SelectedValue = petService.PetServiceCategoryId; 
+                            cboServiceCategory.SelectedValue = petService.PetServiceCategoryId;
                             txtBasePrice.Text = petService.BasePrice.ToString();
                             txtDuration.Text = petService.Duration?.ToString();
                             dpAvailableFrom.SelectedDate = petService.AvailableFrom;
-                            dpAvailableTo.SelectedDate = petService.AvailableTo; 
-                            txtTravelCost.Text = petService.TravelCost.ToString(); 
+                            dpAvailableTo.SelectedDate = petService.AvailableTo;
+                            txtTravelCost.Text = petService.TravelCost.ToString();
                             txtImageUrl.Text = petService.ImageUrl;
                             try
                             {
@@ -179,15 +179,15 @@ namespace KoiFarmShop.WPFApp
         }
         public void ReSet()
         {
-            txtServiceName.Text = string.Empty; 
+            txtServiceName.Text = string.Empty;
             cboServiceCategory.SelectedValue = null;
-            txtBasePrice.Text = string.Empty; 
-            txtDuration.Text = string.Empty; 
-            dpAvailableFrom.SelectedDate = null; 
+            txtBasePrice.Text = string.Empty;
+            txtDuration.Text = string.Empty;
+            dpAvailableFrom.SelectedDate = null;
             dpAvailableTo.SelectedDate = null;
-            txtTravelCost.Text = string.Empty; 
+            txtTravelCost.Text = string.Empty;
             txtImageUrl.Text = string.Empty;
-            txtPetServiceId.Text= string.Empty;
+            txtPetServiceId.Text = string.Empty;
             imgDisplay.Source = null;
 
         }
@@ -204,9 +204,9 @@ namespace KoiFarmShop.WPFApp
 
                 if (dialogResult == MessageBoxResult.OK)
                 {
-                    var result = await _petServiceService.DeletePetServiceAsync(selectedService.Id); 
+                    var result = await _petServiceService.DeletePetServiceAsync(selectedService.Id);
 
-                    
+
                     if (result.IsSuccess)
                     {
                         MessageBox.Show("Delete data success");
@@ -215,6 +215,7 @@ namespace KoiFarmShop.WPFApp
                     {
                         MessageBox.Show("Delete data fail");
                     }
+                    SendNotification($"Service deleted: {selectedService.Name}");
                     this.LoadData();
                 }
             }
@@ -313,6 +314,69 @@ namespace KoiFarmShop.WPFApp
                 udpClient.Close();
             }
         }
-    }
+        private void SendUDPMessage(string message)
+        {
+            UdpClient udpClient = new UdpClient();
+            try
+            {
+                // Server IP and port
+                IPAddress serverIP = IPAddress.Parse("127.0.0.1");
+                IPEndPoint remoteEP = new IPEndPoint(serverIP, 11000);
 
+                // Convert message to byte array and send
+                byte[] data = Encoding.ASCII.GetBytes(message);
+                udpClient.Send(data, data.Length, remoteEP);
+
+                // Receive the response from the server
+                byte[] responseData = udpClient.Receive(ref remoteEP);
+                string responseMessage = Encoding.ASCII.GetString(responseData);
+                MessageBox.Show($"Response from server: {responseMessage}", "UDP Response");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error");
+            }
+            finally
+            {
+                udpClient.Close();
+            }
+        }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the message from the TextBox
+            string message = MessageTextBox.Text;
+
+            // Call SendUDPMessage with the entered message
+            if (!string.IsNullOrEmpty(message))
+            {
+                SendUDPMessage(message);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a message before sending.", "Input Error");
+            }
+        }
+
+        private void SendNotification(string message)
+        {
+            using (var udpClient = new UdpClient())
+            {
+                try
+                {
+                    IPAddress serverIP = IPAddress.Parse("127.0.0.1");
+                    IPEndPoint remoteEP = new IPEndPoint(serverIP, 11000);
+                    byte[] data = Encoding.ASCII.GetBytes(message);
+                    udpClient.Send(data, data.Length, remoteEP);
+                    MessageBox.Show($"Notification sent: {message}"); // Thông báo gửi thành công
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error sending notification: {ex.Message}", "Error");
+                }
+            }
+
+        }
+
+    }
 }

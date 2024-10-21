@@ -26,6 +26,7 @@ using KoiFarmShop.Infrastructure.DTOs.User.Login;
 using Microsoft.AspNetCore.Identity;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
 using KoiFarmShop.Infrastructure.DTOs.ComboService.AddComboService;
+using KVSC.Infrastructure.Implement.Repositories;
 namespace KoiFarmShop.RazorWebApp.Startup
 {
     public static class DependencyInjectionSetup
@@ -34,6 +35,26 @@ namespace KoiFarmShop.RazorWebApp.Startup
         //comr
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
+
+
+            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "koiveterinaryservicecent-925db-firebase-adminsdk-vus2r-93ba231cea.json");
+            try
+            {
+                FirebaseApp.Create(new AppOptions()
+                {
+                    Credential = GoogleCredential.FromFile(credentialPath)
+                });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as necessary
+                throw new Exception("Failed to initialize Firebase.", ex);
+            }
+
+            // Register the Google Cloud Storage client and any Firebase related services
+            services.AddSingleton(StorageClient.Create(GoogleCredential.FromFile(credentialPath)));
+
+
 
             #region Common
             //Common
