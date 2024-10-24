@@ -44,7 +44,11 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
             if (result.IsSuccess)
             {
                 // Chuyển Object thành danh sách PetService
-                 PetService = result.Object as PagedResultSearch<PetService>;
+                PetService = result.Object as PagedResultSearch<PetService> ?? new PagedResultSearch<PetService>
+                {
+                    TotalItems = 0,
+                    Items = new List<PetService>()
+                };
             }
             else
             {
@@ -52,7 +56,7 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
                 {
                     TotalItems = 0,
                     Items = new List<PetService>()
-                }; // Xử lý khi thất bại
+                };
             }
         }
     }

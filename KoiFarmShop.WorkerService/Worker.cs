@@ -36,9 +36,10 @@ namespace KoiFarmShop.WorkerService
                 {
                     _logger.LogInformation($"Service '{service.Name}' is expiring soon. Processing...");
                     await ProcessExpiringServiceAsync(service);
+                    _logger.LogInformation($"Service '{service.Name}' has been deleted successfully.");
                 }
 
-                await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);  // Kiểm tra lại mỗi 5 giây
+                await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken); 
             }
             while (!stoppingToken.IsCancellationRequested);
         }
