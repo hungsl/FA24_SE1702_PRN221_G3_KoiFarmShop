@@ -28,14 +28,30 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return await _context.PetServices.Include(i => i.PetServiceCategory).Where(s => !s.IsDeleted).ToListAsync();
         }
 
-        public async Task<(int totalItems, List<PetService> petServices)> GetAllServiceWithSearchAsync(string searchTerm, int pageIndex, int pageSize)
+        public async Task<(int totalItems, List<PetService> petServices)> GetAllServiceWithSearchAsync(
+        string searchName, string searchDuration, string searchCategoryName,
+        int pageIndex, int pageSize)
         {
-            var query = _context.Set<PetService>().AsQueryable(); ;
+            var query = _context.Set<PetService>()
+                                .Include(i => i.PetServiceCategory) // Bao gồm PetServiceCategory
+                                .AsQueryable().Where(p => !p.IsDeleted); 
 
             // Tìm kiếm theo tên dịch vụ
-            if (!string.IsNullOrEmpty(searchTerm))
+            if (!string.IsNullOrEmpty(searchName))
             {
-                query = query.Where(p => p.Name.Contains(searchTerm));
+                query = query.Where(p => p.Name.Contains(searchName));
+            }
+
+            // Tìm kiếm theo thời gian dịch vụ
+            if (!string.IsNullOrEmpty(searchDuration))
+            {
+                query = query.Where(p => p.Duration.Contains(searchDuration));
+            }
+
+            // Tìm kiếm theo tên danh mục dịch vụ
+            if (!string.IsNullOrEmpty(searchCategoryName))
+            {
+                query = query.Where(p => p.PetServiceCategory.Name.Contains(searchCategoryName));
             }
 
             // Phân trang
@@ -44,6 +60,7 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                                     .Skip((pageIndex - 1) * pageSize)
                                     .Take(pageSize)
                                     .ToListAsync();
+
             return (totalItems, petServices);
         }
 
@@ -76,7 +93,14 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             }
             return 0;
         }
+        public async Task<List<PetService>> GetServicesExpiringSoonAsync()
+        {
+            var oneHourFromNow = DateTime.UtcNow.AddHours(1);
+            return await _context.PetServices
+                .Where(s => !s.IsDeleted &&
+                            s.AvailableTo < DateTime.UtcNow || s.AvailableTo <= oneHourFromNow)
+                .ToListAsync();
+        }
 
-       
     }
 }

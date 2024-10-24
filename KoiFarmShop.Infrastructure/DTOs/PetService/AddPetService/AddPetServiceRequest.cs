@@ -16,5 +16,8 @@ namespace KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService
         public DateTime AvailableFrom { get; set; }
         public DateTime AvailableTo { get; set; }
         public decimal TravelCost { get; set; }
+        public string Description { get; set; }
+        public int MaxNumberOfPets { get; set; }
+
     }
 }
