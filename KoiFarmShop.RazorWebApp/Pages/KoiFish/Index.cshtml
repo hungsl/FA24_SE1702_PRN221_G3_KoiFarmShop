@@ -20,7 +20,7 @@
                 @Html.DisplayNameFor(model => model.Pet[0].Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet[0].Breed)
+                @Html.DisplayNameFor(model => model.Pet[0].Gender)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pet[0].ImageUrl)
@@ -35,12 +35,18 @@
                 @Html.DisplayNameFor(model => model.Pet[0].Weight)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Quantity)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Pet[0].LastHealthCheck)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Note)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pet[0].HealthStatus)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Pet[0].Owner)
             </th>
             <th>
@@ -51,7 +57,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pet[0].IsDeleted)
-            </th>
+            </th> *@
             <th></th>
         </tr>
     </thead>
@@ -65,7 +71,7 @@
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Breed)
+                @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImageUrl)
@@ -80,12 +86,18 @@
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.LastHealthCheck)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HealthStatus)
             </td>
-            <td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.Owner.Address)
             </td>
             <td>
@@ -96,7 +108,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td>
+            </td> *@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

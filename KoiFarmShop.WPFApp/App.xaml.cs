@@ -101,14 +101,15 @@ namespace KoiFarmShop.WPFApp
             services.AddSingleton<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddSingleton<IComboServiceService, ComboServiceService>();
             services.AddSingleton<IAppointmentService, AppointmentService>();
+            services.AddSingleton<IPetServiceLogic, PetServiceLogic>();
 
             #endregion
 
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<WindowPet>();
 
             // Tạo ServiceProvider và khởi động MainWindow
             ServiceProvider = services.BuildServiceProvider();
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>(); // Chỉ gọi từ DI
+            var mainWindow = ServiceProvider.GetRequiredService<WindowPet>(); // Chỉ gọi từ DI
             mainWindow.Show();
         }
     }

@@ -7,54 +7,54 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
+using KoiFarmShop.Application.Interface.IService;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IPetServiceLogic _petServiceLogic;
 
-        public DeleteModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public DeleteModel(IPetServiceLogic petServiceLogic)
         {
-            _context = context;
+            _petServiceLogic = petServiceLogic;
         }
 
         [BindProperty]
         public Pet Pet { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }
 
-            var pet = await _context.Pets.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (pet == null)
+            var result = await _petServiceLogic.GetPetByIdAsync(id);
+            if (result.IsSuccess)
             {
-                return NotFound();
+                Pet = result.Object as Pet;
             }
             else
             {
-                Pet = pet;
+                return NotFound();
             }
+
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(Guid? id)
+        public async Task<IActionResult> OnPostAsync(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }
 
-            var pet = await _context.Pets.FindAsync(id);
-            if (pet != null)
+            var result = await _petServiceLogic.GetPetByIdAsync(id);
+            if (result.IsSuccess)
             {
-                Pet = pet;
-                _context.Pets.Remove(Pet);
-                await _context.SaveChangesAsync();
+                Pet = result.Object as Pet;
+                await _petServiceLogic.DeletePetAsync(Pet.Id);
             }
 
             return RedirectToPage("./Index");

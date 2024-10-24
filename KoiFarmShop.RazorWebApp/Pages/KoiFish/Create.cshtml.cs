@@ -1,34 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiFarmShop.Domain.Entities;
-using KoiFarmShop.Infrastructure.DB;
+using KoiFarmShop.Application.Interface.IService;
+using KoiFarmShop.Application.Implement.Service;
+using KoiFarmShop.Infrastructure.DTOs.Pet.AddPet;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
 {
     public class CreateModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IPetServiceLogic _petServiceLogic;
 
-        public CreateModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public CreateModel(IPetServiceLogic petServiceLogic)
         {
-            _context = context;
+            _petServiceLogic = petServiceLogic;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["OwnerId"] = new SelectList(_context.Users, "Id", "Address");
             return Page();
         }
 
         [BindProperty]
-        public Pet Pet { get; set; } = default!;
+        public AddPetRequest Pet { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -36,8 +32,13 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
                 return Page();
             }
 
-            _context.Pets.Add(Pet);
-            await _context.SaveChangesAsync();
+            var result = await _petServiceLogic.CreatePetAsync(Pet);
+
+            if (!result.IsSuccess) 
+            {
+                ModelState.AddModelError(string.Empty, "Failed to create the pet. Please try again.");
+                return Page();
+            }
 
             return RedirectToPage("./Index");
         }
