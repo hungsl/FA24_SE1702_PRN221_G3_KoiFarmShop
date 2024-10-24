@@ -1,0 +1,53 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.KoiService.SignalRPetServiceModel
+@{
+}
+<h1>Send Pet Service</h1>
+
+<div class="form-group">
+    <label for="serviceSelect">Select Pet Service:</label>
+    <select id="serviceSelect" class="form-control">
+        <option value="">-- Select a Service --</option>
+        @foreach (var service in Model.PetServices)
+        {
+            <option value="@service.Id">@service.Name</option>
+        }
+    </select>
+</div>
+
+<button onclick="sendService()" class="btn btn-primary">Send Pet Service</button>
+
+<ul id="messagesList"></ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chathub")
+            .build();
+
+        connection.on("ReceiveService", (service) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                        <strong style="color: #${randomColor()}">${service.name}</strong>
+                        - Price: $${service.basePrice}
+                        - Duration: ${service.duration}
+                        - Available: ${new Date(service.availableTo).toLocaleString()}`;
+            document.getElementById("messagesList").appendChild(li);
+        });
+
+        connection.start().catch(err => console.error(err.toString()));
+
+        function sendService() {
+            const serviceId = document.getElementById("serviceSelect").value;
+            if (serviceId) {
+                connection.invoke("SendService", serviceId).catch(err => console.error(err.toString()));
+            } else {
+                alert("Please select a service.");
+            }
+        }
+
+        function randomColor() {
+            const colors = ['FF5733', '33FF57', '3357FF', 'FF33B5', 'FFD633'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>

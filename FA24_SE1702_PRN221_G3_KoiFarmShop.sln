@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.Application", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.WorkerService", "KoiFarmShop.WorkerService\KoiFarmShop.WorkerService.csproj", "{1F47A8D1-8950-41DC-9DFA-C627F5941A20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiFarmShop.Async", "KoiFarmShop.Async\KoiFarmShop.Async.csproj", "{F4EA64B5-0556-48C4-B95F-00B579C9852F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.Async", "KoiFarmShop.Async\KoiFarmShop.Async.csproj", "{F4EA64B5-0556-48C4-B95F-00B579C9852F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

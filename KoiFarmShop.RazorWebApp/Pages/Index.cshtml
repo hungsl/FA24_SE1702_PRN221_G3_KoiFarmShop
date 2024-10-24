@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
-    <div class="chat-container">
+    @* <div class="chat-container">
         <h1>🌈 Colorful Chat Room</h1>
         <div class="input-area">
             <input type="text" id="userInput" placeholder="Enter your name" class="input-field" />
@@ -40,6 +40,42 @@
                 connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
                 document.getElementById("messageInput").value = '';  // Clear message input
             }
+        }
+
+        function randomColor() {
+            const colors = ['FF5733', '33FF57', '3357FF', 'FF33B5', 'FFD633'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script> *@
+        <ul id="messagesList"></ul>
+        <button onclick="sendService()">Send Pet Service</button>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chathub")
+            .build();
+
+        connection.on("ReceiveService", (service) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                        <strong style="color: #${randomColor()}">${service.name}</strong>
+                        - Price: $${service.basePrice}
+                        - Duration: ${service.duration}
+                        - Available: ${new Date(service.availableTo).toLocaleString()}`;
+            document.getElementById("messagesList").appendChild(li);
+        });
+
+        connection.start().catch(err => console.error(err.toString()));
+
+        function sendService() {
+            const service = {
+                name: "Fish Bathing",
+                basePrice: 25.00,
+                duration: "30 minutes",
+                availableFrom: new Date().toISOString(),
+                availableTo: new Date(Date.now() + 60000).toISOString()  // 1 minute later
+            };
+
+            connection.invoke("SendService", service).catch(err => console.error(err.toString()));
         }
 
         function randomColor() {
