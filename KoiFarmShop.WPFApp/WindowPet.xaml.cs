@@ -30,6 +30,11 @@ namespace KoiFarmShop.WPFApp
         {
             try
             {
+                if (!ValidateInputs())
+                {
+                    MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 var pet = new AddPetRequest
                 {
                     Name = txtName.Text,
@@ -61,6 +66,18 @@ namespace KoiFarmShop.WPFApp
             }
         }
 
+        private bool ValidateInputs()
+        {
+            return !string.IsNullOrEmpty(txtName.Text) &&
+                   !string.IsNullOrEmpty(txtAge.Text) &&
+                   !string.IsNullOrEmpty(txtGender.Text) &&
+                   !string.IsNullOrEmpty(txtColor.Text) &&
+                   !string.IsNullOrEmpty(txtImageUrl.Text) &&
+                   !string.IsNullOrEmpty(txtLength.Text) &&
+                   !string.IsNullOrEmpty(txtWeight.Text) &&
+                   !string.IsNullOrEmpty(txtQuantity.Text) &&
+                   !string.IsNullOrEmpty(txtHealthStatus.Text);
+        }
         private async void grdPets_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGrid grd = sender as DataGrid;

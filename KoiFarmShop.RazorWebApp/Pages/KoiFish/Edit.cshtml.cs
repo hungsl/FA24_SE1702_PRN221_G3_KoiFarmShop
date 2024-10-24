@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Application.Interface.IService;
 using KoiFarmShop.Infrastructure.DTOs.Pet.AddPet;
+using KoiFarmShop.Application.Implement.Service;
+using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
 {
@@ -38,31 +40,85 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
             return Page();
         }
 
+
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                var addPetRequest = new AddPetRequest
+                {
+                    Name = Pet.Name,
+                    Age = Pet.Age,
+                    Gender = Pet.Gender,
+                    ImageUrl = Pet.ImageUrl,
+                    Color = Pet.Color,
+                    Length = Pet.Length,
+                    Weight = Pet.Weight,
+                    Quantity = Pet.Quantity,
+                    LastHealthCheck = Pet.LastHealthCheck,
+                    Note = Pet.Note,
+                    HealthStatus = Pet.HealthStatus
+                };
+                var result = await _petServiceLogic.UpdatePetAsync(Pet.Id, addPetRequest);
+
+                // Kiểm tra kết quả trả về từ dịch vụ
+                if (result.IsSuccess)
+                {
+                    // Nếu thành công, chuyển hướng về trang index hoặc trang cần thiết
+                    return RedirectToPage("./Index");
+                }
+
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        switch (error.Code)
+                        {
+                            case "Pet.Empty":
+                                if (error.Description.Contains("Name"))
+                                    ModelState.AddModelError("Pet.Name", error.Description);
+                                if (error.Description.Contains("Gender"))
+                                    ModelState.AddModelError("Pet.Gender", error.Description);
+                                if (error.Description.Contains("Color"))
+                                    ModelState.AddModelError("Pet.Color", error.Description);
+                                if (error.Description.Contains("ImageUrl"))
+                                    ModelState.AddModelError("Pet.ImageUrl", error.Description);
+                                if (error.Description.Contains("Note"))
+                                    ModelState.AddModelError("Pet.Note", error.Description);
+                                break;
+                            case "Pet.InvalidValue":
+                                if (error.Description.Contains("Age"))
+                                    ModelState.AddModelError("Pet.Age", error.Description);
+                                if (error.Description.Contains("Length"))
+                                    ModelState.AddModelError("Pet.Length", error.Description);
+                                if (error.Description.Contains("Weight"))
+                                    ModelState.AddModelError("Pet.Weight", error.Description);
+                                if (error.Description.Contains("Quantity"))
+                                    ModelState.AddModelError("Pet.Quantity", error.Description);
+                                if (error.Description.Contains("HealthStatus"))
+                                    ModelState.AddModelError("Pet.HealthStatus", error.Description);
+                                break;
+                            default:
+                                ModelState.AddModelError(string.Empty, error.Description);
+                                break;
+                        }
+                    }
+                    return Page();
+                }
             }
-            var addPetRequest = new AddPetRequest
+            catch (DbUpdateConcurrencyException)
             {
-                Name = Pet.Name,
-                Age = Pet.Age,
-                Gender = Pet.Gender,
-                ImageUrl = Pet.ImageUrl,
-                Color = Pet.Color,
-                Length = Pet.Length,
-                Weight = Pet.Weight,
-                Quantity = Pet.Quantity,
-                LastHealthCheck = Pet.LastHealthCheck,
-                Note = Pet.Note,
-                HealthStatus = Pet.HealthStatus
-            };
-
-            await _petServiceLogic.UpdatePetAsync(Pet.Id, addPetRequest);
-            return RedirectToPage("./Index");
+                // Kiểm tra nếu đối tượng không tồn tại
+                if (!PetExists(Pet.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
-
         private bool PetExists(Guid id)
         {
             var petService = _petServiceLogic.GetPetByIdAsync(id);
