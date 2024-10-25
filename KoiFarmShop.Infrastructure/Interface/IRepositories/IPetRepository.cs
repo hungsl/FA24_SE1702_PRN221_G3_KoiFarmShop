@@ -14,5 +14,6 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
         public Task<Pet> CreatePetAsync(Pet pet);
         public Task<int> UpdatePetAsync(Pet pet);
         public Task<int> DeletePetAsync(Guid id);
+        Task<List<Pet>> GetAllPetWithSearchAsync(string searchName, string searchColor, string searchNote);
     }
 }

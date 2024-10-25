@@ -66,7 +66,9 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
                     ImageUrl = PetService.ImageUrl,
                     AvailableFrom = PetService.AvailableFrom,
                     AvailableTo = PetService.AvailableTo,
-                    TravelCost = PetService.TravelCost
+                    TravelCost = PetService.TravelCost,
+                    MaxNumberOfPets = PetService.MaxNumberOfPets,
+                    Description = PetService.Description
                 };
                 var result = await _petServiceService.UpdatePetServiceAsync(PetService.Id, addPetServiceRequest);
 

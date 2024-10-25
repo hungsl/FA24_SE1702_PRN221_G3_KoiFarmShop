@@ -83,8 +83,8 @@
                 <TextBox Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="180" Height="30" VerticalAlignment="Top" Name="txtSearchPetName"/>
                 <Label Grid.Column="2" Content="Color" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox Grid.Column="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="180" Height="30" Name="txtSearchColor"/>
-                <Label Grid.Column="4" Content="Health Status" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="5" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="180" Height="30" Name="txtSearchHealthStatus"/>
+                <Label Grid.Column="4" Content="Note" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="5" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="180" Height="30" Name="txtSearchNote"/>
                 <Button Grid.Column="6" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="26"  Name="BtnSearch" Margin="80,0,0,0" Click="BtnSearch_Click"/>
             </Grid>
         </GroupBox>

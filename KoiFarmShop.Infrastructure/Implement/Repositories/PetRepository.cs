@@ -48,5 +48,30 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             }
             return 0;
         }
+
+        public async Task<List<Pet>> GetAllPetWithSearchAsync(string searchName, string searchColor, string searchNote)
+        {
+            var query = _context.Set<Pet>().AsQueryable().Where(p => !p.IsDeleted);
+
+            // Tìm kiếm theo tên dịch vụ
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                query = query.Where(p => p.Name.Contains(searchName));
+            }
+
+            // Tìm kiếm theo thời gian dịch vụ
+            if (!string.IsNullOrEmpty(searchColor))
+            {
+                query = query.Where(p => p.Color.Contains(searchColor));
+            }
+
+            // Tìm kiếm theo tên danh mục dịch vụ
+            if (!string.IsNullOrEmpty(searchNote))
+            {
+                query = query.Where(p => p.Note.Contains(searchNote));
+            }
+
+            return await query.ToListAsync();
+        }
     }
 }

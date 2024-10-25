@@ -1,30 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using KoiFarmShop.Domain.Entities;
-using KoiFarmShop.Infrastructure.DB;
+using KoiFarmShop.Application.Implement.Service;
+using Microsoft.AspNetCore.Mvc;
+using KoiFarmShop.Infrastructure.DTOs.Common;
+using KoiFarmShop.Application.Interface.IService;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
 {
     public class IndexModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IPetServiceLogic _petServiceLogic;
 
-        public IndexModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public IndexModel(IPetServiceLogic petServiceLogic)
         {
-            _context = context;
+            _petServiceLogic = petServiceLogic;
         }
 
-        public IList<Pet> Pet { get;set; } = default!;
+        public ResultSearch<Pet> Pet { get;set; } = default!;
 
+        [BindProperty(SupportsGet = true)]
+        public string searchName { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public string searchColor { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public string searchNote { get; set; } = string.Empty;
         public async Task OnGetAsync()
         {
-            Pet = await _context.Pets
-                .Include(p => p.Owner).ToListAsync();
+            var result = await _petServiceLogic.GetSearchPetAsync(searchName, searchColor, searchNote);
+            if (result.IsSuccess)
+            {
+                Pet = result.Object as ResultSearch<Pet>;
+            }
+            else
+            {
+                Pet = new ResultSearch<Pet>
+                {
+                    Items = new List<Pet>()
+                };
+            }
         }
     }
 }

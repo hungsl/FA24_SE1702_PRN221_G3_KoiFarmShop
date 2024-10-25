@@ -56,6 +56,8 @@ namespace KoiFarmShop.Application.Implement.Service
                 AvailableFrom = addPetService.AvailableFrom,
                 AvailableTo = addPetService.AvailableTo,
                 TravelCost = addPetService.TravelCost,
+                Description = addPetService.Description,
+                MaxNumberOfPets = addPetService.MaxNumberOfPets,
                 CreatedDate = DateTime.UtcNow,
                 IsDeleted = false,
             };
@@ -76,9 +78,9 @@ namespace KoiFarmShop.Application.Implement.Service
             return Result.SuccessWithObject(petServices);
         }
 
-        public async Task<Result> GetAllPetServicesAsync(string searchTerm, int pageIndex, int pageSize)
+        public async Task<Result> GetAllPetServicesAsync(string searchName, string searchDuration, string searchCategoryName, int pageIndex, int pageSize)
         {
-            var petServices = await _unitOfWork.PetServiceRepository.GetAllServiceWithSearchAsync(searchTerm, pageIndex, pageSize);
+            var petServices = await _unitOfWork.PetServiceRepository.GetAllServiceWithSearchAsync(searchName, searchDuration, searchCategoryName, pageIndex, pageSize);
 
             var pagedResult = new PagedResultSearch<PetService>
             {
@@ -133,6 +135,8 @@ namespace KoiFarmShop.Application.Implement.Service
             existingPetService.AvailableFrom = addPetService.AvailableFrom;
             existingPetService.AvailableTo = addPetService.AvailableTo;
             existingPetService.TravelCost = addPetService.TravelCost;
+            existingPetService.Description = addPetService.Description; 
+            existingPetService.MaxNumberOfPets = addPetService.MaxNumberOfPets;
             existingPetService.ModifiedDate = DateTime.UtcNow;
 
             // Update the service
@@ -161,6 +165,22 @@ namespace KoiFarmShop.Application.Implement.Service
             }
 
             return Result.SuccessWithObject(deleteResult);
+        }
+        public async Task<List<PetService>> GetServicesExpiringSoonAsync()
+        {
+            var result = await _unitOfWork.PetServiceRepository.GetServicesExpiringSoonAsync();
+            return result;
+        }
+        public async Task<Result> UpdatePetServiceAsync(PetService service)
+        {
+            var result = await _unitOfWork.PetServiceRepository.UpdateAsync(service);
+            if (result == 0)
+            {
+                return Result.Failure(PetServiceErrorMessage.PetServiceUpdateFailed());
+            }
+
+            var response = new CreateResponse { Id = service.Id };
+            return Result.SuccessWithObject(response);
         }
     }
 }

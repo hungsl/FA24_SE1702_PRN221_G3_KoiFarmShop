@@ -16,5 +16,6 @@ namespace KoiFarmShop.Application.Interface.IService
         Task<Result> CreatePetAsync(AddPetRequest addPet);
         Task<Result> UpdatePetAsync(Guid id, AddPetRequest updatePet);
         Task<Result> DeletePetAsync(Guid id);
+        Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote);
     }
 }

@@ -53,7 +53,9 @@ namespace KoiFarmShop.WPFApp
                     AvailableFrom = dpAvailableFrom.SelectedDate.Value,
                     AvailableTo = dpAvailableTo.SelectedDate.Value,
                     TravelCost = decimal.Parse(txtTravelCost.Text),
-                    ImageUrl = txtImageUrl.Text
+                    ImageUrl = txtImageUrl.Text,
+                    Description = txtDescription.Text, // Thêm Description
+                    MaxNumberOfPets = int.Parse(txtMaxNumberOfPets.Text) // Thêm MaxNumberOfPets
                 };
                 Guid? petServiceId = string.IsNullOrEmpty(txtPetServiceId.Text) ? (Guid?)null : Guid.Parse(txtPetServiceId.Text);
                 var result = petServiceId.HasValue
@@ -144,17 +146,19 @@ namespace KoiFarmShop.WPFApp
 
                         if (serviceResult.IsSuccess  && serviceResult.Object != null)
                         {
-                            petService = serviceResult.Object as PetService; 
-
+                            petService = serviceResult.Object as PetService;
                             txtPetServiceId.Text = petService.Id.ToString();
                             txtServiceName.Text = petService.Name;
-                            cboServiceCategory.SelectedValue = petService.PetServiceCategoryId; 
+                            cboServiceCategory.SelectedValue = petService.PetServiceCategoryId;
                             txtBasePrice.Text = petService.BasePrice.ToString();
                             txtDuration.Text = petService.Duration?.ToString();
                             dpAvailableFrom.SelectedDate = petService.AvailableFrom;
-                            dpAvailableTo.SelectedDate = petService.AvailableTo; 
-                            txtTravelCost.Text = petService.TravelCost.ToString(); 
+                            dpAvailableTo.SelectedDate = petService.AvailableTo;
+                            txtTravelCost.Text = petService.TravelCost.ToString();
                             txtImageUrl.Text = petService.ImageUrl;
+                            txtDescription.Text = petService.Description;
+                            txtMaxNumberOfPets.Text = petService.MaxNumberOfPets.ToString();
+
                             try
                             {
                                 BitmapImage bitmap = new BitmapImage();
@@ -174,17 +178,18 @@ namespace KoiFarmShop.WPFApp
         }
         public void ReSet()
         {
-            txtServiceName.Text = string.Empty; 
+            txtServiceName.Text = string.Empty;
             cboServiceCategory.SelectedValue = null;
-            txtBasePrice.Text = string.Empty; 
-            txtDuration.Text = string.Empty; 
-            dpAvailableFrom.SelectedDate = null; 
+            txtBasePrice.Text = string.Empty;
+            txtDuration.Text = string.Empty;
+            dpAvailableFrom.SelectedDate = null;
             dpAvailableTo.SelectedDate = null;
-            txtTravelCost.Text = string.Empty; 
+            txtTravelCost.Text = string.Empty;
             txtImageUrl.Text = string.Empty;
-            txtPetServiceId.Text= string.Empty;
+            txtPetServiceId.Text = string.Empty;
             imgDisplay.Source = null;
-
+            txtDescription.Text = string.Empty;
+            txtMaxNumberOfPets.Text = string.Empty;
         }
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
@@ -222,19 +227,30 @@ namespace KoiFarmShop.WPFApp
         {
             try
             {
+                // Lấy tên dịch vụ
                 var serviceName = txtSearchServiceName.Text.Trim();
 
+                // Lấy danh mục dịch vụ được chọn
                 var selectedCategoryId = (Guid?)cboSearchServiceCategory.SelectedValue;
 
+                // Lấy giá dịch vụ
+                decimal? basePrice = null;
+                if (decimal.TryParse(txtSearchBasePrice.Text.Trim(), out decimal parsedPrice))
+                {
+                    basePrice = parsedPrice;
+                }
+
+                // Lấy danh sách dịch vụ từ API hoặc dữ liệu
                 var serviceResult = (await _petServiceService.GetAllPetServicesAsync()).Object as List<PetService>;
 
-                // Lọc theo tên và danh mục dịch vụ
+                // Lọc theo tên, danh mục và giá dịch vụ
                 var serviceFilter = serviceResult?.Where(service =>
                     (string.IsNullOrEmpty(serviceName) || service.Name.Contains(serviceName, StringComparison.OrdinalIgnoreCase)) &&
-                    (!selectedCategoryId.HasValue || service.PetServiceCategoryId == selectedCategoryId))
+                    (!selectedCategoryId.HasValue || service.PetServiceCategoryId == selectedCategoryId) &&
+                    (!basePrice.HasValue || service.BasePrice == basePrice))
                     .ToList();
 
-
+                // Cập nhật danh sách dịch vụ vào GridView
                 grdServices.ItemsSource = serviceFilter;
             }
             catch (Exception ex)

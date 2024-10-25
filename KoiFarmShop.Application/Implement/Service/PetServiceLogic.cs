@@ -132,5 +132,17 @@ namespace KoiFarmShop.Application.Implement.Service
 
             return Result.SuccessWithObject(deleteResult);
         }
+
+        public async Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote)
+        {
+            var pet = await _unitOfWork.PetRepository.GetAllPetWithSearchAsync(searchName, searchColor, searchNote);
+
+            var pagedResult = new ResultSearch<Pet>
+            {
+                Items = pet
+            };
+
+            return Result.SuccessWithObject(pagedResult);
+        }
     }
 }

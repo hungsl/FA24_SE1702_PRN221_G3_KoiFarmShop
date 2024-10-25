@@ -160,12 +160,12 @@ namespace KoiFarmShop.WPFApp
             {
                 var petName = txtSearchPetName.Text.Trim();
                 var color = txtSearchColor.Text.Trim();
-                var healthStatus = txtSearchHealthStatus.Text.Trim();
+                var note = txtSearchNote.Text.Trim();
 
                 var petResult = (await _petServiceLogic.GetAllPetAsync()).Object as List<Pet>;
 
                 var petFilter = petResult?.Where(pet =>
-                (string.IsNullOrEmpty(petName) || pet.Name.Contains(petName, StringComparison.OrdinalIgnoreCase)) &&(string.IsNullOrEmpty(color) || pet.Color.Contains(color, StringComparison.OrdinalIgnoreCase)) &&(string.IsNullOrEmpty(healthStatus) || pet.HealthStatus.ToString().Contains(healthStatus, StringComparison.OrdinalIgnoreCase))
+                (string.IsNullOrEmpty(petName) || pet.Name.Contains(petName, StringComparison.OrdinalIgnoreCase)) &&(string.IsNullOrEmpty(color) || pet.Color.Contains(color, StringComparison.OrdinalIgnoreCase)) &&(string.IsNullOrEmpty(note) || pet.Note.ToString().Contains(note, StringComparison.OrdinalIgnoreCase))
                 ).ToList();
 
                 grdPets.ItemsSource = petFilter;
