@@ -23,9 +23,10 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         }
 
         // READ
-        public async Task<IEnumerable<PetService>> GetAllServicesAsync()
+        public async Task<List<PetService>> GetAllServicesAsync()
         {
-            return await _context.PetServices.Include(i => i.PetServiceCategory).Where(s => !s.IsDeleted).ToListAsync();
+            var result = await _context.PetServices.Include(i => i.PetServiceCategory).Where(s => !s.IsDeleted).ToListAsync();
+            return result;
         }
 
         public async Task<(int totalItems, List<PetService> petServices)> GetAllServiceWithSearchAsync(
@@ -95,11 +96,12 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         }
         public async Task<List<PetService>> GetServicesExpiringSoonAsync()
         {
-            var oneHourFromNow = DateTime.UtcNow.AddHours(1);
-            return await _context.PetServices
+            var oneHourFromNow = DateTime.UtcNow.ToLocalTime().AddHours(1);
+            var result =  await _context.PetServices
                 .Where(s => !s.IsDeleted &&
-                            s.AvailableTo < DateTime.UtcNow || s.AvailableTo <= oneHourFromNow)
+                            s.AvailableTo > DateTime.UtcNow && s.AvailableTo <= oneHourFromNow)// check xem dich vu con 1 tieng nua het han
                 .ToListAsync();
+            return result;
         }
 
     }

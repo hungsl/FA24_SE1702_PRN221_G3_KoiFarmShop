@@ -39,8 +39,35 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
             {
                 return Page();
             }
-            await _petServiceService.CreatePetServiceAsync(PetService);
-            return RedirectToPage("./Index");
+            var result =  await _petServiceService.CreatePetServiceAsync(PetService);
+            if (result.IsSuccess)
+            {
+                return RedirectToPage("./Index");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    switch (error.Code)
+                    {
+                        case "PetService.Empty":
+                            ModelState.AddModelError("PetService.Name", error.Description);
+                            break;
+                        case "PetService.InvalidValue":
+                            ModelState.AddModelError("PetService.BasePrice", error.Description);
+                            break;
+                        case "PetService.InvalidDate":
+                            ModelState.AddModelError("PetService.AvailableFrom", error.Description);
+                            break;
+                        default:
+                            ModelState.AddModelError(string.Empty, error.Description);
+                            break;
+                    }
+                }
+                var petCat = await _petCategoryService.GetAllPetServiceCategoriesAsync();
+                ViewData["PetServiceCategoryId"] = new SelectList(petCat.Object as IList<PetServiceCategory>, "Id", "Name");
+                return Page();
+            }
         }
     }
 }
