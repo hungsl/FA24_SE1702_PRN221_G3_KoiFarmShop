@@ -65,6 +65,14 @@ namespace KoiFarmShop.Application.Common.Validator.Abstract
             RuleFor(petQuantityExpression)
                 .GreaterThan(0).WithState(_ => (PetErrorMessage.InvalidFieldValue("Quantity")));
         }
+
+        protected void AddPetLastHealthCheckRules(Expression<Func<T, DateTime>> petLastHealthCheckExpression)
+        {
+            RuleFor(petLastHealthCheckExpression)
+                .LessThanOrEqualTo(DateTime.Now)
+                .WithState(_ => (PetErrorMessage.InvalidFieldValue("LastHealthCheck")));
+        }
+
         protected void AddPetNoteRules(Expression<Func<T, string>> petNoteExpression)
         {
             RuleFor(petNoteExpression)
