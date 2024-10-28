@@ -2,11 +2,6 @@
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.Implement.Repositories
 {
@@ -34,7 +29,43 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return await _context.Users.FirstOrDefaultAsync(x => x.Email.Equals(email) && x.PasswordHash.Equals(password));
         }
 
+        // Register a new user
+        public async Task<User> RegisterUserAsync(User user)
+        {
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == user.Username || u.Email == user.Email);
+            if (existingUser != null)
+            {
+                throw new InvalidOperationException("User with the same username or email already exists.");
+            }
 
+            user.PasswordHash = HashPassword(user.PasswordHash); // Assuming plain text in PasswordHash is used for simplicity
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return user;
+        }
+
+        // Login user
+        public async Task<User> LoginUserAsync(string username, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null || !VerifyPassword(password, user.PasswordHash))
+            {
+                return null; // Invalid login attempt
+            }
+            return user;
+        }
+
+        // Password hashing
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password); // Replace with actual hashing implementation
+        }
+
+        // Password verification
+        private bool VerifyPassword(string password, string hash)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, hash); // Replace with actual verification implementation
+        }
 
 
 

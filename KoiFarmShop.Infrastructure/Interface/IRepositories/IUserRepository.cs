@@ -1,9 +1,4 @@
 ﻿using KoiFarmShop.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 {
@@ -12,5 +7,8 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
         Task<bool> UserNameExistsAsync(string userName);
         Task<bool> EmailExistsAsync(string email);
         Task<User> GetUserByEmailAndPasswordAsync(string email, string password);
+
+        Task<User> RegisterUserAsync(User user);
+        public Task<User> LoginUserAsync(string username, string password);
     }
 }
