@@ -22,6 +22,21 @@ namespace KoiFarmShop.Application.Implement.Service
             _addPetRequest = addPetRequest;
         }
 
+
+        // Retrieve pets by owner ID with error handling
+        public async Task<Result> GetPetsByOwnerIdAsync(Guid ownerId)
+        {
+            var pets = await _unitOfWork.PetRepository.GetPetsByOwnerIdAsync(ownerId);
+
+            if (pets == null || !pets.Any())
+            {
+                // If no pets found, return a not found error
+                return Result.Failure(PetErrorMessage.PetNotFound());
+            }
+
+            // Return the list of pets if found
+            return Result.SuccessWithObject(pets);
+        }
         public async Task<Result> GetPetByIdAsync(Guid id)
         {
             var pet = await _unitOfWork.PetRepository.GetPetByIdAsync(id);
