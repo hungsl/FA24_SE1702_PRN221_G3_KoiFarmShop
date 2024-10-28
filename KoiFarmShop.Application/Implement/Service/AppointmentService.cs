@@ -26,6 +26,18 @@ namespace KoiFarmShop.Application.Implement.Service
             _comboValidator = comboValidator;
         }
 
+
+        public async Task<Result> DeleteAppointmentAsync(Guid appointmentId)
+        {
+            var deleted = await _unitOfWork.AppointmentRepository.DeleteAppointmentAsync(appointmentId);
+
+            if (!deleted)
+            {
+                return Result.Failure(Error.NotFound("Appointment", "The appointment was not found or is already deleted"));
+            }
+
+            return Result.Success();
+        }
         public async Task<Result> GetAllAppointmentsAsync()
         {
             var appointments = await _unitOfWork.AppointmentRepository.GetAllAppointmentsAsync();

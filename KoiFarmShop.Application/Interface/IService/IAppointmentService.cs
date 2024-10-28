@@ -9,5 +9,8 @@ namespace KoiFarmShop.Application.Interface.IService
         public Task<Result> MakeAppointmentForComboAsync(MakeAppointmentForComboRequest request);
         public Task<Result> GetAllAppointmentsAsync();
         public Task<Result> GetByIdAsync(Guid appointmentId);
+
+        Task<Result> DeleteAppointmentAsync(Guid appointmentId);
+
     }
 }

@@ -49,8 +49,15 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         // READ (các phương thức khác nếu cần)
         public async Task<IEnumerable<Appointment>> GetAllAppointmentsAsync()
         {
-            return await _context.Appointments.Where(a => !a.IsDeleted).ToListAsync();
+            return await _context.Appointments
+                .Where(a => !a.IsDeleted)
+                .Include(a => a.Customer)       // Eager loading Customer details
+                .Include(a => a.Pet)            // Eager loading Pet details
+                .Include(a => a.PetService)     // Eager loading PetService details
+                .Include(a => a.ComboService)   // Eager loading ComboService details
+                .ToListAsync();
         }
+
         public async Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate)
         {
             var appointmentDay = appointmentDate.Date;
@@ -86,6 +93,25 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                 _context.VeterinarianSchedules.Update(schedule);
                 await _context.SaveChangesAsync();
             }
+        }
+
+
+        //DELETE
+        // Soft delete an appointment
+        public async Task<bool> DeleteAppointmentAsync(Guid appointmentId)
+        {
+            var appointment = await _context.Appointments.FindAsync(appointmentId);
+
+            if (appointment == null || appointment.IsDeleted)
+            {
+                return false; // Appointment not found or already deleted
+            }
+
+            appointment.IsDeleted = true;
+            _context.Appointments.Update(appointment);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
     }
 }
