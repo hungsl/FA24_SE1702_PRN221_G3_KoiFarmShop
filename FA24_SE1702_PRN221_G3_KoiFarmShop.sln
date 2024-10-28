@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.WPFApp", "KoiFa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.Application", "KoiFarmShop.Application\KoiFarmShop.Application.csproj", "{5F0221EB-94AF-4607-A111-18961DDE2900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPClientApp", "UDPClientApp\UDPClientApp.csproj", "{E816DD60-C521-4945-A0CC-969C595E9699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDPClientApp", "UDPClientApp\UDPClientApp.csproj", "{E816DD60-C521-4945-A0CC-969C595E9699}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
