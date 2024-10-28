@@ -37,6 +37,11 @@ namespace KVSC.Application.Implement.Service
             _addProductCategoryRequestValidator = addProductCategoryRequestValidator;
             _updateProductCategoryRequestValidator = updateProductCategoryRequestValidator;
         }
+        public async Task<Result> GetAllProductCategoriesAsync()
+        {
+            var categories = await _unitOfWork.ProductCategoryRepository.GetAllAsync();
+            return Result.SuccessWithObject(categories);
+        }
         public async Task<Result> AddProductCategoryAsync(AddProductCategoryRequest addProductCategoryRequest)
         {
             // Validate the AddProductRequest

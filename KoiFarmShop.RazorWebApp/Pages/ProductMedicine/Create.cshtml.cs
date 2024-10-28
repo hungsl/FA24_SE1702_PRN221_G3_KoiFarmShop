@@ -6,29 +6,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KVSC.Domain.Entities;
-using KoiFarmShop.Infrastructure.DB;
+using KVSC.Application.Interface.IService;
+using KVSC.Infrastructure.DTOs.Product.AddProduct;
 
 namespace KoiFarmShop.RazorWebApp.Pages.ProductMedicine
 {
     public class CreateModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IProductService _productService;
+        private readonly IProductCategoryService _productCategoryService;
 
-        public CreateModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public CreateModel(IProductService productService, IProductCategoryService productCategoryService)
         {
-            _context = context;
+            _productService = productService;
+            _productCategoryService = productCategoryService;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Description");
+            // Fetch the product categories to display in the dropdown
+            var productCategories = _productCategoryService.GetAllProductCategoriesAsync().Result.Object as List<ProductCategory>;
+            ViewData["ProductCategoryId"] = new SelectList(productCategories, "Id", "Name");
             return Page();
         }
 
         [BindProperty]
-        public Product Product { get; set; } = default!;
+        public AddProductRequest Product { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
+        // Handle the form submission
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -36,8 +41,15 @@ namespace KoiFarmShop.RazorWebApp.Pages.ProductMedicine
                 return Page();
             }
 
-            _context.Products.Add(Product);
-            await _context.SaveChangesAsync();
+            // Call the product service to create the product
+            var result = await _productService.CreateProductAsync(Product);
+
+            if (!result.IsSuccess)
+            {
+                // Handle the failure (optional, you can add more specific error handling)
+                ModelState.AddModelError(string.Empty, "Failed to create the product.");
+                return Page();
+            }
 
             return RedirectToPage("./Index");
         }

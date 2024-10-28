@@ -16,6 +16,9 @@ using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.DTOs.Common;
 using KoiFarmShop.Infrastructure.DTOs.Firebase.AddImage;
 using KoiFarmShop.Infrastructure.DTOs.Firebase.GetImage;
+using KVSC.Application.Common.Validator.Abstract;
+using Microsoft.AspNetCore.Http;
+using KoiFarmShop.Application.Interface.IService;
 
 namespace KVSC.Application.Implement.Service
 {
@@ -24,39 +27,35 @@ namespace KVSC.Application.Implement.Service
         private readonly IUnitOfWork _unitOfWork;
         private readonly IValidator<AddProductRequest> _addProductRequestValidator;
         private readonly IValidator<UpdateProductRequest> _updateProductRequestValidator;
+        private readonly IFirebaseService _firebaseService;
 
         public ProductService(
             IUnitOfWork unitOfWork,
             IValidator<AddProductRequest> addProductRequestValidator,
-            IValidator<UpdateProductRequest> updateProductRequestValidator
+            IValidator<UpdateProductRequest> updateProductRequestValidator,
+            IFirebaseService firebaseService
         )
         {
             _unitOfWork = unitOfWork;
             _addProductRequestValidator = addProductRequestValidator;
             _updateProductRequestValidator = updateProductRequestValidator;
-            
+            _firebaseService = firebaseService;
         }
 
-        public async Task<Result> AddProductAsync(AddProductRequest addProductRequest)
+        // Create Product
+        public async Task<Result> CreateProductAsync(AddProductRequest addProductRequest)
         {
-            // Validate the AddProductRequest
-            var validate = await _addProductRequestValidator.ValidateAsync(addProductRequest);
-            if (!validate.IsValid)
+            // Validate input
+            var validationResult = await _addProductRequestValidator.ValidateAsync(addProductRequest);
+            if (!validationResult.IsValid)
             {
-                var errors = validate.Errors
+                var errors = validationResult.Errors
                     .Select(e => (Error)e.CustomState)
                     .ToList();
                 return Result.Failures(errors);
             }
 
-            // Check if product name already exists
-            var productExists = await _unitOfWork.ProductRepository.ProductNameExistsAsync(addProductRequest.Name);
-            if (productExists)
-            {
-                return Result.Failure(ProductErrorMessage.ProductNameIsExist());
-            }
-
-            // Upload the image and get the result
+            // Handle image upload
             AddImageRequest imageRequest = new AddImageRequest(addProductRequest.ImageFile, "Products");
 
             var uploadImageResult = await _unitOfWork.FirebaseRepository.UploadImageAsync(imageRequest); // Assuming 'Image' is the property in AddProductRequest for the image file
@@ -66,139 +65,150 @@ namespace KVSC.Application.Implement.Service
                 return Result.Failure(uploadImageResult.Error); // Return the error from image upload
             }
 
-            // Create a new product entity
             var product = new Product
             {
                 Name = addProductRequest.Name,
-                Price = addProductRequest.Price,
                 Description = addProductRequest.Description,
-                ProductCategoryId = addProductRequest.ProductCategoryId, // Assuming this is in the request
-                StockQuantity = addProductRequest.StockQuantity, // Assuming this is in the request, set to 0 if no stock data is provided
-                ImageUrl = uploadImageResult.FilePath // Optional, but set if available
+                Price = addProductRequest.Price,
+                StockQuantity = addProductRequest.StockQuantity,
+                ImageUrl = uploadImageResult.FilePath, // Set the uploaded image URL
+                ProductCategoryId = addProductRequest.ProductCategoryId,
+                DiscountPrice = addProductRequest.DiscountPrice,
+                ReleaseDate = addProductRequest.ReleaseDate,
+                SKU = addProductRequest.SKU,
+                Manufacturer = addProductRequest.Manufacturer,
+                ProductDimensions = addProductRequest.ProductDimensions,
+                Weight = addProductRequest.Weight,
+                CreatedDate = DateTime.UtcNow,
+                IsDeleted = false
             };
 
-            // Add the product to the database
             var createResult = await _unitOfWork.ProductRepository.CreateProductAsync(product);
-            if (createResult == 0) // Adjust according to your repository's CreateAsync method return type
+            if (createResult == null)
             {
-                return Result.Failure(ProductErrorMessage.ProductNameIsExist());
+                return Result.Failure(ProductErrorMessage.ProductNotCreated());
             }
-
-            return Result.SuccessWithObject(createResult);
+            return Result.SuccessWithObject(new { Id = product.Id });
         }
-        // Read (Retrieve a product by ID)
-        public async Task<Result> GetProductByIdAsync(Guid productId)
-        {
-            var product = await _unitOfWork.ProductRepository.GetProductByIdAsync(productId);
-            if (product == null)
-            {
-                return Result.Failure(ProductErrorMessage.ProductNotExist());
-            }
-            // Retrieve the product image from Firebase (assuming FirebaseRepository has a method to get the image)
-            GetImageRequest getImageRequest = new GetImageRequest(product.ImageUrl);
-            var imageResult = await _unitOfWork.FirebaseRepository.GetImageAsync(getImageRequest); // Assuming product.ImageUrl stores the image reference
-            if (imageResult == null)
-            {
-                return Result.Failure(imageResult.Error); // Handle image retrieval failure
-            }
 
-            var productResponse = new GetProductResponse
+        // Get All Products
+        public async Task<Result> GetAllProductsAsync()
+        {
+            var products = await _unitOfWork.ProductRepository.GetAllProductsAsync();
+            return Result.SuccessWithObject(products);
+        }
+
+        // Get Products with Search
+        public async Task<Result> GetAllProductsAsync(string searchTerm, string searchField, int pageIndex, int pageSize, decimal? minPrice = null, decimal? maxPrice = null, decimal? minDiscountPrice = null, decimal? maxDiscountPrice = null)
+        {
+            var result = await _unitOfWork.ProductRepository.GetAllProductsWithSearchAsync(searchTerm, searchField, pageIndex, pageSize, minPrice, maxPrice, minDiscountPrice, maxDiscountPrice);
+
+            var pagedResult = new PagedResultSearch<Product>
             {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Description = product.Description,
-                ProductCategoryId = product.ProductCategoryId,
-                StockQuantity = product.StockQuantity,
-                ImageStream = imageResult.ImageUrl,   // Store image data in MemoryStream
-                //ProductCategoryName = product.ProductCategory?.Name // Optional: Category name, if available
+                Items = result.products,
+                TotalItems = result.totalItems,
+                PageIndex = pageIndex,
+                PageSize = pageSize
             };
-            return Result.SuccessWithObject(productResponse);
-        }
-        public async Task<Result> GetProductsAsync(SearchProductRequest request)
-        {
-            var response = await _unitOfWork.ProductRepository.GetProductsAsync(request);
-            if (response.Error != Error.None) // Assuming Error.None means no error
-            {
-                return Result.Failure(response.Error);
-            }
-            return Result.SuccessWithObject(response);
+
+            return Result.SuccessWithObject(pagedResult);
         }
 
-        // Update
-        public async Task<Result> UpdateProductAsync(UpdateProductRequest updateProductRequest)
+        // Get Product By Id
+        public async Task<Result> GetProductByIdAsync(Guid id)
         {
-            var validate = await _updateProductRequestValidator.ValidateAsync(updateProductRequest);
-            if (!validate.IsValid)
-            {
-                var errors = validate.Errors.Select(e => (Error)e.CustomState).ToList();
-                return Result.Failures(errors);
-            }
-
-            var product = await _unitOfWork.ProductRepository.GetProductByIdAsync(updateProductRequest.Id);
-            if (product == null)
-            {
-                return Result.Failure(ProductErrorMessage.ProductNotExist());
-            }
-
-            // Update fields
-            if (updateProductRequest.Name != null)
-                product.Name = updateProductRequest.Name;
-
-            if (updateProductRequest.Description != null)
-                product.Description = updateProductRequest.Description;
-
-            if (updateProductRequest.Price.HasValue)
-                product.Price = updateProductRequest.Price.Value;
-
-            if (updateProductRequest.StockQuantity.HasValue)
-                product.StockQuantity = updateProductRequest.StockQuantity.Value;
-
-            if (updateProductRequest.ImageUrl != null)
-                product.ImageUrl = updateProductRequest.ImageUrl;
-
-            var updateResult = await _unitOfWork.ProductRepository.UpdateProductAsync(product);
-            return updateResult == 0
-                ? Result.Failure(ProductErrorMessage.ProductUpdateFailed())
-                : Result.Success();
-        }
-
-        // Delete
-        public async Task<Result> DeleteProductAsync(Guid productId)
-        {
-            var product = await _unitOfWork.ProductRepository.GetProductByIdAsync(productId);
+            var product = await _unitOfWork.ProductRepository.GetProductByIdAsync(id);
             if (product == null)
             {
                 return Result.Failure(ProductErrorMessage.ProductNotFound());
             }
 
-            var deleteResult = await _unitOfWork.ProductRepository.RemoveProductAsync(product);
-            return deleteResult ? Result.Success() : Result.Failure(ProductErrorMessage.ProductDeletionFailed());
+            return Result.SuccessWithObject(product);
         }
 
-        Task<Result> IProductService.AddProductAsync(AddProductRequest addProductRequest)
+        // Update Product
+        public async Task<Result> UpdateProductAsync(Guid id, UpdateProductRequest updateProductRequest)
         {
-            throw new NotImplementedException();
+            // Validate input
+            var validationResult = await _updateProductRequestValidator.ValidateAsync(updateProductRequest);
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors
+                    .Select(e => (Error)e.CustomState)
+                    .ToList();
+                return Result.Failures(errors);
+            }
+
+            var existingProduct = await _unitOfWork.ProductRepository.GetProductByIdAsync(id);
+            if (existingProduct == null)
+            {
+                return Result.Failure(ProductErrorMessage.ProductNotFound());
+            }
+
+            // Handle image file update (if a new image is uploaded)
+            if (updateProductRequest.ImageFile != null)
+            {
+                // Assuming you have a service to upload files
+                var uploadResult = await _firebaseService.UploadImageAsync(updateProductRequest.ImageFile, "products");
+                if (!uploadResult.IsSuccess)
+                {
+                    return Result.Failure(uploadResult.Error);
+                }
+                existingProduct.ImageUrl = uploadResult.Object.ToString(); // Update the image URL
+            }
+
+            // Update other fields
+            existingProduct.Name = updateProductRequest.Name ?? existingProduct.Name;
+            existingProduct.Description = updateProductRequest.Description ?? existingProduct.Description;
+            existingProduct.Price = updateProductRequest.Price ?? existingProduct.Price;
+            existingProduct.StockQuantity = updateProductRequest.StockQuantity ?? existingProduct.StockQuantity;
+            existingProduct.DiscountPrice = updateProductRequest.DiscountPrice ?? existingProduct.DiscountPrice;
+            existingProduct.ReleaseDate = updateProductRequest.ReleaseDate ?? existingProduct.ReleaseDate;
+            existingProduct.SKU = updateProductRequest.SKU ?? existingProduct.SKU;
+            existingProduct.Manufacturer = updateProductRequest.Manufacturer ?? existingProduct.Manufacturer;
+            existingProduct.ProductDimensions = updateProductRequest.ProductDimensions ?? existingProduct.ProductDimensions;
+            existingProduct.Weight = updateProductRequest.Weight ?? existingProduct.Weight;
+
+            // Update category (if provided)
+            if (updateProductRequest.ProductCategoryId.HasValue)
+            {
+                existingProduct.ProductCategoryId = updateProductRequest.ProductCategoryId.Value;
+            }
+
+            // Update IsFeatured field
+            existingProduct.IsFeatured = updateProductRequest.IsFeatured ?? existingProduct.IsFeatured;
+
+            // Update the modified date
+            existingProduct.ModifiedDate = DateTime.UtcNow;
+
+            var updateResult = await _unitOfWork.ProductRepository.UpdateProductAsync(existingProduct);
+            if (updateResult == 0)
+            {
+                return Result.Failure(ProductErrorMessage.ProductUpdateFailed());
+            }
+
+            return Result.SuccessWithObject(new { Id = existingProduct.Id });
         }
 
-        Task<Result> IProductService.UpdateProductAsync(UpdateProductRequest updateProductRequest)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<Result> IProductService.DeleteProductAsync(Guid productId)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<Result> IProductService.GetProductByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<Result> IProductService.GetProductsAsync(SearchProductRequest request)
+        // Delete Product
+        public async Task<Result> DeleteProductAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var existingProduct = await _unitOfWork.ProductRepository.GetProductByIdAsync(id);
+            if (existingProduct == null)
+            {
+                return Result.Failure(ProductErrorMessage.ProductNotFound());
+            }
+
+            var deleteResult = await _unitOfWork.ProductRepository.DeleteProductAsync(id);
+            if (deleteResult == 0)
+            {
+                return Result.Failure(ProductErrorMessage.ProductDeletionFailed());
+            }
+
+            return Result.SuccessWithObject(deleteResult);
         }
     }
 }

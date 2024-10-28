@@ -14,7 +14,7 @@ namespace KVSC.Application.Common.Validator.ProductCategory
     {
         public UpdateProductCategoryValidator(UnitOfWork unitOfWork) : base(unitOfWork)
         {
-            AddCategoryNameRules(request => request.Name, checkExists: true);
+            AddCategoryNameRules(request => request.Name, checkExists: false);
             AddCategoryDescriptionRules(descriptionExpression => descriptionExpression.Description);
         }
     }

@@ -11,13 +11,14 @@ namespace KVSC.Infrastructure.Interface.IRepositories
 {
     public interface IProductRepository : IGenericRepository<Product>   
     {
-        Task<bool> ProductNameExistsAsync(string productName);
-        Task<int> CreateProductAsync(Product product);
-        Task<Product> GetProductByIdAsync(Guid productId);
-        Task<List<Product>> GetAllProductsAsync();
+        Task<Product> CreateProductAsync(Product product);
+        Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<(int totalItems, List<Product> products)> GetAllProductsWithSearchAsync(string searchTerm, string searchField, int pageIndex, int pageSize, decimal? minPrice = null, decimal? maxPrice = null, decimal? minDiscountPrice = null, decimal? maxDiscountPrice = null);
+        Task<Product> GetProductByIdAsync(Guid id);
+        Task<int> DeleteProductAsync(Guid id);
         Task<int> UpdateProductAsync(Product product);
-        Task<bool> RemoveProductAsync(Product product);
-        Task<bool> RemoveProductByIdAsync(Guid productId);
-        Task<SearchProductResponse> GetProductsAsync(SearchProductRequest productName);
+        Task<List<Product>> GetByIdsAsync(List<Guid> productIds);
+
+        Task<bool> ProductNameExistsAsync(string productName);
     }
 }

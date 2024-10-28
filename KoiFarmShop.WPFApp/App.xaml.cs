@@ -28,6 +28,15 @@ using Google.Cloud.Storage.V1;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using System.IO;
+using KVSC.Application.Common.Validator.Product;
+using KVSC.Application.Common.Validator.ProductCategory;
+using KVSC.Infrastructure.DTOs.Product.AddProduct;
+using KVSC.Infrastructure.DTOs.Product.UpdateProduct;
+using KVSC.Infrastructure.DTOs.ProductCategory.AddProductCategory;
+using KVSC.Infrastructure.DTOs.ProductCategory.UpdateProductCategory;
+using KVSC.Infrastructure.Interface.IRepositories;
+using KVSC.Application.Implement.Service;
+using KVSC.Application.Interface.IService;
 
 namespace KoiFarmShop.WPFApp
 {
@@ -53,7 +62,7 @@ namespace KoiFarmShop.WPFApp
 
             services.AddDbContext<KVSCContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDb")));
-            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "koiveterinaryservicecent-925db-firebase-adminsdk-vus2r-93ba231cea.json");
+            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "koiveterinaryservicecent-925db-firebase-adminsdk-vus2r-0a84673789.json");
             try
             {
                 FirebaseApp.Create(new AppOptions()
@@ -66,6 +75,10 @@ namespace KoiFarmShop.WPFApp
                 // Log the exception or handle it as necessary
                 throw new Exception("Failed to initialize Firebase.", ex);
             }
+
+            // Register the Google Cloud Storage client and any Firebase related services
+            services.AddSingleton(StorageClient.Create(GoogleCredential.FromFile(credentialPath)));
+
 
             // Register the Google Cloud Storage client and any Firebase related services
             services.AddSingleton(StorageClient.Create(GoogleCredential.FromFile(credentialPath)));
@@ -88,7 +101,10 @@ namespace KoiFarmShop.WPFApp
             services.AddSingleton<IValidator<AddPetServiceCategoryRequest>, AddPetServiceCategoryValidator>();
             services.AddSingleton<IValidator<MakeAppointmentForServiceRequest>, MakeAppointmentForServiceValidator>();
             services.AddSingleton<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
-
+            services.AddTransient<IValidator<AddProductRequest>, AddProductValidator>();
+            services.AddTransient<IValidator<UpdateProductRequest>, UpdateProductValidator>();
+            services.AddTransient<IValidator<AddProductCategoryRequest>, AddProductCategoryValidator>();
+            services.AddTransient<IValidator<UpdateProductCategoryRequest>, UpdateProductCategoryValidator>();
             //Validator
             #endregion
 
@@ -103,8 +119,9 @@ namespace KoiFarmShop.WPFApp
             services.AddSingleton<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
             services.AddSingleton<IComboServiceRepository, ComboServiceRepository>();
             services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
+            services.AddSingleton<IProductRepository, ProductRepository>();
+            services.AddSingleton<IProductCategoryRepository, ProductCategoryRepository>();
 
-           
             #endregion
 
 
@@ -121,14 +138,15 @@ namespace KoiFarmShop.WPFApp
             services.AddSingleton<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddSingleton<IComboServiceService, ComboServiceService>();
             services.AddSingleton<IAppointmentService, AppointmentService>();
-
+            services.AddSingleton<IProductService, ProductService>();
+            services.AddSingleton<IProductCategoryService, ProductCategoryService>();
             #endregion
 
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<WindowProduct>();
 
             // Tạo ServiceProvider và khởi động MainWindow
             ServiceProvider = services.BuildServiceProvider();
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>(); // Chỉ gọi từ DI
+            var mainWindow = ServiceProvider.GetRequiredService<WindowProduct>(); // Chỉ gọi từ DI
             mainWindow.Show();
         }
     }

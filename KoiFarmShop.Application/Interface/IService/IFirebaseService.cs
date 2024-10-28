@@ -11,7 +11,7 @@ namespace KoiFarmShop.Application.Interface.IService
 {
     public interface IFirebaseService
     {
-        //Task<Result> UploadImageAsync(IFormFile file, string folder);
-        //Task<Result> GetImageAsync(GetImageRequest request);
+        Task<Result> UploadImageAsync(IFormFile file, string folder);
+        Task<Result> GetImageAsync(GetImageRequest request);
     }
 }

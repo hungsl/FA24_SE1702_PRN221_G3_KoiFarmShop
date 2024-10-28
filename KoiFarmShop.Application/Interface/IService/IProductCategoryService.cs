@@ -18,5 +18,6 @@ namespace KVSC.Application.Interface.IService
         Task<Result> UpdateProductCategoryAsync(UpdateProductCategoryRequest updateProductCategoryRequest);
         Task<Result> DeleteProductCategoryAsync(DeleteProductCategoryRequest request);
 
+        Task<Result> GetAllProductCategoriesAsync();
     }
 }

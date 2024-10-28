@@ -11,6 +11,14 @@ public class Product : BaseEntity
     public int StockQuantity { get; set; }
     public string ImageUrl { get; set; }
 
+    public decimal DiscountPrice { get; set; } // Discounted price of the product
+    public bool IsFeatured { get; set; } // Flag to indicate if the product is featured
+    public DateTime ReleaseDate { get; set; } // Release date of the product
+    public string SKU { get; set; } // Stock Keeping Unit for inventory tracking
+    public string Manufacturer { get; set; } // Manufacturer of the product
+    public string ProductDimensions { get; set; } // Dimensions of the product (e.g., WxHxD)
+    public decimal Weight { get; set; } // Weight of the product
+
     // Relationships
     public ICollection<OrderItem> OrderItems { get; set; }
     public ProductCategory ProductCategory { get; set; } // Navigation property to ProductCategory

@@ -1,78 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+using KVSC.Application.Interface.IService;
+using KVSC.Infrastructure.DTOs.Product.AddProduct;
+using System;
+using System.Threading.Tasks;
 using KVSC.Domain.Entities;
-using KoiFarmShop.Infrastructure.DB;
+using KVSC.Infrastructure.DTOs.Product.UpdateProduct;
 
 namespace KoiFarmShop.RazorWebApp.Pages.ProductMedicine
 {
     public class EditModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IProductService _productService;
+        private readonly IProductCategoryService _productCategoryService;
 
-        public EditModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public EditModel(IProductService productService, IProductCategoryService productCategoryService)
         {
-            _context = context;
+            _productService = productService;
+            _productCategoryService = productCategoryService;
         }
 
         [BindProperty]
-        public Product Product { get; set; } = default!;
+        public UpdateProductRequest Product { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product =  await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            var result = await _productService.GetProductByIdAsync(id);
+            if (!result.IsSuccess || result.Object == null)
             {
                 return NotFound();
             }
-            Product = product;
-           ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Description");
+
+            var existingProduct = result.Object as Product;
+
+            Product = new UpdateProductRequest
+            {
+                Id = existingProduct.Id, // Ensure the Id is populated
+                ProductCategoryId = existingProduct.ProductCategoryId,
+                Name = existingProduct.Name,
+                Description = existingProduct.Description,
+                Price = existingProduct.Price,
+                DiscountPrice = existingProduct.DiscountPrice,
+                StockQuantity = existingProduct.StockQuantity,
+                ReleaseDate = existingProduct.ReleaseDate,
+                SKU = existingProduct.SKU,
+                Manufacturer = existingProduct.Manufacturer,
+                ProductDimensions = existingProduct.ProductDimensions,
+                Weight = existingProduct.Weight,
+                IsFeatured = existingProduct.IsFeatured,
+                ImageFile = null // No file selected initially
+            };
+
+            // Fetch the categories for dropdown
+            var categoriesResult = await _productCategoryService.GetAllProductCategoriesAsync();
+            if (categoriesResult.IsSuccess)
+            {
+                var productCategories = categoriesResult.Object as List<ProductCategory>;
+                ViewData["ProductCategoryId"] = new SelectList(productCategories, "Id", "Name");
+            }
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
+            
 
-            try
+            var result = await _productService.UpdateProductAsync(id, Product);
+            if (!result.IsSuccess)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(Product.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                ModelState.AddModelError(string.Empty, "Failed to update product");
+                return Page();
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool ProductExists(Guid id)
-        {
-            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

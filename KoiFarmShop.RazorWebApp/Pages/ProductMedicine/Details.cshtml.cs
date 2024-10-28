@@ -7,36 +7,36 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KVSC.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
+using KVSC.Application.Interface.IService;
 
 namespace KoiFarmShop.RazorWebApp.Pages.ProductMedicine
 {
     public class DetailsModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IProductService _productService;
 
-        public DetailsModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public DetailsModel(IProductService productService)
         {
-            _context = context;
+            _productService = productService;
         }
 
         public Product Product { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            // Fetch product details using the service
+            var result = await _productService.GetProductByIdAsync(id);
+            if (!result.IsSuccess || result.Object == null)
             {
                 return NotFound();
             }
-            else
-            {
-                Product = product;
-            }
+
+            Product = result.Object as Product;
             return Page();
         }
     }

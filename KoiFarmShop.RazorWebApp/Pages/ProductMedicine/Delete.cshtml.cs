@@ -7,54 +7,55 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KVSC.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
+using KVSC.Application.Interface.IService;
 
 namespace KoiFarmShop.RazorWebApp.Pages.ProductMedicine
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiFarmShop.Infrastructure.DB.KVSCContext _context;
+        private readonly IProductService _productService;
 
-        public DeleteModel(KoiFarmShop.Infrastructure.DB.KVSCContext context)
+        public DeleteModel(IProductService productService)
         {
-            _context = context;
+            _productService = productService;
         }
 
         [BindProperty]
         public Product Product { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        // OnGetAsync to fetch product details before deletion
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
+            // Fetch product details by id using the service
+            var result = await _productService.GetProductByIdAsync(id);
 
-            if (product == null)
+            if (!result.IsSuccess || result.Object == null)
             {
                 return NotFound();
             }
-            else
-            {
-                Product = product;
-            }
+
+            Product = result.Object as Product;
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(Guid? id)
+        // OnPostAsync to confirm the deletion of the product
+        public async Task<IActionResult> OnPostAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+            // Fetch the product by id to ensure it exists
+            var result = await _productService.GetProductByIdAsync(id);
+            if (result.IsSuccess && result.Object != null)
             {
-                Product = product;
-                _context.Products.Remove(Product);
-                await _context.SaveChangesAsync();
+                await _productService.DeleteProductAsync(id);
             }
 
             return RedirectToPage("./Index");

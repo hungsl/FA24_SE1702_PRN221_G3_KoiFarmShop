@@ -27,6 +27,15 @@ using Microsoft.AspNetCore.Identity;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
 using KoiFarmShop.Infrastructure.DTOs.ComboService.AddComboService;
 using KVSC.Infrastructure.Implement.Repositories;
+using KVSC.Application.Common.Validator.Product;
+using KVSC.Infrastructure.DTOs.Product.AddProduct;
+using KVSC.Infrastructure.DTOs.Product.UpdateProduct;
+using KVSC.Infrastructure.Interface.IRepositories;
+using KVSC.Application.Implement.Service;
+using KVSC.Application.Interface.IService;
+using KVSC.Application.Common.Validator.ProductCategory;
+using KVSC.Infrastructure.DTOs.ProductCategory.AddProductCategory;
+using KVSC.Infrastructure.DTOs.ProductCategory.UpdateProductCategory;
 namespace KoiFarmShop.RazorWebApp.Startup
 {
     public static class DependencyInjectionSetup
@@ -37,7 +46,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
         {
 
 
-            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "koiveterinaryservicecent-925db-firebase-adminsdk-vus2r-93ba231cea.json");
+            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "koiveterinaryservicecent-925db-firebase-adminsdk-vus2r-0a84673789.json");
             try
             {
                 FirebaseApp.Create(new AppOptions()
@@ -75,6 +84,10 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IValidator<AddPetServiceCategoryRequest>, AddPetServiceCategoryValidator>();
             services.AddTransient<IValidator<MakeAppointmentForServiceRequest>, MakeAppointmentForServiceValidator>();
             services.AddTransient<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
+            services.AddTransient<IValidator<AddProductRequest>, AddProductValidator>();
+            services.AddTransient<IValidator<UpdateProductRequest>, UpdateProductValidator>();
+            services.AddTransient<IValidator<AddProductCategoryRequest>, AddProductCategoryValidator>();
+            services.AddTransient<IValidator<UpdateProductCategoryRequest>, UpdateProductCategoryValidator>();
 
             //Validator
             #endregion
@@ -90,6 +103,8 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
             services.AddTransient<IComboServiceRepository, ComboServiceRepository>();
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
 
 
             #endregion
@@ -108,6 +123,8 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddTransient<IComboServiceService, ComboServiceService>();
             services.AddTransient<IAppointmentService, AppointmentService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
             #endregion
 
