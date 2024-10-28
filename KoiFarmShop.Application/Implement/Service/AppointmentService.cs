@@ -1,17 +1,12 @@
 ﻿using FluentValidation;
-using KoiFarmShop.Application.Interface.IService;
 using KoiFarmShop.Application.Common.Result;
+using KoiFarmShop.Application.Interface.IService;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DTOs.Appointment.MakeAppointment;
-using KoiFarmShop.Infrastructure.DTOs.Common.Message;
-using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.DTOs.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using KoiFarmShop.Infrastructure.DTOs.Common.Message;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
+using KoiFarmShop.Infrastructure.Interface;
 
 
 namespace KoiFarmShop.Application.Implement.Service
@@ -30,6 +25,33 @@ namespace KoiFarmShop.Application.Implement.Service
             _serviceValidator = serviceValidator;
             _comboValidator = comboValidator;
         }
+
+        public async Task<Result> GetAllAppointmentsAsync()
+        {
+            var appointments = await _unitOfWork.AppointmentRepository.GetAllAppointmentsAsync();
+
+            if (appointments == null || !appointments.Any())
+            {
+                return Result.Failure(Error.NotFound("Appointments", "No appointments found"));
+            }
+
+            return Result.SuccessWithObject(appointments);
+        }
+
+
+        public async Task<Result> GetByIdAsync(Guid appointmentId)
+        {
+            var appointment = await _unitOfWork.AppointmentRepository.GetByIdAsync(appointmentId);
+            if (appointment == null)
+            {
+                return Result.Failure(Error.NotFound("Appointment", "Appointment not found."));
+            }
+
+            return Result.SuccessWithObject(appointment);
+        }
+
+
+
 
         public async Task<Result> MakeAppointmentForServiceAsync(MakeAppointmentForServiceRequest request)
         {
@@ -126,6 +148,6 @@ namespace KoiFarmShop.Application.Implement.Service
             return Result.SuccessWithObject(response);
         }
 
-       
+
     }
 }

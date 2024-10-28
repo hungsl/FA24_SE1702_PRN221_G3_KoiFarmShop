@@ -1,0 +1,46 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.KoiAppointment.IndexModel
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<h1>Appointments</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else if (Model.Appointments != null && Model.Appointments.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Customer ID</th>
+                <th>Pet ID</th>
+                <th>Service ID</th>
+                <th>Combo Service ID</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model.Appointments)
+            {
+                <tr>
+                    <td>@appointment.Id</td>
+                    <td>@appointment.CustomerId</td>
+                    <td>@appointment.PetId</td>
+                    <td>@appointment.PetServiceId</td>
+                    <td>@appointment.ComboServiceId</td>
+                    <td>@appointment.AppointmentDate.ToString("f")</td>
+                    <td>@appointment.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No appointments found.</p>
+}
