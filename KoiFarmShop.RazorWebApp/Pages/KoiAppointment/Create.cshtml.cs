@@ -11,11 +11,13 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
     {
         private readonly IAppointmentService _appointmentService;
         private readonly IPetServiceService _petServiceService;
+        private readonly IPetServiceLogic _petServiceLogic;
 
-        public CreateModel(IAppointmentService appointmentService, IPetServiceService petServiceService)
+        public CreateModel(IAppointmentService appointmentService, IPetServiceService petServiceService, IPetServiceLogic petServiceLogic)
         {
             _appointmentService = appointmentService;
             _petServiceService = petServiceService;
+            _petServiceLogic = petServiceLogic;
         }
 
         [BindProperty]
@@ -38,6 +40,7 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
         public DateTime AppointmentDate { get; set; }
 
         public List<PetService> PetServices { get; set; } = new List<PetService>();
+        public List<Pet> Pets { get; set; } = new List<Pet>();
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -53,6 +56,20 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
             }
 
             return Page();
+        }
+
+        // New handler for getting pets by CustomerId
+        public async Task<JsonResult> OnGetPetsByCustomerIdAsync(Guid customerId)
+        {
+            var result = await _petServiceLogic.GetPetsByOwnerIdAsync(customerId);
+
+            if (!result.IsSuccess || result.Object == null)
+            {
+                return new JsonResult(new { success = false, message = "No pets found for this customer." });
+            }
+
+            Pets = result.Object as List<Pet>;
+            return new JsonResult(new { success = true, pets = Pets });
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -79,4 +96,5 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
             return RedirectToPage("Index");
         }
     }
+
 }
