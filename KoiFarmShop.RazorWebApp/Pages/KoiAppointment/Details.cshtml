@@ -13,16 +13,16 @@
         <dd class="col-sm-10">@Model.Appointment.Id</dd>
 
         <dt class="col-sm-2">Customer ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.CustomerId</dd>
+        <dd class="col-sm-10">@Model.Appointment.Customer.FullName</dd>
 
         <dt class="col-sm-2">Pet ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.PetId</dd>
+        <dd class="col-sm-10">@Model.Appointment.Pet.Name</dd>
 
         <dt class="col-sm-2">Service ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.PetServiceId</dd>
+        <dd class="col-sm-10">@Model.Appointment.PetService.Name</dd>
 
         <dt class="col-sm-2">Combo Service ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.ComboServiceId</dd>
+        <dd class="col-sm-10">@Model.Appointment.ComboService.Name</dd>
 
         <dt class="col-sm-2">Date</dt>
         <dd class="col-sm-10">@Model.Appointment.AppointmentDate.ToString("f")</dd>

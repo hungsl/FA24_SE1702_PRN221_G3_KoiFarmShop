@@ -91,31 +91,31 @@ namespace KoiFarmShop.Application.Implement.Service
                 Status = "Pending",
                 AppointmentDate = request.AppointmentDate,
             };
-            // Nếu không có bác sĩ nào được chọn, tự động lấy bác sĩ dựa trên lịch trống
+
+            // Assigning Veterinarian(s)
             if (request.VeterinarianIds == null || !request.VeterinarianIds.Any())
             {
                 var availableVeterinarian = await _unitOfWork.AppointmentRepository.GetAvailableVeterinarianAsync(appointment.AppointmentDate);
                 if (availableVeterinarian != null)
                 {
-                    // Chỉ gán một bác sĩ thú y cho cuộc hẹn
                     appointment.AppointmentVeterinarians = new List<AppointmentVeterinarian>
-                    {
-                        new AppointmentVeterinarian { VeterinarianId = availableVeterinarian.Id }
-                    };
+            {
+                new AppointmentVeterinarian { VeterinarianId = availableVeterinarian.Id }
+            };
                 }
             }
             else
             {
-                // Nếu có bác sĩ được chọn, thêm vào cuộc hẹn
                 appointment.AppointmentVeterinarians = request.VeterinarianIds.Select(v => new AppointmentVeterinarian
                 {
                     VeterinarianId = v
                 }).ToList();
             }
-            // Lưu cuộc hẹn
+
+            // Save the Appointment
             await _unitOfWork.AppointmentRepository.CreateAppointmentAsync(appointment);
 
-            // Cập nhật trạng thái IsAvailable của lịch bác sĩ qua repository
+            // Update Veterinarian Schedule Availability
             foreach (var veterinarian in appointment.AppointmentVeterinarians)
             {
                 await _unitOfWork.AppointmentRepository.UpdateScheduleAvailabilityAsync(
@@ -127,6 +127,7 @@ namespace KoiFarmShop.Application.Implement.Service
             var response = new CreateResponse { Id = appointment.Id };
             return Result.SuccessWithObject(response);
         }
+
 
         public async Task<Result> MakeAppointmentForComboAsync(MakeAppointmentForComboRequest request)
         {

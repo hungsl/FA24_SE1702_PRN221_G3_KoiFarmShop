@@ -29,10 +29,10 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => appointment.Id)</td>
-                <td>@Html.DisplayFor(modelItem => appointment.CustomerId)</td>
-                <td>@Html.DisplayFor(modelItem => appointment.PetId)</td>
-                <td>@Html.DisplayFor(modelItem => appointment.PetServiceId)</td>
-                <td>@Html.DisplayFor(modelItem => appointment.ComboServiceId)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.Customer.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.Pet.Name)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.PetService.Name)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.ComboService.Name)</td>
                 <td>@Html.DisplayFor(modelItem => appointment.AppointmentDate)</td>
                 <td>@Html.DisplayFor(modelItem => appointment.Status)</td>
                 <td>

@@ -20,30 +20,14 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         public async Task<Appointment> GetByIdAsync(Guid appointmentId)
         {
             var appointment = await _context.Appointments
-                .Include(a => a.Customer)
-                .Include(a => a.Pet)
-                .Include(a => a.PetService)
-                .Include(a => a.ComboService)
-                .Include(a => a.AppointmentVeterinarians)
-                    .ThenInclude(av => av.Veterinarian)
+                .Include(a => a.Customer)     // Include Customer
+                .Include(a => a.Pet)          // Include Pet
+                .Include(a => a.PetService)   // Include Pet Service
+                .Include(a => a.ComboService) // Include Combo Service (if applicable)
                 .FirstOrDefaultAsync(a => a.Id == appointmentId && !a.IsDeleted);
 
-            // Kiểm tra nếu appointment là null, trả về null hoặc xử lý tùy ý
-            if (appointment == null)
-            {
-                return null; // Hoặc có thể trả về một giá trị mặc định khác
-            }
-
-            // Nếu muốn bảo vệ các thuộc tính điều hướng bên trong appointment
-            appointment.Customer = appointment.Customer ?? new User(); // Đảm bảo không null
-            appointment.Pet = appointment.Pet ?? new Pet();
-            appointment.PetService = appointment.PetService ?? new PetService();
-            appointment.ComboService = appointment.ComboService ?? new ComboService();
-            appointment.AppointmentVeterinarians = appointment.AppointmentVeterinarians ?? new List<AppointmentVeterinarian>();
-
-            return appointment;
+            return appointment ?? throw new KeyNotFoundException($"Appointment with ID {appointmentId} was not found.");
         }
-
 
 
         // READ (các phương thức khác nếu cần)
