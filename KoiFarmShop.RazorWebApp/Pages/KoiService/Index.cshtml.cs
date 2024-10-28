@@ -8,32 +8,55 @@ using Microsoft.EntityFrameworkCore;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Application.Interface.IService;
-using KoiFarmShop.Application.Common.Result;
+using System.Linq.Dynamic.Core;
+using KoiFarmShop.Infrastructure.DTOs.Common;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiService
 {
     public class IndexModel : PageModel
     {
         private readonly IPetServiceService _petServiceService;
-
-        public IndexModel(IPetServiceService petServiceService)
+        private readonly IPetServiceCategoryService _petCategoryService;
+        public IndexModel(IPetServiceService petServiceService, IPetServiceCategoryService petCategoryService)
         {
             _petServiceService = petServiceService;
+            _petCategoryService = petCategoryService;
         }
 
-        public IList<PetService> PetService { get;set; } = default!;
+        public PagedResultSearch<PetService> PetService { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+
+        public string SearchName { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchDuration { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchCategoryName { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public int PageIndex { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
 
         public async Task OnGetAsync()
         {
-            var result = await _petServiceService.GetAllPetServicesAsync();
+            var result = await _petServiceService.GetAllPetServicesAsync(SearchName, SearchDuration, SearchCategoryName, PageIndex, PageSize);
             if (result.IsSuccess)
             {
                 // Chuyển Object thành danh sách PetService
-                PetService = result.Object as IList<PetService>;
+                PetService = result.Object as PagedResultSearch<PetService> ?? new PagedResultSearch<PetService>
+                {
+                    TotalItems = 0,
+                    Items = new List<PetService>()
+                };
             }
             else
             {
-                PetService = new List<PetService>(); // Xử lý khi thất bại
+                PetService = new PagedResultSearch<PetService>
+                {
+                    TotalItems = 0,
+                    Items = new List<PetService>()
+                };
             }
         }
     }

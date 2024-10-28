@@ -16,6 +16,8 @@ namespace KoiFarmShop.Domain.Entities
         public DateTime AvailableFrom { get; set; }
         public DateTime AvailableTo { get; set; }
         public decimal TravelCost { get; set; }
+        public string Description { get; set; } 
+        public int MaxNumberOfPets { get; set; }
 
         // Relationships
         public PetServiceCategory PetServiceCategory { get; set; } // Navigation property

@@ -1,0 +1,47 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.KoiAppointment.IndexModel
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<h1>Appointments</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New Appointment</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].CustomerId)</th>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].PetId)</th>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].PetServiceId)</th>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].ComboServiceId)</th>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].AppointmentDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Appointments[0].Status)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.Appointments)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => appointment.Id)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.CustomerId)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.PetId)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.PetServiceId)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.ComboServiceId)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.AppointmentDate)</td>
+                <td>@Html.DisplayFor(modelItem => appointment.Status)</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@appointment.Id">Edit</a> |
+                    <a asp-page="Details" asp-route-id="@appointment.Id">Details</a> |
+                    <a asp-page="Delete" asp-route-id="@appointment.Id" class="text-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

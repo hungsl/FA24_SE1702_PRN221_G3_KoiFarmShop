@@ -1,10 +1,4 @@
 ﻿using KoiFarmShop.Domain.Entities;
-using KoiFarmShop.Infrastructure.Implement.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 {
@@ -17,5 +11,8 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 
         public Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate);
         public Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate);
+
+        //DELETE
+        Task<bool> DeleteAppointmentAsync(Guid appointmentId);
     }
 }

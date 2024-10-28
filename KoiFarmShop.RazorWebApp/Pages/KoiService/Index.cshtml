@@ -5,92 +5,104 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Pet Services List</h1>
+
+<!-- Form Tìm kiếm -->
+<form method="get" class="row g-3 mb-3">
+    <div class="col-auto">
+        <label for="searchName" class="form-label">Search by Name:</label>
+        <input type="text" id="searchName" name="searchName" value="@Model.SearchName" class="form-control" placeholder="Enter service name" />
+    </div>
+    <div class="col-auto">
+        <label for="searchDuration" class="form-label">Search by Duration:</label>
+        <input type="text" id="searchDuration" name="searchDuration" value="@Model.SearchDuration" class="form-control" placeholder="Enter duration" />
+    </div>
+    <div class="col-auto">
+        <label for="searchCategoryName" class="form-label">Search by Category:</label>
+        <input type="text" id="searchCategoryName" name="searchCategoryName" value="@Model.SearchCategoryName" class="form-control" placeholder="Enter category name" />
+    </div>
+    <div class="col-auto d-flex align-items-end">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].BasePrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].Duration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].AvailableFrom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].AvailableTo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].TravelCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].PetServiceCategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PetService[0].ModifiedDate)
-            </th>
-         @*    <th>
-                @Html.DisplayNameFor(model => model.PetService[0].IsDeleted)
-            </th> *@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.PetService) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BasePrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvailableFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvailableTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TravelCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PetServiceCategory.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedDate)
-            </td>
-           @*  <td>
-                @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td> *@
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@if (Model.PetService != null && Model.PetService.Items.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].Name)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].BasePrice)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].Duration)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].ImageUrl)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].AvailableFrom)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].AvailableTo)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].TravelCost)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].PetServiceCategory.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].CreatedDate)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].ModifiedDate)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].Description)</th>
+                <th>@Html.DisplayNameFor(model => model.PetService.Items[0].MaxNumberOfPets)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PetService.Items)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BasePrice)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Duration)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ImageUrl)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AvailableFrom)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AvailableTo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TravelCost)</td>
+                    <td>
+                        @if (item.PetServiceCategory != null)
+                        {
+                            @Html.DisplayFor(modelItem => item.PetServiceCategory.Name)
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ModifiedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MaxNumberOfPets)</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+<!-- Phân trang -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @for (var i = 1; i <= (int)Math.Ceiling((double)Model.PetService.TotalItems / Model.PageSize); i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-route-pageIndex="@i"
+                       asp-route-SearchName="@Model.SearchName"
+                       asp-route-SearchDuration="@Model.SearchDuration"
+                       asp-route-SearchCategoryName="@Model.SearchCategoryName">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
 }
-    </tbody>
-</table>
+else
+{
+    <p>No Pet Services found.</p>
+}
+
+
+

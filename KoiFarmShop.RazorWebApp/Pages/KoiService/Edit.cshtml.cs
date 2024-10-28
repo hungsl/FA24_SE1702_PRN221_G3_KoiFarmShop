@@ -29,17 +29,12 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
         public PetService PetService { get; set; } = default!;
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var result = await _petServiceService.GetPetServiceByIdAsync(id);
           
             if (result.IsSuccess)
             {
                 // Chuyển Object thành danh sách PetService
-                PetService = result.Object as PetService;
+                PetService = result.Object as PetService ?? new PetService();
             }
             else
             {
@@ -66,7 +61,9 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
                     ImageUrl = PetService.ImageUrl,
                     AvailableFrom = PetService.AvailableFrom,
                     AvailableTo = PetService.AvailableTo,
-                    TravelCost = PetService.TravelCost
+                    TravelCost = PetService.TravelCost,
+                    MaxNumberOfPets = PetService.MaxNumberOfPets,
+                    Description = PetService.Description
                 };
                 var result = await _petServiceService.UpdatePetServiceAsync(PetService.Id, addPetServiceRequest);
 
@@ -79,15 +76,6 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
 
                 else
                 {
-                    //foreach (var error in result.Errors)
-                    //{
-                    //    ModelState.AddModelError(string.Empty, error.Description);
-                    //}
-                    //    foreach (var error in result.Errors)
-                    //    {
-                    //    ModelState.AddModelError("PetService.AvailableFrom", error.Description);
-                    //    //ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
-                    //}
                     foreach (var error in result.Errors)
                     {
                         switch (error.Code)

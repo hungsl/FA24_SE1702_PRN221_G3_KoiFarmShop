@@ -17,68 +17,94 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.Name)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.BasePrice)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.BasePrice)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.Duration)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.Duration)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.ImageUrl)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.ImageUrl)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.AvailableFrom)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.AvailableFrom)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.AvailableTo)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.AvailableTo)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.TravelCost)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.TravelCost)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.PetServiceCategory)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.PetServiceCategory.Name)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.CreatedDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.CreatedDate)
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.ModifiedDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.ModifiedDate)
         </dd>
-        @* <dt class="col-sm-2">
+
+        <!-- New Fields -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PetService.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PetService.Description)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PetService.MaxNumberOfPets)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PetService.MaxNumberOfPets)
+        </dd>
+        <!-- IsDeleted Field -->
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetService.IsDeleted)
-        </dt> *@
-      @*   <dd class="col-sm-10">
+        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetService.IsDeleted)
-        </dd> *@
+        </dd>
     </dl>
 </div>
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.PetService.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
