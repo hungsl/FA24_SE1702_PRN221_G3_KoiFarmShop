@@ -1,0 +1,16 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.Client.ServerModel
+@{
+    ViewData["Title"] = "Server Page";
+}
+
+<h2>TCP Server</h2>
+<p>Server is running and waiting for messages...</p>
+
+<h3>Received Messages:</h3>
+<ul>
+    @foreach (var message in KoiFarmShop.RazorWebApp.Pages.Client.ServerModel.ReceivedMessages)
+    {
+        <li>@message</li>
+    }
+</ul>

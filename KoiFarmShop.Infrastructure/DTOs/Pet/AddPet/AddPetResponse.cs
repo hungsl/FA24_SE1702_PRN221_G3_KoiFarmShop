@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.DTOs.Pet.AddPet
 {
-    internal class AddPetResponse
+    public class AddPetResponse
     {
+        public Guid Id { get; set; }
     }
 }

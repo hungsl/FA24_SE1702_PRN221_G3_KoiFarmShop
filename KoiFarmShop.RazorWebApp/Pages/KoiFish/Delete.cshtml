@@ -25,10 +25,10 @@
             @Html.DisplayFor(model => model.Pet.Age)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Pet.Breed)
+            @Html.DisplayNameFor(model => model.Pet.Gender)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Pet.Breed)
+            @Html.DisplayFor(model => model.Pet.Gender)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Pet.ImageUrl)
@@ -55,10 +55,22 @@
             @Html.DisplayFor(model => model.Pet.Weight)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pet.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pet.Quantity)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Pet.LastHealthCheck)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Pet.LastHealthCheck)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pet.Note)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pet.Note)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Pet.HealthStatus)
@@ -66,7 +78,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Pet.HealthStatus)
         </dd>
-        <dt class="col-sm-2">
+        @* <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Pet.Owner)
         </dt>
         <dd class="col-sm-10">
@@ -89,7 +101,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Pet.IsDeleted)
-        </dd>
+        </dd> *@
     </dl>
     
     <form method="post">
