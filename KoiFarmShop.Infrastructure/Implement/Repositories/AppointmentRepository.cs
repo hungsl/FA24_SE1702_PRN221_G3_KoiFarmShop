@@ -28,7 +28,16 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
             return appointment ?? throw new KeyNotFoundException($"Appointment with ID {appointmentId} was not found.");
         }
-
+        public async Task<IEnumerable<Appointment>> GetAppointmentsByUserIdAsync(Guid userId)
+        {
+            return await _context.Appointments
+                .Where(a => a.CustomerId == userId && !a.IsDeleted) // Filter by CustomerId and exclude deleted appointments
+                .Include(a => a.Customer)
+                .Include(a => a.Pet)
+                .Include(a => a.PetService)
+                .Include(a => a.ComboService)
+                .ToListAsync();
+        }
 
         // READ (các phương thức khác nếu cần)
         public async Task<IEnumerable<Appointment>> GetAllAppointmentsAsync()

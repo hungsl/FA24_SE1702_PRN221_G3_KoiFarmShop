@@ -8,6 +8,7 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 
         // READ (các phương thức khác nếu cần)
         public Task<IEnumerable<Appointment>> GetAllAppointmentsAsync();
+        Task<IEnumerable<Appointment>> GetAppointmentsByUserIdAsync(Guid userId);
 
         public Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate);
         public Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate);

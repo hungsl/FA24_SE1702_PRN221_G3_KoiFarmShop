@@ -31,6 +31,7 @@ namespace KoiFarmShop.Application.Implement.Service
         _logger = logger;
     }
 
+    //DELETE
     public async Task<Result> DeleteAppointmentAsync(Guid appointmentId)
     {
         try
@@ -55,6 +56,8 @@ namespace KoiFarmShop.Application.Implement.Service
         }
     }
 
+    
+    //GET
     public async Task<Result> GetAllAppointmentsAsync()
     {
         try
@@ -78,7 +81,6 @@ namespace KoiFarmShop.Application.Implement.Service
             return Result.Failure(Error.Failure("RetrievalError", "An unexpected error occurred while retrieving appointments."));
         }
     }
-
     public async Task<Result> GetByIdAsync(Guid appointmentId)
     {
         try
@@ -101,7 +103,31 @@ namespace KoiFarmShop.Application.Implement.Service
             return Result.Failure(Error.Failure("RetrievalError", "An unexpected error occurred while retrieving the appointment."));
         }
     }
+    public async Task<Result> GetAppointmentsByUserIdAsync(Guid userId)
+    {
+        try
+        {
+            _logger.LogInformation("Retrieving appointments for user ID: {UserId}", userId);
 
+            var appointments = await _unitOfWork.AppointmentRepository.GetAppointmentsByUserIdAsync(userId);
+
+            if (appointments == null || !appointments.Any())
+            {
+                _logger.LogWarning("No appointments found for user ID: {UserId}", userId);
+                return Result.Failure(Error.NotFound("Appointments", "No appointments found for this user."));
+            }
+
+            _logger.LogInformation("Successfully retrieved {Count} appointments for user ID: {UserId}", appointments.Count(), userId);
+            return Result.SuccessWithObject(appointments);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error retrieving appointments for user ID: {UserId}", userId);
+            return Result.Failure(Error.Failure("RetrievalError", "An unexpected error occurred while retrieving appointments."));
+        }
+    }
+
+    //CREATE
     public async Task<Result> MakeAppointmentForServiceAsync(MakeAppointmentForServiceRequest request)
     {
         try

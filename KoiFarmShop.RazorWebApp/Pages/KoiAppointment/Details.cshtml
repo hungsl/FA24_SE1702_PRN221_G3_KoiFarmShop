@@ -12,17 +12,29 @@
         <dt class="col-sm-2">Appointment ID</dt>
         <dd class="col-sm-10">@Model.Appointment.Id</dd>
 
-        <dt class="col-sm-2">Customer ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.Customer.FullName</dd>
+        @if (Model.Appointment.Customer != null)
+        {
+            <dt class="col-sm-2">Customer</dt>
+            <dd class="col-sm-10">@Model.Appointment.Customer.FullName</dd>
+        }
 
-        <dt class="col-sm-2">Pet ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.Pet.Name</dd>
+        @if (Model.Appointment.Pet != null)
+        {
+            <dt class="col-sm-2">Pet</dt>
+            <dd class="col-sm-10">@Model.Appointment.Pet.Name</dd>
+        }
 
-        <dt class="col-sm-2">Service ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.PetService.Name</dd>
+        @if (Model.Appointment.PetService != null)
+        {
+            <dt class="col-sm-2">Pet Service</dt>
+            <dd class="col-sm-10">@Model.Appointment.PetService.Name</dd>
+        }
 
-        <dt class="col-sm-2">Combo Service ID</dt>
-        <dd class="col-sm-10">@Model.Appointment.ComboService.Name</dd>
+        @if (Model.Appointment.ComboService != null)
+        {
+            <dt class="col-sm-2">Combo Service</dt>
+            <dd class="col-sm-10">@Model.Appointment.ComboService.Name</dd>
+        }
 
         <dt class="col-sm-2">Date</dt>
         <dd class="col-sm-10">@Model.Appointment.AppointmentDate.ToString("f")</dd>
@@ -30,11 +42,17 @@
         <dt class="col-sm-2">Status</dt>
         <dd class="col-sm-10">@Model.Appointment.Status</dd>
 
-        <dt class="col-sm-2">Accepted Date</dt>
-        <dd class="col-sm-10">@Model.Appointment.AcceptedDate?.ToString("f")</dd>
+        @if (Model.Appointment.AcceptedDate != null)
+        {
+            <dt class="col-sm-2">Accepted Date</dt>
+            <dd class="col-sm-10">@Model.Appointment.AcceptedDate?.ToString("f")</dd>
+        }
 
-        <dt class="col-sm-2">Completed Date</dt>
-        <dd class="col-sm-10">@Model.Appointment.CompletedDate?.ToString("f")</dd>
+        @if (Model.Appointment.CompletedDate != null)
+        {
+            <dt class="col-sm-2">Completed Date</dt>
+            <dd class="col-sm-10">@Model.Appointment.CompletedDate?.ToString("f")</dd>
+        }
     </dl>
 </div>
 
