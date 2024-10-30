@@ -24,7 +24,7 @@ namespace KoiFarmShop.Async
         public void ConfigureServices(IServiceCollection services)
         {
             // Đăng ký IPetServiceService trong DI container
-            services.AddScoped<IPetServiceService, PetServiceService>();
+            services.AddScoped<IPetServiceLogic, PetServiceLogic>();
 
             // Cấu hình DbContext và kết nối đến SQL Server
             services.AddDbContext<KVSCContext>(options =>

@@ -19,12 +19,12 @@ namespace KoiFarmShop.Async
         {
             var host = CreateHostBuilder(args).Build();
             using var scope = host.Services.CreateScope();
-            var services = scope.ServiceProvider;
+            var pets = scope.ServiceProvider;
 
             try
             {
-                var petServiceService = services.GetRequiredService<IPetServiceService>();
-                var app = new PetServiceApp(petServiceService);
+                var petService = pets.GetRequiredService<IPetServiceLogic>();
+                var app = new PetApp(petService);
 
                 await app.RunAsync();
             }

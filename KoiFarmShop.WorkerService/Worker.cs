@@ -15,12 +15,13 @@ namespace KoiFarmShop.WorkerService
         private readonly ILogger<Worker> _logger;
         private readonly TaskService _taskService;
         private readonly IPetServiceService _petServiceService;
+        private readonly IPetServiceLogic _petServiceLogic;
 
-        public Worker(ILogger<Worker> logger, TaskService taskService, IPetServiceService petServiceService)
+        public Worker(ILogger<Worker> logger, TaskService taskService, IPetServiceService petServiceService, IPetServiceLogic petServiceLogic)
         {
             _logger = logger;
             _taskService = taskService;
-            _petServiceService = petServiceService;
+            _petServiceLogic = petServiceLogic;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
