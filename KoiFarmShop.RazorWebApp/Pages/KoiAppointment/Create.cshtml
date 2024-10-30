@@ -10,14 +10,17 @@
 <form method="post">
     <div class="form-group">
         <label asp-for="CustomerId" class="control-label">Customer ID</label>
-        <input asp-for="CustomerId" class="form-control" id="CustomerId" />
-        <span asp-validation-for="CustomerId" class="text-danger"></span>
+        <input asp-for="CustomerId" class="form-control" readonly />
     </div>
 
     <div class="form-group">
         <label asp-for="PetId" class="control-label">Pet</label>
-        <select asp-for="PetId" class="form-control" id="PetId">
+        <select asp-for="PetId" class="form-control">
             <option value="">-- Select Pet --</option>
+            @foreach (var pet in Model.Pets)
+            {
+                <option value="@pet.Id">@pet.Name</option>
+            }
         </select>
         <span asp-validation-for="PetId" class="text-danger"></span>
     </div>
@@ -48,33 +51,4 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-
-    <script>
-        document.getElementById("CustomerId").addEventListener("change", function() {
-            const customerId = this.value;
-            const petDropdown = document.getElementById("PetId");
-
-            if (customerId) {
-                fetch(`/KoiAppointment/Create?handler=PetsByCustomerId&customerId=${customerId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        petDropdown.innerHTML = '<option value="">-- Select Pet --</option>';
-                        if (data.success) {
-                            data.pets.forEach(pet => {
-                                const option = document.createElement("option");
-                                option.value = pet.id;
-                                option.textContent = pet.name;
-                                petDropdown.appendChild(option);
-                            });
-                        } else {
-                            alert(data.message);
-                        }
-                    })
-                    .catch(error => console.error('Error fetching pets:', error));
-            } else {
-                petDropdown.innerHTML = '<option value="">-- Select Pet --</option>';
-            }
-        });
-    </script>
 }
-

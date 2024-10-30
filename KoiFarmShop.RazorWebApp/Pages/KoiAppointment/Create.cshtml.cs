@@ -4,6 +4,7 @@ using KoiFarmShop.Infrastructure.DTOs.Appointment.MakeAppointment;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
 {
@@ -44,9 +45,21 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var result = await _petServiceService.GetAllPetServicesAsync();
+            // Get the logged-in user's ID
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (Guid.TryParse(userId, out var customerId))
+            {
+                CustomerId = customerId;
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Could not identify the logged-in user.");
+                return Page();
+            }
 
-            if (result.IsSuccess && result.Object is List<PetService> petServices)
+            // Fetch pet services
+            var serviceResult = await _petServiceService.GetAllPetServicesAsync();
+            if (serviceResult.IsSuccess && serviceResult.Object is List<PetService> petServices)
             {
                 PetServices = petServices;
             }
@@ -55,8 +68,21 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiAppointment
                 ModelState.AddModelError(string.Empty, "Failed to load pet services.");
             }
 
+            // Fetch pets for this customer based on their ID
+            var petResult = await _petServiceLogic.GetPetsByOwnerIdAsync(CustomerId);
+            if (petResult.IsSuccess && petResult.Object is List<Pet> pets)
+            {
+                Pets = pets;
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "No pets found for this customer.");
+            }
+
             return Page();
         }
+
+
 
         // New handler for getting pets by CustomerId
         public async Task<JsonResult> OnGetPetsByCustomerIdAsync(Guid customerId)
