@@ -8,7 +8,12 @@ using KoiFarmShop.Infrastructure.DTOs.User.Login;
 using KoiFarmShop.Infrastructure.DTOs.User.Register;
 using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace KoiFarmShop.Application.Implement.Service
 {
@@ -20,6 +25,10 @@ namespace KoiFarmShop.Application.Implement.Service
         private readonly IPasswordHasher _passwordHasher;
         private readonly IConfiguration _configuration;
         private readonly IUserRepository _userRepository;
+        private readonly ILogger<AuthService> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+
 
 
         public AuthService(
@@ -29,7 +38,9 @@ namespace KoiFarmShop.Application.Implement.Service
             IPasswordHasher passwordHasher
 ,
             IUserRepository userRepository,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ILogger<AuthService> logger,
+            IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
             _registerRequestValidator = registerRequestValidator;
@@ -37,12 +48,14 @@ namespace KoiFarmShop.Application.Implement.Service
             _passwordHasher = passwordHasher;
             _userRepository = userRepository;
             _configuration = configuration;
+            _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        // Register a new user
         public async Task<Result> RegisterUserAsync(RegisterUserRequest request)
         {
-            // Map request to User entity
+            _logger.LogInformation("Starting user registration for email: {Email}", request.Email);
+
             var user = new User
             {
                 FullName = request.FullName,
@@ -52,33 +65,60 @@ namespace KoiFarmShop.Application.Implement.Service
                 Username = request.Username,
                 PasswordHash = request.Password, // Password will be hashed in the repository
                 DateOfBirth = request.DateOfBirth,
-                role = request.Role
+                role = request.Role,
+                ProfilePictureUrl = request.ProfilePictureUrl ?? string.Empty // Set default if null
             };
 
             try
             {
-                // Attempt to register the user
                 var registeredUser = await _userRepository.RegisterUserAsync(user);
+                _logger.LogInformation("User successfully registered with email: {Email}", request.Email);
                 return Result.SuccessWithObject(new { UserId = registeredUser.Id });
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                // Handle existing user conflicts
-                return Result.Failure(Error.Conflict("UserExists", ex.Message));
+                _logger.LogError(ex, "An unexpected error occurred during user registration.");
+                return Result.Failure(Error.Failure("UnexpectedError", "An unexpected error occurred. Please try again later."));
             }
         }
+
 
         // Login user
         public async Task<Result> LoginUserAsync(LoginUserRequest request)
         {
+            _logger.LogInformation("Starting login process for username: {Username}", request.Username);
+
             // Attempt to find and verify the user
             var user = await _userRepository.LoginUserAsync(request.Username, request.Password);
 
             if (user == null)
             {
-                // Return a failure result if login details are incorrect
+                _logger.LogWarning("Login failed: Invalid username or password for username: {Username}", request.Username);
                 return Result.Failure(Error.Validation("InvalidLogin", "Invalid username or password."));
             }
+
+            _logger.LogInformation("Login successful for username: {Username}", request.Username);
+
+            // Set up claims for the user
+            var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Role, user.role.ToString())
+        };
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true, // Keeps the user logged in across sessions
+                ExpiresUtc = DateTimeOffset.UtcNow.AddHours(1) // Set a session timeout, if desired
+            };
+
+            // Use HttpContext from IHttpContextAccessor to SignIn
+            await _httpContextAccessor.HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
 
             // Return success with user information
             var userInfo = new { UserId = user.Id, user.Username, user.role };
