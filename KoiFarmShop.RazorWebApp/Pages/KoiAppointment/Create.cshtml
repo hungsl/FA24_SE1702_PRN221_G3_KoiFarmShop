@@ -2,21 +2,23 @@
 @model KoiFarmShop.RazorWebApp.Pages.KoiAppointment.CreateModel
 
 @{
-    ViewData["Title"] = "Create Appointment";
+ViewData["Title"] = "Create Appointment";
 }
 
 <h1>Create Appointment</h1>
 
 <form method="post">
-    <div class="form-group">
-        <label asp-for="CustomerId" class="control-label">Customer ID</label>
-        <input asp-for="CustomerId" class="form-control" />
-        <span asp-validation-for="CustomerId" class="text-danger"></span>
-    </div>
+    <input asp-for="CustomerId" type="hidden" />
 
     <div class="form-group">
-        <label asp-for="PetId" class="control-label">Pet ID</label>
-        <input asp-for="PetId" class="form-control" />
+        <label asp-for="PetId" class="control-label">Pet</label>
+        <select asp-for="PetId" class="form-control">
+            <option value="">-- Select Pet --</option>
+            @foreach (var pet in Model.Pets)
+            {
+            <option value="@pet.Id">@pet.Name</option>
+            }
+        </select>
         <span asp-validation-for="PetId" class="text-danger"></span>
     </div>
 
@@ -29,8 +31,15 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="VeterinarianIds" class="control-label">Veterinarian IDs</label>
-        <input asp-for="VeterinarianIds" class="form-control" placeholder="Select Veterinarian(s)" />
+        <label asp-for="VeterinarianIds" class="control-label">Select Veterinarian(s)</label>
+        <select asp-for="VeterinarianIds" class="form-control" multiple>
+            @foreach (var veterinarian in Model.Veterinarians)
+            {
+            <option value="@veterinarian.UserId">
+                @veterinarian.User.FullName - @veterinarian.Specialty
+            </option>
+            }
+        </select>
         <span asp-validation-for="VeterinarianIds" class="text-danger"></span>
     </div>
 
@@ -45,5 +54,5 @@
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }

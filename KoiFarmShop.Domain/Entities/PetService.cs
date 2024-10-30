@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KoiFarmShop.Domain.Entities
+﻿namespace KoiFarmShop.Domain.Entities
 {
     public class PetService : BaseEntity
     {
@@ -16,7 +10,7 @@ namespace KoiFarmShop.Domain.Entities
         public DateTime AvailableFrom { get; set; }
         public DateTime AvailableTo { get; set; }
         public decimal TravelCost { get; set; }
-        public string Description { get; set; } 
+        public string Description { get; set; }
         public int MaxNumberOfPets { get; set; }
 
         // Relationships

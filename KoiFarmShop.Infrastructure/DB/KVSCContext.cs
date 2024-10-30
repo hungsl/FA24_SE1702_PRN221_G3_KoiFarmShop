@@ -1,11 +1,6 @@
 ﻿using KoiFarmShop.Domain.Entities;
+using KVSC.Infrastructure.DB.Configuration;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.DB
 {
@@ -33,6 +28,15 @@ namespace KoiFarmShop.Infrastructure.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new AppointmentConfiguration());
+            modelBuilder.ApplyConfiguration(new PetServiceCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new PetConfiguration());
+            modelBuilder.ApplyConfiguration(new PetServiceConfiguration());
+            modelBuilder.ApplyConfiguration(new VeterinarianConfiguration());
+
+
             // Define table names
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Pet>().ToTable("Pet");
@@ -51,7 +55,7 @@ namespace KoiFarmShop.Infrastructure.DB
                 .WithOne(p => p.Owner)
                 .HasForeignKey(p => p.OwnerId);
 
-         
+
             // PetServiceCategory has many PetServices
             modelBuilder.Entity<PetServiceCategory>()
                 .HasMany(psc => psc.PetServices)

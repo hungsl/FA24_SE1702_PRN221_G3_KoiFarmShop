@@ -1,31 +1,22 @@
-﻿using FirebaseAdmin;
-using FluentValidation;
-using Google.Apis.Auth.OAuth2;
-using Google.Cloud.Storage.V1;
-using KoiFarmShop.Application.Common.Validator.Pet;
-
+﻿using FluentValidation;
 using KoiFarmShop.Application.Common.Validator.Appointment;
+using KoiFarmShop.Application.Common.Validator.Pet;
 using KoiFarmShop.Application.Common.Validator.PetService;
-
 using KoiFarmShop.Application.Common.Validator.User;
 using KoiFarmShop.Application.Implement.Service;
 using KoiFarmShop.Application.Interface.IService;
-using KoiFarmShop.Application.Common.Validator.Abstract;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.Common;
 using KoiFarmShop.Infrastructure.DTOs.Appointment.MakeAppointment;
+using KoiFarmShop.Infrastructure.DTOs.ComboService.AddComboService;
 using KoiFarmShop.Infrastructure.DTOs.Pet.AddPet;
-
-
-
+using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
+using KoiFarmShop.Infrastructure.DTOs.User.Login;
 using KoiFarmShop.Infrastructure.DTOs.User.Register;
 using KoiFarmShop.Infrastructure.Implement.Repositories;
 using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
-using KoiFarmShop.Infrastructure.DTOs.User.Login;
-using Microsoft.AspNetCore.Identity;
-using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
-using KoiFarmShop.Infrastructure.DTOs.ComboService.AddComboService;
+using Microsoft.AspNetCore.Authentication.Cookies;
 namespace KoiFarmShop.RazorWebApp.Startup
 {
     public static class DependencyInjectionSetup
@@ -34,6 +25,15 @@ namespace KoiFarmShop.RazorWebApp.Startup
         //comr
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
+
+            services.AddHttpContextAccessor(); // Add this line
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                    options.LogoutPath = "/Account/Logout";
+                    options.AccessDeniedPath = "/Account/AccessDenied";
+                });
 
             #region Common
             //Common
@@ -67,6 +67,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
             services.AddTransient<IComboServiceRepository, ComboServiceRepository>();
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            services.AddTransient<IVeterinarianRepository, VeterinarianRepository>();
 
 
             #endregion
@@ -86,6 +87,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IComboServiceService, ComboServiceService>();
             services.AddTransient<IAppointmentService, AppointmentService>();
             services.AddTransient<IPetServiceLogic, PetServiceLogic>();
+            services.AddTransient<IVeterinarianService, VeterinarianService>();
 
             #endregion
 

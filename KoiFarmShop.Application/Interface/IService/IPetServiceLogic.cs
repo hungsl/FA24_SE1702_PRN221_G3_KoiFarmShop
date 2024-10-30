@@ -1,11 +1,5 @@
 ﻿using KoiFarmShop.Application.Common.Result;
-using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DTOs.Pet.AddPet;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Application.Interface.IService
 {
@@ -17,5 +11,7 @@ namespace KoiFarmShop.Application.Interface.IService
         Task<Result> UpdatePetAsync(Guid id, AddPetRequest updatePet);
         Task<Result> DeletePetAsync(Guid id);
         Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote);
+
+        public Task<Result> GetPetsByOwnerIdAsync(Guid ownerId);
     }
 }

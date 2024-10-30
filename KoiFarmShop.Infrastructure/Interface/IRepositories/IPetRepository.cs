@@ -1,9 +1,4 @@
 ﻿using KoiFarmShop.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 {
@@ -15,5 +10,7 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
         public Task<int> UpdatePetAsync(Pet pet);
         public Task<int> DeletePetAsync(Guid id);
         Task<List<Pet>> GetAllPetWithSearchAsync(string searchName, string searchColor, string searchNote);
+
+        public Task<IEnumerable<Pet>> GetPetsByOwnerIdAsync(Guid ownerId);
     }
 }

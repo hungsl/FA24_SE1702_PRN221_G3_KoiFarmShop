@@ -2,11 +2,6 @@
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.Implement.Repositories
 {
@@ -14,6 +9,14 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
     {
 
         public PetRepository(KVSCContext context) : base(context) { }
+
+        // Get all pets by OwnerId
+        public async Task<IEnumerable<Pet>> GetPetsByOwnerIdAsync(Guid ownerId)
+        {
+            return await _context.Pets
+                .Where(p => p.OwnerId == ownerId && !p.IsDeleted)
+                .ToListAsync();
+        }
 
         public async Task<Pet> GetPetByIdAsync(Guid id)
         {

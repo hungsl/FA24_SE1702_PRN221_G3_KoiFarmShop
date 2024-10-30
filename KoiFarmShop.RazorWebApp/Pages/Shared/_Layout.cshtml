@@ -22,24 +22,40 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/KoiService/Index">PetService</a>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/KoiFish/Index">Pet</a>
                         </li>
-                        
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/KoiFish/SignalRPet">SignalR Pet</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/KoiService/SignalRPetService">SignalR PetService</a>
-                        </li> *@
-
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/KoiAppointment/Index">Appointment</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav">
+                        @if (User?.Identity?.IsAuthenticated == true)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link text-dark">Hello, @User.Identity.Name!</span>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-area="" asp-page="/Account/Logout" class="d-inline">
+                                    <button type="submit" class="btn btn-link nav-link text-dark">Logout</button>
+                                </form>
+
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Account/Register">Sign Up</a>
+                            </li>
+                        }
+                    </ul>
+
                 </div>
             </div>
         </nav>
@@ -62,4 +78,5 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
