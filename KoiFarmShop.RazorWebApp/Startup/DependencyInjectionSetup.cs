@@ -67,6 +67,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
             services.AddTransient<IComboServiceRepository, ComboServiceRepository>();
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            services.AddTransient<IVeterinarianRepository, VeterinarianRepository>();
 
 
             #endregion
@@ -86,6 +87,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IComboServiceService, ComboServiceService>();
             services.AddTransient<IAppointmentService, AppointmentService>();
             services.AddTransient<IPetServiceLogic, PetServiceLogic>();
+            services.AddTransient<IVeterinarianService, VeterinarianService>();
 
             #endregion
 

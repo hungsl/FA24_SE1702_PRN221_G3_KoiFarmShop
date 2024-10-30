@@ -41,7 +41,7 @@ namespace KVSC.Infrastructure.DB.Configuration
                     LastHealthCheck = new DateTime(2024, 10, 2),
                     Note = "Slight issue with fins, under observation.",
                     HealthStatus = 2, // Under Observation
-                    OwnerId = new Guid("bca84e29-de4d-475b-a3ad-a02e937efa14"), // Customer_2
+                    OwnerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"), 
                 },
                 new Pet
                 {
@@ -57,7 +57,7 @@ namespace KVSC.Infrastructure.DB.Configuration
                     LastHealthCheck = new DateTime(2024, 10, 3),
                     Note = "In great condition, regular feeding.",
                     HealthStatus = 1, // Healthy
-                    OwnerId = new Guid("45a9dc1c-fb8a-4607-9a7e-d6b1359384d7"), // Customer_3
+                    OwnerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"), 
                 },
                 new Pet
                 {
@@ -73,7 +73,7 @@ namespace KVSC.Infrastructure.DB.Configuration
                     LastHealthCheck = new DateTime(2024, 10, 4),
                     Note = "Newly purchased, adjusting to pond.",
                     HealthStatus = 1, // Healthy
-                    OwnerId = new Guid("5f28fcb6-675b-4f97-a925-01ac8c68b5ac"), // Customer_4
+                    OwnerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"), 
                 },
                 new Pet
                 {

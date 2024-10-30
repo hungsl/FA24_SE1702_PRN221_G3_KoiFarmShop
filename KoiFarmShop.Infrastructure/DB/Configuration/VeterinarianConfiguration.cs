@@ -29,7 +29,29 @@ namespace KVSC.Infrastructure.DB.Configuration
                     Qualifications = "PhD in Veterinary Science",
                     CreatedDate = DateTime.UtcNow,
                     IsDeleted = false
+                },
+                new Veterinarian
+                {
+                    Id = new Guid("21a15a4f-32f5-4d45-a056-f0d61f384e1c"),
+                    UserId = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8c"),
+                    LicenseNumber = "VN789013",
+                    Specialty = "Fish Surgery",
+                    Qualifications = "PhD in Veterinary Science",
+                    CreatedDate = DateTime.UtcNow,
+                    IsDeleted = false
+                },
+                new Veterinarian
+                {
+                    Id = new Guid("21a15a4f-32f5-4d45-a056-f0d61f384e1d"),
+                    UserId = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8d"),
+                    LicenseNumber = "VN789014",
+                    Specialty = "Fish Surgery",
+                    Qualifications = "PhD in Veterinary Science",
+                    CreatedDate = DateTime.UtcNow,
+                    IsDeleted = false
                 }
+               
+                
             );
         }
     }

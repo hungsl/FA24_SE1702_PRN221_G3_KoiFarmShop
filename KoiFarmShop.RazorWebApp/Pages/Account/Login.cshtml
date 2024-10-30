@@ -1,7 +1,7 @@
 ﻿@page
 @model KoiFarmShop.RazorWebApp.Pages.Account.LoginModel
 @{
-    ViewData["Title"] = "Login";
+ViewData["Title"] = "Login";
 }
 
 <h2>Login</h2>
@@ -22,9 +22,13 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
-    <p class="text-danger">@Model.ErrorMessage</p>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+    <div class="alert alert-danger mt-3">@Model.ErrorMessage</div>
+    }
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }

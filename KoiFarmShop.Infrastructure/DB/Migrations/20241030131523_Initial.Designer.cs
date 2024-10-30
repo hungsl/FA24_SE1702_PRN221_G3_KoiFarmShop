@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace KoiFarmShop.Infrastructure.Migrations
+namespace KoiFarmShop.Infrastructure.DB.Migrations
 {
     [DbContext(typeof(KVSCContext))]
-    [Migration("20241030071421_init")]
-    partial class init
+    [Migration("20241030131523_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,7 +82,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("11111111-1111-1111-1111-111111111111"),
                             AppointmentDate = new DateTime(2024, 11, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2401),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6547),
                             CustomerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             IsDeleted = false,
                             PetId = new Guid("f1111111-1111-1111-1111-111111111111"),
@@ -93,7 +93,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("22222222-2222-2222-2222-222222222222"),
                             AppointmentDate = new DateTime(2024, 11, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2410),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6554),
                             CustomerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             IsDeleted = false,
                             PetId = new Guid("f1111111-1111-1111-1111-111111111111"),
@@ -104,7 +104,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("33333333-3333-3333-3333-333333333333"),
                             AppointmentDate = new DateTime(2024, 11, 2, 9, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2418),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6561),
                             CustomerId = new Guid("45a9dc1c-fb8a-4607-9a7e-d6b1359384d7"),
                             IsDeleted = false,
                             PetId = new Guid("f3333333-3333-3333-3333-333333333333"),
@@ -115,7 +115,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("44444444-4444-4444-4444-444444444444"),
                             AppointmentDate = new DateTime(2024, 11, 3, 13, 30, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2431),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6565),
                             CustomerId = new Guid("bca84e29-de4d-475b-a3ad-a02e937efa14"),
                             IsDeleted = false,
                             PetServiceId = new Guid("7d80bd0a-7780-4c4c-981b-48d7f8784405"),
@@ -125,7 +125,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("55555555-5555-5555-5555-555555555555"),
                             AppointmentDate = new DateTime(2024, 11, 5, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2438),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6570),
                             CustomerId = new Guid("b59d5d37-53d8-4cb6-98ed-520f49eafa73"),
                             IsDeleted = false,
                             PetServiceId = new Guid("f6a59f70-c0db-45b4-a598-045a005d42ed"),
@@ -135,7 +135,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("66666666-6666-6666-6666-666666666666"),
                             AppointmentDate = new DateTime(2024, 11, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2446),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6578),
                             CustomerId = new Guid("5f28fcb6-675b-4f97-a925-01ac8c68b5ac"),
                             IsDeleted = false,
                             PetServiceId = new Guid("7d80bd0a-7780-4c4c-981b-48d7f8784405"),
@@ -145,7 +145,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("77777777-7777-7777-7777-777777777777"),
                             AppointmentDate = new DateTime(2024, 11, 8, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2453),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6583),
                             CustomerId = new Guid("0d1fbbab-a175-4d90-8291-d5d96ebb9359"),
                             IsDeleted = false,
                             PetServiceId = new Guid("2d95b900-9b04-4f6f-94ec-7d47d2a89ec8"),
@@ -156,7 +156,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("88888888-8888-8888-8888-888888888888"),
                             AppointmentDate = new DateTime(2024, 11, 10, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             CompletedDate = new DateTime(2024, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2462),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6590),
                             CustomerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             IsDeleted = false,
                             PetServiceId = new Guid("7d80bd0a-7780-4c4c-981b-48d7f8784405"),
@@ -167,7 +167,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("99999999-9999-9999-9999-999999999999"),
                             AppointmentDate = new DateTime(2024, 11, 12, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             CompletedDate = new DateTime(2024, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2470),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6595),
                             CustomerId = new Guid("45a9dc1c-fb8a-4607-9a7e-d6b1359384d7"),
                             IsDeleted = false,
                             PetServiceId = new Guid("f6a59f70-c0db-45b4-a598-045a005d42ed"),
@@ -178,7 +178,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
                             AppointmentDate = new DateTime(2024, 11, 7, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             CompletedDate = new DateTime(2024, 11, 7, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2478),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6599),
                             CustomerId = new Guid("bca84e29-de4d-475b-a3ad-a02e937efa14"),
                             IsDeleted = false,
                             PetServiceId = new Guid("2d95b900-9b04-4f6f-94ec-7d47d2a89ec8"),
@@ -189,7 +189,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"),
                             AppointmentDate = new DateTime(2024, 11, 9, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             CompletedDate = new DateTime(2024, 11, 9, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(2485),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6604),
                             CustomerId = new Guid("b59d5d37-53d8-4cb6-98ed-520f49eafa73"),
                             IsDeleted = false,
                             PetServiceId = new Guid("f6a59f70-c0db-45b4-a598-045a005d42ed"),
@@ -384,7 +384,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("f1111111-1111-1111-1111-111111111111"),
                             Age = 3,
                             Color = "Orange and White",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3038),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6879),
                             Gender = "Male",
                             HealthStatus = 1,
                             ImageUrl = "https://example.com/koi1.jpg",
@@ -402,7 +402,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("f2222222-2222-2222-2222-222222222222"),
                             Age = 4,
                             Color = "Red and White",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3048),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6887),
                             Gender = "Female",
                             HealthStatus = 2,
                             ImageUrl = "https://example.com/koi2.jpg",
@@ -411,7 +411,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Length = 40.0,
                             Name = "Koi Fish 2",
                             Note = "Slight issue with fins, under observation.",
-                            OwnerId = new Guid("bca84e29-de4d-475b-a3ad-a02e937efa14"),
+                            OwnerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             Quantity = 3,
                             Weight = 3.0
                         },
@@ -420,7 +420,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("f3333333-3333-3333-3333-333333333333"),
                             Age = 2,
                             Color = "Yellow and White",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3056),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6893),
                             Gender = "Male",
                             HealthStatus = 1,
                             ImageUrl = "https://example.com/koi3.jpg",
@@ -429,7 +429,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Length = 32.0,
                             Name = "Koi Fish 3",
                             Note = "In great condition, regular feeding.",
-                            OwnerId = new Guid("45a9dc1c-fb8a-4607-9a7e-d6b1359384d7"),
+                            OwnerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             Quantity = 10,
                             Weight = 2.0
                         },
@@ -438,7 +438,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("f4444444-4444-4444-4444-444444444444"),
                             Age = 1,
                             Color = "Black and White",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3063),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6898),
                             Gender = "Female",
                             HealthStatus = 1,
                             ImageUrl = "https://example.com/koi4.jpg",
@@ -447,7 +447,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Length = 25.0,
                             Name = "Koi Fish 4",
                             Note = "Newly purchased, adjusting to pond.",
-                            OwnerId = new Guid("5f28fcb6-675b-4f97-a925-01ac8c68b5ac"),
+                            OwnerId = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             Quantity = 7,
                             Weight = 3.0
                         },
@@ -456,7 +456,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("f5555555-5555-5555-5555-555555555555"),
                             Age = 5,
                             Color = "Blue and White",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3071),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6903),
                             Gender = "Male",
                             HealthStatus = 1,
                             ImageUrl = "https://example.com/koi5.jpg",
@@ -474,7 +474,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             Id = new Guid("f6666666-6666-6666-6666-666666666666"),
                             Age = 2,
                             Color = "White",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3078),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6909),
                             Gender = "Female",
                             HealthStatus = 1,
                             ImageUrl = "https://example.com/koi6.jpg",
@@ -551,7 +551,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 1, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 31, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 150.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3310),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7025),
                             Description = "Provides immediate care for critical conditions in Koi fish.",
                             Duration = "3 hours",
                             ImageUrl = "https://example.com/image7.jpg",
@@ -567,7 +567,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 1, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 31, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 100.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3320),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7032),
                             Description = "A specialized treatment to remove and prevent parasites in Koi.",
                             Duration = "2 hours",
                             ImageUrl = "https://example.com/image5.jpg",
@@ -583,7 +583,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 3, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 25, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 20.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3328),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7072),
                             Description = "Ensures optimal water conditions for Koi health and growth.",
                             Duration = "45 minutes",
                             ImageUrl = "https://example.com/image3.jpg",
@@ -599,7 +599,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 3, 22, 10, 20, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 4, 2, 10, 20, 0, DateTimeKind.Unspecified),
                             BasePrice = 29.99m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3337),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7078),
                             Description = "A convenient feeding service ensuring proper diet and nutrition.",
                             Duration = "30 minutes",
                             ImageUrl = "https://example.com/image.jpg",
@@ -615,7 +615,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 5, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 20, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 30.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3346),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7084),
                             Description = "Scheduled feeding for Koi with premium quality fish food.",
                             Duration = "1 hour",
                             ImageUrl = "https://example.com/image2.jpg",
@@ -631,7 +631,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 10, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 15, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 75.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3355),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7090),
                             Description = "Treats and prevents fungal infections in Koi fish.",
                             Duration = "1.5 hours",
                             ImageUrl = "https://example.com/image4.jpg",
@@ -647,7 +647,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 3, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 28, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 40.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3363),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7095),
                             Description = "Provides essential knowledge for Koi fish care and maintenance.",
                             Duration = "1 hour",
                             ImageUrl = "https://example.com/image8.jpg",
@@ -663,7 +663,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 4, 14, 2, 32, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 11, 3, 14, 2, 32, 0, DateTimeKind.Unspecified),
                             BasePrice = 1.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3371),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7102),
                             Description = "Sample service description.",
                             Duration = "string",
                             ImageUrl = "string",
@@ -679,7 +679,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                             AvailableFrom = new DateTime(2024, 10, 5, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             AvailableTo = new DateTime(2024, 10, 30, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             BasePrice = 60.00m,
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(3384),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(7107),
                             Description = "Regular maintenance to keep your Koi pond in optimal condition.",
                             Duration = "1 hour",
                             ImageUrl = "https://example.com/image6.jpg",
@@ -731,7 +731,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("83d70177-2e40-49c9-a0bf-27ce80cce340"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2726),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6723),
                             Description = "A standard health check for Koi fish to monitor their overall well-being and prevent diseases.",
                             IsDeleted = false,
                             Name = "Health Check",
@@ -741,7 +741,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("fe3df183-1f42-4301-a1fb-35e6211c8816"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2744),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6735),
                             Description = "Specialized feeding service for Koi fish, ensuring proper nutrition and dietary requirements.",
                             IsDeleted = false,
                             Name = "Feeding Service",
@@ -751,7 +751,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("75efc332-0e1b-4d35-a609-4897d83c173e"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2750),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6742),
                             Description = "Testing water quality parameters to ensure a healthy environment for Koi.",
                             IsDeleted = false,
                             Name = "Water Quality Testing",
@@ -761,7 +761,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("a5e47a8f-f6e1-4c7a-8955-4a928744f9bf"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2755),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6746),
                             Description = "Treatment services for Koi suffering from fungal infections.",
                             IsDeleted = false,
                             Name = "Fungal Treatment",
@@ -771,7 +771,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("da91046c-71d1-429b-ade3-5e8ff9f701a6"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2761),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6750),
                             Description = "Services to treat and prevent parasites in Koi fish.",
                             IsDeleted = false,
                             Name = "Parasite Treatment",
@@ -781,7 +781,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("82b86176-d076-4576-b0f3-60220ca3e5ba"),
                             ApplicableTo = "Ponds",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2768),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6754),
                             Description = "Regular maintenance services for Koi ponds to ensure optimal conditions.",
                             IsDeleted = false,
                             Name = "Pond Maintenance",
@@ -791,7 +791,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("3d3bb172-c3d0-4d0f-ac50-713708bc6498"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2774),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6758),
                             Description = "Guidance and assistance in breeding Koi fish.",
                             IsDeleted = false,
                             Name = "Koi Breeding Assistance",
@@ -801,7 +801,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("15c55a94-06fb-4dac-8b32-7c1d7af085a3"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2780),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6762),
                             Description = "Safe transportation services for Koi fish.",
                             IsDeleted = false,
                             Name = "Koi Transportation",
@@ -811,7 +811,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("fb21c5e6-5db5-4dab-99b1-9c5d51f0ab51"),
                             ApplicableTo = "Koi Fish",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2790),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6766),
                             Description = "Emergency medical services for Koi in distress.",
                             IsDeleted = false,
                             Name = "Emergency Care",
@@ -821,7 +821,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("ca3801df-081c-4db5-a416-b04791797d92"),
                             ApplicableTo = "Koi Enthusiasts",
-                            CreatedDate = new DateTime(2024, 10, 30, 14, 14, 19, 867, DateTimeKind.Local).AddTicks(2796),
+                            CreatedDate = new DateTime(2024, 10, 30, 20, 15, 21, 907, DateTimeKind.Local).AddTicks(6769),
                             Description = "Workshops on Koi care and pond management.",
                             IsDeleted = false,
                             Name = "Educational Workshops",
@@ -886,12 +886,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("4feb4940-94dc-4aed-b580-ee116b668704"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1696),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(5574),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@gmail.com",
                             FullName = "Admin",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             ProfilePictureUrl = "User/0c08ff89-61a7-4b57-9c1d-ac6f3c57907b_Screenshot 2024-01-17 155826.png",
                             Username = "Admin",
@@ -901,12 +901,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("b59d5d37-53d8-4cb6-98ed-520f49eafa73"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1718),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(5880),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "manager@gmail.com",
                             FullName = "Manager",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             Username = "Manager",
                             role = 2
@@ -915,12 +915,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("1dac24c4-08e2-4612-84dc-7c8960e483ea"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1724),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(5928),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "veterinarian1@gmail.com",
                             FullName = "Veterinarian_1",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             ProfilePictureUrl = "User/0c08ff89-61a7-4b57-9c1d-ac6f3c57907b_Screenshot 2024-01-17 155826.png",
                             Username = "Veterinarian_1",
@@ -930,12 +930,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8a"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1729),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6009),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "veterinarian2@gmail.com",
                             FullName = "Veterinarian_2",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             ProfilePictureUrl = "User/0c08ff89-61a7-4b57-9c1d-ac6f3c57907b_Screenshot 2024-01-17 155826.png",
                             Username = "Veterinarian_2",
@@ -943,14 +943,44 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         },
                         new
                         {
+                            Id = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8c"),
+                            Address = "123 Main St",
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6036),
+                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "veterinarian2@gmail.com",
+                            FullName = "Veterinarian_3",
+                            IsDeleted = false,
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
+                            PhoneNumber = "123456789",
+                            ProfilePictureUrl = "User/0c08ff89-61a7-4b57-9c1d-ac6f3c57907b_Screenshot 2024-01-17 155826.png",
+                            Username = "Veterinarian_3",
+                            role = 3
+                        },
+                        new
+                        {
+                            Id = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8d"),
+                            Address = "123 Main St",
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6060),
+                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "veterinarian2@gmail.com",
+                            FullName = "Veterinarian_4",
+                            IsDeleted = false,
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
+                            PhoneNumber = "123456789",
+                            ProfilePictureUrl = "User/0c08ff89-61a7-4b57-9c1d-ac6f3c57907b_Screenshot 2024-01-17 155826.png",
+                            Username = "Veterinarian_4",
+                            role = 3
+                        },
+                        new
+                        {
                             Id = new Guid("5f28fcb6-675b-4f97-a925-01ac8c68b5ac"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1734),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6083),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff1@gmail.com",
                             FullName = "Staff_1",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             Username = "Staff_1",
                             role = 4
@@ -959,12 +989,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("0d1fbbab-a175-4d90-8291-d5d96ebb9359"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1758),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6107),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff2@gmail.com",
                             FullName = "Staff_2",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             Username = "Staff_2",
                             role = 4
@@ -973,27 +1003,27 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("dd0e9f37-d587-401d-932e-7f098eb60b3e"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1764),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6130),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer1@gmail.com",
-                            FullName = "Customer_1",
+                            FullName = "Gia Phuc",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "655b64170e5393b4fe019343b7178da6bcc726e1661582f80e48007e7b43c315",
                             PhoneNumber = "123456789",
                             ProfilePictureUrl = "User/0c08ff89-61a7-4b57-9c1d-ac6f3c57907b_Screenshot 2024-01-17 155826.png",
-                            Username = "Customer_1",
+                            Username = "Cubin2003",
                             role = 5
                         },
                         new
                         {
                             Id = new Guid("bca84e29-de4d-475b-a3ad-a02e937efa14"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1769),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6159),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer2@gmail.com",
                             FullName = "Customer_2",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             Username = "Customer_2",
                             role = 5
@@ -1002,12 +1032,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("45a9dc1c-fb8a-4607-9a7e-d6b1359384d7"),
                             Address = "123 Main St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1774),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6183),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer3@gmail.com",
                             FullName = "Customer_3",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "123456789",
                             Username = "Customer_3",
                             role = 5
@@ -1016,238 +1046,14 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("d13e5c69-8d8a-4b67-b378-0e2de003816b"),
                             Address = "456 Elm St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1779),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(6206),
                             DateOfBirth = new DateTime(1992, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "customer4@gmail.com",
                             FullName = "Customer_4",
                             IsDeleted = false,
-                            PasswordHash = "String123!",
+                            PasswordHash = "4d50906302527a2929fcb8cc7fc791f7f7af387388b503b4c6354b72039ba8ee",
                             PhoneNumber = "987654321",
                             Username = "Customer_4",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("a1d5c6e2-4f26-4860-9f3e-563a07f1cbf6"),
-                            Address = "789 Pine St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1786),
-                            DateOfBirth = new DateTime(1993, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer5@gmail.com",
-                            FullName = "Customer_5",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "234567890",
-                            Username = "Customer_5",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("6b1f16be-c12a-4709-95d4-f0c623239823"),
-                            Address = "321 Maple St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1850),
-                            DateOfBirth = new DateTime(1994, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer6@gmail.com",
-                            FullName = "Customer_6",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "345678901",
-                            Username = "Customer_6",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("f1f55d2a-b96f-4c74-b89e-e4c29a1d8e2e"),
-                            Address = "654 Cedar St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1857),
-                            DateOfBirth = new DateTime(1995, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer7@gmail.com",
-                            FullName = "Customer_7",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "456789012",
-                            Username = "Customer_7",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("ca28f1ab-1cfc-4e99-835f-e44c65756bb3"),
-                            Address = "987 Birch St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1868),
-                            DateOfBirth = new DateTime(1996, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer8@gmail.com",
-                            FullName = "Customer_8",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "567890123",
-                            Username = "Customer_8",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("c30d6f58-b8e0-4fb4-b10c-f9c2af7a3622"),
-                            Address = "159 Willow St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1874),
-                            DateOfBirth = new DateTime(1997, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer9@gmail.com",
-                            FullName = "Customer_9",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "678901234",
-                            Username = "Customer_9",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("a41b99c8-7d70-4c8c-9bc3-e249f93c9278"),
-                            Address = "753 Cherry St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1879),
-                            DateOfBirth = new DateTime(1998, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer10@gmail.com",
-                            FullName = "Customer_10",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "789012345",
-                            Username = "Customer_10",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("e79cb43f-3b60-4d8d-84c5-579c1d6c80e4"),
-                            Address = "852 Oak St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1884),
-                            DateOfBirth = new DateTime(1999, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer11@gmail.com",
-                            FullName = "Customer_11",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "890123456",
-                            Username = "Customer_11",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("f81253a8-7937-4c29-80d3-bcfa0522f9e8"),
-                            Address = "963 Sycamore St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1889),
-                            DateOfBirth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer12@gmail.com",
-                            FullName = "Customer_12",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "901234567",
-                            Username = "Customer_12",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("4b171e29-8041-4d4d-a96d-4f7efc1f635b"),
-                            Address = "357 Fir St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1894),
-                            DateOfBirth = new DateTime(1988, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer13@gmail.com",
-                            FullName = "Customer_13",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "012345678",
-                            Username = "Customer_13",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("c4e31a0b-982b-43e5-bb52-93b7c2e4b307"),
-                            Address = "258 Spruce St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1899),
-                            DateOfBirth = new DateTime(1987, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer14@gmail.com",
-                            FullName = "Customer_14",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "123456789",
-                            Username = "Customer_14",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("a255eb98-d5b4-4e57-bbff-1de8c6b844b0"),
-                            Address = "369 Redwood St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1904),
-                            DateOfBirth = new DateTime(1986, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer15@gmail.com",
-                            FullName = "Customer_15",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "987654321",
-                            Username = "Customer_15",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("79a27f2e-e21b-49b1-99a3-e66b18c5cba0"),
-                            Address = "147 Palm St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1914),
-                            DateOfBirth = new DateTime(1985, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer16@gmail.com",
-                            FullName = "Customer_16",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "234567890",
-                            Username = "Customer_16",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("e3c1e155-dbc4-40a8-8a5a-091557942c55"),
-                            Address = "258 Acacia St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1920),
-                            DateOfBirth = new DateTime(1984, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer17@gmail.com",
-                            FullName = "Customer_17",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "345678901",
-                            Username = "Customer_17",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("0f43fda0-fbde-4079-8ae4-66da674c8455"),
-                            Address = "369 Larch St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1924),
-                            DateOfBirth = new DateTime(1983, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer18@gmail.com",
-                            FullName = "Customer_18",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "456789012",
-                            Username = "Customer_18",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("fe29d53f-44b8-40b5-8672-bb37f6b5c8c5"),
-                            Address = "579 Fir St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1929),
-                            DateOfBirth = new DateTime(1982, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer19@gmail.com",
-                            FullName = "Customer_19",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "567890123",
-                            Username = "Customer_19",
-                            role = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("c5e4f6e5-bd3c-4fd5-b3d7-8a7f9c8e3b44"),
-                            Address = "690 Cedar St",
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(1934),
-                            DateOfBirth = new DateTime(1981, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "customer20@gmail.com",
-                            FullName = "Customer_20",
-                            IsDeleted = false,
-                            PasswordHash = "String123!",
-                            PhoneNumber = "678901234",
-                            Username = "Customer_20",
                             role = 5
                         });
                 });
@@ -1297,7 +1103,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("d59b53f6-7bc4-4af7-b5f5-438e16b75dd4"),
                             ConsultationFee = 0m,
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3608),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(7213),
                             IsDeleted = false,
                             LicenseNumber = "VN123456",
                             Qualifications = "Doctor of Veterinary Medicine (DVM)",
@@ -1308,12 +1114,34 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         {
                             Id = new Guid("21a15a4f-32f5-4d45-a056-f0d61f384e1b"),
                             ConsultationFee = 0m,
-                            CreatedDate = new DateTime(2024, 10, 30, 7, 14, 19, 867, DateTimeKind.Utc).AddTicks(3618),
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(7220),
                             IsDeleted = false,
                             LicenseNumber = "VN789012",
                             Qualifications = "PhD in Veterinary Science",
                             Specialty = "Fish Surgery",
                             UserId = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8a")
+                        },
+                        new
+                        {
+                            Id = new Guid("21a15a4f-32f5-4d45-a056-f0d61f384e1c"),
+                            ConsultationFee = 0m,
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(7224),
+                            IsDeleted = false,
+                            LicenseNumber = "VN789013",
+                            Qualifications = "PhD in Veterinary Science",
+                            Specialty = "Fish Surgery",
+                            UserId = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8c")
+                        },
+                        new
+                        {
+                            Id = new Guid("21a15a4f-32f5-4d45-a056-f0d61f384e1d"),
+                            ConsultationFee = 0m,
+                            CreatedDate = new DateTime(2024, 10, 30, 13, 15, 21, 907, DateTimeKind.Utc).AddTicks(7228),
+                            IsDeleted = false,
+                            LicenseNumber = "VN789014",
+                            Qualifications = "PhD in Veterinary Science",
+                            Specialty = "Fish Surgery",
+                            UserId = new Guid("2430f703-cb67-4225-bb7e-c9abe5803b8d")
                         });
                 });
 
