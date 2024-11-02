@@ -90,6 +90,7 @@ namespace KoiFarmShop.WPFApp
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
             services.AddScoped<IPetServiceService, PetServiceService>();
+            services.AddScoped<IPetServiceLogic, PetServiceLogic>();
             services.AddScoped<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddScoped<IComboServiceService, ComboServiceService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
