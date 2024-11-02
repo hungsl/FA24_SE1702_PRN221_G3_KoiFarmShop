@@ -202,7 +202,9 @@ namespace KoiFarmShop.Service.Implement.Service
                     PetServiceId = request.PetServiceId,
                     Status = "Pending",
                     AppointmentDate = request.AppointmentDate,
+                    AppointmentVeterinarians = new List<AppointmentVeterinarian>() // Initialize as empty list
                 };
+
 
                 // Assigning Veterinarian(s)
                 if (request.VeterinarianIds == null || !request.VeterinarianIds.Any())
@@ -210,11 +212,12 @@ namespace KoiFarmShop.Service.Implement.Service
                     var availableVeterinarian = await _unitOfWork.AppointmentRepository.GetAvailableVeterinarianAsync(appointment.AppointmentDate);
                     if (availableVeterinarian != null)
                     {
-                        appointment.AppointmentVeterinarians = new List<AppointmentVeterinarian>
-                    {
-                        new AppointmentVeterinarian { VeterinarianId = availableVeterinarian.Id }
-                    };
+                        appointment.AppointmentVeterinarians.Add(new AppointmentVeterinarian { VeterinarianId = availableVeterinarian.Id });
                         _logger.LogInformation("Assigned available veterinarian ID {VeterinarianId} to the appointment.", availableVeterinarian.Id);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("No available veterinarian found for the appointment date.");
                     }
                 }
                 else
@@ -233,9 +236,13 @@ namespace KoiFarmShop.Service.Implement.Service
                 // Update Veterinarian Schedule Availability
                 foreach (var veterinarian in appointment.AppointmentVeterinarians)
                 {
-                    await _unitOfWork.AppointmentRepository.UpdateScheduleAvailabilityAsync(veterinarian.VeterinarianId, appointment.AppointmentDate);
-                    _logger.LogInformation("Updated schedule availability for veterinarian ID {VeterinarianId}.", veterinarian.VeterinarianId);
+                    if (veterinarian.VeterinarianId != Guid.Empty)
+                    {
+                        await _unitOfWork.AppointmentRepository.UpdateScheduleAvailabilityAsync(veterinarian.VeterinarianId, appointment.AppointmentDate);
+                        _logger.LogInformation("Updated schedule availability for veterinarian ID {VeterinarianId}.", veterinarian.VeterinarianId);
+                    }
                 }
+
 
                 var response = new CreateResponse { Id = appointment.Id };
                 return Result.SuccessWithObject(response);

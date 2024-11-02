@@ -14,15 +14,23 @@ namespace KoiFarmShop.WPFApp
         private readonly IAppointmentService _appointmentService;
         private readonly IPetServiceLogic _petServiceLogic;
         private readonly IPetServiceService _petServiceService;
+        private readonly IVeterinarianService _veterinarianService;
 
         // Constructor with dependency injection for IAppointmentService
-        public MainWindow(IAppointmentService appointmentService, IPetServiceLogic petServiceLogic, IPetServiceService petServiceService)
+        public MainWindow(IAppointmentService appointmentService, IPetServiceLogic petServiceLogic, IPetServiceService petServiceService, IVeterinarianService veterinarianService)
         {
             InitializeComponent();
             _appointmentService = appointmentService;
             _petServiceLogic = petServiceLogic;
+            _veterinarianService = veterinarianService;
             _petServiceService = petServiceService;
-            LoadAppointmentAndPetServicesData();
+            Loaded += MainWindow_Loaded; // Load data when window is fully loaded
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            await LoadAppointmentAndPetServicesData(); // Load appointments and pet services
+            await LoadVeterinarians(); // Load veterinarians
         }
 
         private async Task LoadAppointmentAndPetServicesData()
@@ -52,6 +60,37 @@ namespace KoiFarmShop.WPFApp
                 MessageBox.Show("Failed to load pet services.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private async Task LoadVeterinarians()
+        {
+            var result = await _veterinarianService.GetAllVeterinariansAsync();
+            if (result.IsSuccess)
+            {
+                var veterinarians = result.Object as List<Veterinarian>;
+                cboVeterinarian.ItemsSource = veterinarians;
+                cboVeterinarian.DisplayMemberPath = "User.FullName"; // Bind to FullName via the User navigation property
+                cboVeterinarian.SelectedValuePath = "UserId";        // Assuming you want the UserId as the selected value
+            }
+            else
+            {
+                MessageBox.Show("Failed to load veterinarians.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async Task LoadAppointmentsData()
+        {
+            var appointmentResult = await _appointmentService.GetAllAppointmentsAsync();
+            if (appointmentResult.IsSuccess)
+            {
+                grdServices.ItemsSource = appointmentResult.Object as List<Appointment>;
+            }
+            else
+            {
+                MessageBox.Show("Failed to load appointments.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+
 
 
 
@@ -108,7 +147,7 @@ namespace KoiFarmShop.WPFApp
                     MessageBoxButton.OK,
                     result.IsSuccess ? MessageBoxImage.Information : MessageBoxImage.Warning);
 
-                LoadAppointmentAndPetServicesData();
+                await LoadAppointmentsData(); // Only reload appointments
             }
             catch (Exception ex)
             {
@@ -148,13 +187,16 @@ namespace KoiFarmShop.WPFApp
                     MessageBoxButton.OK,
                     result.IsSuccess ? MessageBoxImage.Information : MessageBoxImage.Warning);
 
-                LoadAppointmentAndPetServicesData();
+                await LoadAppointmentsData(); // Only reload appointments
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to update appointment. Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+
 
         private bool ValidateInputs()
         {

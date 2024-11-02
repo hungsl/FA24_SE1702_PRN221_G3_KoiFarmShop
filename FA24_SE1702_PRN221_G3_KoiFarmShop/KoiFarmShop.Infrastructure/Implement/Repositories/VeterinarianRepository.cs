@@ -11,13 +11,11 @@ public class VeterinarianRepository : GenericRepository<User>, IVeterinarianRepo
 
     public async Task<List<Veterinarian>> GetAllVeterinariansAsync()
     {
-        return await _context.Users
-            .Where(u => u.role == 3) // Only veterinarians
-            .Include(u => u.Veterinarian) // Include the Veterinarian relationship
-            .ThenInclude(v => v.VeterinarianSchedules) // Include schedules for each veterinarian
-            .Include(u => u.Veterinarian.User) // Ensure User details are included
-            .Select(u => u.Veterinarian) // Project to Veterinarian entity
+        return await _context.Veterinarians
+            .Include(v => v.User) // Ensure User data is loaded with Veterinarian
             .ToListAsync();
     }
+
+
 
 }

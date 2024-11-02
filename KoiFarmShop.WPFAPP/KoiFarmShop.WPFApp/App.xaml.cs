@@ -80,6 +80,7 @@ namespace KoiFarmShop.WPFApp
             services.AddScoped<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
             services.AddScoped<IComboServiceRepository, ComboServiceRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IVeterinarianRepository, VeterinarianRepository>();
             #endregion
 
             #region Generic Repositories
@@ -90,6 +91,7 @@ namespace KoiFarmShop.WPFApp
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
             services.AddScoped<IPetServiceService, PetServiceService>();
+            services.AddScoped<IVeterinarianService, VeterinarianService>();
             services.AddScoped<IPetServiceLogic, PetServiceLogic>();
             services.AddScoped<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddScoped<IComboServiceService, ComboServiceService>();

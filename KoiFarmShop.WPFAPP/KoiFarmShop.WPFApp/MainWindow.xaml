@@ -39,9 +39,15 @@
                 <ComboBox Grid.Column="3" Width="140" Height="25" Name="cboPetId" Background="#ffffff" Margin="10,0,10,10"/>
 
 
+
                 <!-- Service Category -->
                 <Label Content="Service:" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Width="64" Margin="36,-1,0,0"/>
                 <ComboBox Grid.Column="5" Width="140" Height="25" Name="cboServiceCategory" Background="#ffffff" Grid.ColumnSpan="2" Margin="27,0,93,10"/>
+
+                <Label Content="Veterinarian:" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Width="90" Grid.Row="1"/>
+                <ComboBox Grid.Column="5" Width="140" Height="25" Name="cboVeterinarian" Background="#ffffff" Grid.ColumnSpan="2" Margin="27,10,93,0" Grid.Row="1"/>
+
+
 
 
                 <!-- Appointment Date -->
