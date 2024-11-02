@@ -31,9 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KoiFarmShop.Application\KoiFarmShop.Service.csproj" />
-    <ProjectReference Include="..\KoiFarmShop.Domain\KoiFarmShop.Domain.csproj" />
-    <ProjectReference Include="..\KoiFarmShop.Infrastructure\KoiFarmShop.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Domain\KoiFarmShop.Domain.csproj" />
+    <ProjectReference Include="..\..\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Application\KoiFarmShop.Application.csproj" />
+    <ProjectReference Include="..\..\FA24_SE1702_PRN221_G3_KoiFarmShop\KoiFarmShop.Infrastructure\KoiFarmShop.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

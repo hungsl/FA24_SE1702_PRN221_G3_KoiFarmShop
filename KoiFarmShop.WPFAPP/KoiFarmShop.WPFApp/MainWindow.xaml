@@ -1,0 +1,97 @@
+﻿<Window x:Class="KoiFarmShop.WPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Appointment Manager" Height="800" Width="1256">
+    <Grid Height="636" VerticalAlignment="Top">
+        <!-- Input Group for Appointment -->
+        <GroupBox Header="APPOINTMENT INPUT" FontWeight="Bold" Width="1200" Height="310" VerticalAlignment="Top">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Appointment ID -->
+                <Label Content="ID" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="180" Height="25" Name="txtAppointmentId" IsReadOnly="True"/>
+
+                <!-- Customer ID -->
+                <Label Content="Customer ID" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="180" Height="25" Name="txtCustomerId"/>
+
+                <!-- Pet ID -->
+                <Label Content="Pet ID" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="180" Height="25" Name="txtPetId"/>
+
+                <!-- Service Category -->
+                <Label Content="Service Category" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="5" Grid.Row="1" Width="180" Height="25" Name="cboServiceCategory"/>
+
+                <!-- Appointment Date -->
+                <Label Content="Appointment Date" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <DatePicker Grid.Column="1" Grid.Row="2" Width="180" Height="25" Name="dpAppointmentDate"/>
+
+                <!-- Description -->
+                <Label Content="Description" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="380" Height="25" Name="txtDescription" Grid.ColumnSpan="3"/>
+
+                <!-- Save, Reset, Delete Buttons -->
+                <Button Grid.Column="7" Content="Save" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="25" Name="BtnSave" Click="BtnSave_Click"/>
+                <Button Grid.Column="7" Content="Reset" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="25" Name="BtnReset" Click="BtnReset_Click"/>
+                <Button Grid.Column="7" Content="Delete" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Center" Width="60" Height="25" Name="BtnDelete" Click="BtnDelete_Click"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Search Group -->
+        <GroupBox Header="SEARCH APPOINTMENTS" FontWeight="Bold" Width="1200" Height="80" VerticalAlignment="Top" Margin="0,325,0,0">
+            <Grid Margin="12,0,-2,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- User ID for search -->
+                <Label Content="User ID" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Width="180" Height="30" VerticalAlignment="Top" Name="txtSearchUserId"/>
+
+                <!-- Search Button -->
+                <Button Grid.Column="4" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="26" Name="BtnSearch" Click="BtnSearch_Click"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Data List Group -->
+        <GroupBox Header="APPOINTMENT DATA LIST" FontWeight="Bold" Width="1200" Height="250" VerticalAlignment="Top" Margin="0,410,0,0">
+            <DataGrid x:Name="grdServices" Width="1150" Height="306" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" MouseDoubleClick="grdServices_MouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="80"/>
+                    <DataGridTextColumn Header="Customer ID" Binding="{Binding CustomerId}" Width="150"/>
+                    <DataGridTextColumn Header="Pet ID" Binding="{Binding PetId}" Width="150"/>
+                    <DataGridTextColumn Header="Service Category" Binding="{Binding PetServiceCategory.Name}" Width="150"/>
+                    <DataGridTextColumn Header="Appointment Date" Binding="{Binding AppointmentDate}" Width="150"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Window>

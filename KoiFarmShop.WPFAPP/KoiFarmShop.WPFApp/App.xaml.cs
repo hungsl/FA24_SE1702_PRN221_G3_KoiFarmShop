@@ -5,6 +5,7 @@ using KoiFarmShop.Application.Common.Validator.PetService;
 using KoiFarmShop.Application.Common.Validator.User;
 using KoiFarmShop.Application.Implement.Service;
 using KoiFarmShop.Application.Interface.IService;
+using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.Common;
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.DTOs.Appointment.MakeAppointment;
@@ -25,6 +26,9 @@ using System.Windows;
 
 namespace KoiFarmShop.WPFApp
 {
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
     public partial class App : System.Windows.Application
     {
         public IServiceProvider ServiceProvider { get; private set; }
@@ -34,7 +38,7 @@ namespace KoiFarmShop.WPFApp
         {
             base.OnStartup(e);
 
-            // Build Configuration
+            // Set up IConfiguration
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -42,30 +46,30 @@ namespace KoiFarmShop.WPFApp
 
             var services = new ServiceCollection();
 
-            // Configure DbContext with Scoped Lifetime
+            // Register DbContext with a scoped lifetime
             services.AddDbContext<KVSCContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MyDb")),
-                ServiceLifetime.Scoped);
+                options.UseSqlServer(Configuration.GetConnectionString("MyDb")));
 
-            // Add Logging
-            services.AddLogging(configure => configure.AddConsole())
-                .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
+            // Register logging
+            services.AddLogging(configure => configure.AddConsole());
 
-            #region Common Dependencies
-            services.AddScoped<IPasswordHasher, PasswordHasher>();
+            #region Common Services
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
+            // Register UnitOfWork as both IUnitOfWork and its concrete type
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // Change to Scoped
+            services.AddScoped<UnitOfWork>(); // Register the concrete type separately
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             #endregion
 
             #region Validators
-            services.AddTransient<IValidator<LoginRequest>, LoginValidator>();
-            services.AddTransient<IValidator<RegisterRequest>, RegisterValidator>();
-            services.AddTransient<IValidator<AddPetRequest>, AddPetValidator>();
-            services.AddTransient<IValidator<AddPetServiceRequest>, AddPetServiceValidator>();
-            services.AddTransient<IValidator<AddComboServiceRequest>, AddComboServiceValidator>();
-            services.AddTransient<IValidator<AddPetServiceCategoryRequest>, AddPetServiceCategoryValidator>();
-            services.AddTransient<IValidator<MakeAppointmentForServiceRequest>, MakeAppointmentForServiceValidator>();
-            services.AddTransient<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
+            services.AddSingleton<IValidator<LoginRequest>, LoginValidator>();
+            services.AddSingleton<IValidator<RegisterRequest>, RegisterValidator>();
+            services.AddSingleton<IValidator<AddPetRequest>, AddPetValidator>();
+            services.AddSingleton<IValidator<AddPetServiceRequest>, AddPetServiceValidator>();
+            services.AddSingleton<IValidator<AddComboServiceRequest>, AddComboServiceValidator>();
+            services.AddSingleton<IValidator<AddPetServiceCategoryRequest>, AddPetServiceCategoryValidator>();
+            services.AddSingleton<IValidator<MakeAppointmentForServiceRequest>, MakeAppointmentForServiceValidator>();
+            services.AddSingleton<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
             #endregion
 
             #region Repositories
@@ -78,23 +82,29 @@ namespace KoiFarmShop.WPFApp
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             #endregion
 
-            #region Services
+            #region Generic Repositories
+            services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
+            #endregion
+
+            #region Application Services
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
             services.AddScoped<IPetServiceService, PetServiceService>();
             services.AddScoped<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddScoped<IComboServiceService, ComboServiceService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
-            services.AddScoped<IPetServiceLogic, PetServiceLogic>();
             #endregion
 
-            // Register Window with Scoped Lifetime
-            services.AddScoped<WindowAppointment>();
+            // Register MainWindow with DI
+            services.AddSingleton<MainWindow>();
 
-            // Build ServiceProvider and start WindowAppointment
+            // Build the service provider
             ServiceProvider = services.BuildServiceProvider();
-            var windowAppointment = ServiceProvider.GetRequiredService<WindowAppointment>();
-            windowAppointment.Show();
+
+            // Start MainWindow
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
         }
     }
+
 }
