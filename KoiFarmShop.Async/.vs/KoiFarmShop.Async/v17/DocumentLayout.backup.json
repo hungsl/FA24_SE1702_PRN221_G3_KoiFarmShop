@@ -1,30 +1,15 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\KoiFarmShop.Async\\",
+  "WorkspaceRootPath": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\fa24_se1702_prn221_g3_koifarmshop\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\serviceapp\\appointmentserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\serviceapp\\appointmentserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\fa24_se1702_prn221_g3_koifarmshop\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\serviceapp\\petserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D02D1A9-15E2-4E1E-96D5-CB3B2F92CCE7}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\KoiFarmShop.Application.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.application\\implement\\service\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\dependencyinjectionsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6D0BC8CB-9623-4A5D-8E97-37EB0358A1E0}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\KoiFarmShop.Async.csproj|d:\\fpt\\7_semester\\prn221\\fa24_se1702_prn221_g3_koifarmshop\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.async\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,110 +19,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppointmentService.cs",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Implement\\Service\\AppointmentService.cs",
-              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Implement\\Service\\AppointmentService.cs",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Implement\\Service\\AppointmentService.cs",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Application\\Implement\\Service\\AppointmentService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwFIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:35:17.257Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AppointmentServiceApp.cs",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs",
               "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAFAAAAAAAAAA==",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs*",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\AppointmentServiceApp.cs*",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAowFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:34:48.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DependencyInjectionSetup.cs",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\DependencyInjectionSetup.cs",
-              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\DependencyInjectionSetup.cs",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\DependencyInjectionSetup.cs",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\DependencyInjectionSetup.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:34:34.602Z",
+              "WhenOpened": "2024-11-02T03:06:24.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PetServiceApp.cs",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\PetServiceApp.cs",
-              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\PetServiceApp.cs",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\PetServiceApp.cs*",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\ServiceApp\\PetServiceApp.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:33:15.733Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
-              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:33:15.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Startup.cs",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Startup.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Startup.cs",
               "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Startup.cs",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Startup.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Startup.cs",
               "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Startup.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:33:12.578Z",
+              "WhenOpened": "2024-11-02T03:06:05.59Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.json",
-              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.json",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.json",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-31T03:32:37.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.Development.json",
-              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.Development.json",
-              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-31T03:32:36.797Z",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\FA24_SE1702_PRN221_G3_KoiFarmShop\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.Async\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T03:06:00.649Z",
               "EditorCaption": ""
             }
           ]
