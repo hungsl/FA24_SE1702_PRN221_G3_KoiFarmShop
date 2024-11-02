@@ -2,11 +2,6 @@
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiFarmShop.Infrastructure.Implement.Repositories
 {
@@ -25,9 +20,14 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         // READ
         public async Task<List<PetService>> GetAllServicesAsync()
         {
-            var result = await _context.PetServices.Include(i => i.PetServiceCategory).Where(s => !s.IsDeleted).ToListAsync();
+            var result = await _context.PetServices.Include(i => i.PetServiceCategory)
+                                                   .Where(s => !s.IsDeleted)
+                                                   .ToListAsync()
+                                                   .ConfigureAwait(false);
             return result;
         }
+
+
 
         public async Task<(int totalItems, List<PetService> petServices)> GetAllServiceWithSearchAsync(
         string searchName, string searchDuration, string searchCategoryName,
@@ -35,7 +35,7 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         {
             var query = _context.Set<PetService>()
                                 .Include(i => i.PetServiceCategory) // Bao gồm PetServiceCategory
-                                .AsQueryable().Where(p => !p.IsDeleted); 
+                                .AsQueryable().Where(p => !p.IsDeleted);
 
             // Tìm kiếm theo tên dịch vụ
             if (!string.IsNullOrEmpty(searchName))
@@ -97,7 +97,7 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         public async Task<List<PetService>> GetServicesExpiringSoonAsync()
         {
             var oneHourFromNow = DateTime.UtcNow.ToLocalTime().AddHours(1);
-            var result =  await _context.PetServices
+            var result = await _context.PetServices
                 .Where(s => !s.IsDeleted &&
                             s.AvailableTo > DateTime.UtcNow && s.AvailableTo <= oneHourFromNow)// check xem dich vu con 1 tieng nua het han
                 .ToListAsync();

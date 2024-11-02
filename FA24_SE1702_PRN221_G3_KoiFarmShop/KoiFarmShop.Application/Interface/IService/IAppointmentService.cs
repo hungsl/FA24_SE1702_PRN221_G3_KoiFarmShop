@@ -11,6 +11,8 @@ namespace KoiFarmShop.Application.Interface.IService
         public Task<Result> GetByIdAsync(Guid appointmentId);
         Task<Result> GetAppointmentsByUserIdAsync(Guid userId);
 
+        Task<Result> UpdateAppointmentAsync(Guid appointmentId, MakeAppointmentForServiceRequest request);
+
         Task<Result> DeleteAppointmentAsync(Guid appointmentId);
 
     }

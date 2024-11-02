@@ -17,27 +17,53 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return appointment;
         }
 
-        public async Task<Appointment> GetByIdAsync(Guid appointmentId)
+
+
+        //UPDATE
+        public async Task<Appointment> UpdateAppointmentAsync(Guid appointmentId, Appointment updatedAppointment)
         {
             var appointment = await _context.Appointments
-                .Include(a => a.Customer)     // Include Customer
-                .Include(a => a.Pet)          // Include Pet
-                .Include(a => a.PetService)   // Include Pet Service
-                .Include(a => a.ComboService) // Include Combo Service (if applicable)
                 .FirstOrDefaultAsync(a => a.Id == appointmentId && !a.IsDeleted);
 
-            return appointment ?? throw new KeyNotFoundException($"Appointment with ID {appointmentId} was not found.");
+            if (appointment == null)
+            {
+                throw new KeyNotFoundException($"Appointment with ID {appointmentId} was not found.");
+            }
+
+            // Update fields
+            appointment.CustomerId = updatedAppointment.CustomerId;
+            appointment.PetId = updatedAppointment.PetId;
+            appointment.PetServiceId = updatedAppointment.PetServiceId;
+            appointment.ComboServiceId = updatedAppointment.ComboServiceId;
+            appointment.AppointmentDate = updatedAppointment.AppointmentDate;
+            appointment.Status = updatedAppointment.Status;
+
+            _context.Appointments.Update(appointment);
+            await _context.SaveChangesAsync();
+
+            return appointment;
         }
-        public async Task<IEnumerable<Appointment>> GetAppointmentsByUserIdAsync(Guid userId)
+
+        public async Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate)
         {
-            return await _context.Appointments
-                .Where(a => a.CustomerId == userId && !a.IsDeleted) // Filter by CustomerId and exclude deleted appointments
-                .Include(a => a.Customer)
-                .Include(a => a.Pet)
-                .Include(a => a.PetService)
-                .Include(a => a.ComboService)
-                .ToListAsync();
+            var appointmentDay = appointmentDate.Date;
+            var appointmentTime = appointmentDate.TimeOfDay;
+
+            var schedule = await _context.VeterinarianSchedules
+                .FirstOrDefaultAsync(s => s.VeterinarianId == veterinarianId
+                    && s.Date == appointmentDate.Date
+                    && s.StartTime <= appointmentTime
+                    && s.EndTime >= appointmentTime);
+
+            if (schedule != null)
+            {
+                schedule.IsAvailable = false;
+                _context.VeterinarianSchedules.Update(schedule);
+                await _context.SaveChangesAsync();
+            }
         }
+
+
 
         // READ (các phương thức khác nếu cần)
         public async Task<IEnumerable<Appointment>> GetAllAppointmentsAsync()
@@ -69,24 +95,31 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
             return availableVeterinarian;
         }
-        public async Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate)
+        public async Task<Appointment> GetByIdAsync(Guid appointmentId)
         {
-            var appointmentDay = appointmentDate.Date;
-            var appointmentTime = appointmentDate.TimeOfDay;
+            var appointment = await _context.Appointments
+                .Include(a => a.Customer)     // Include Customer
+                .Include(a => a.Pet)          // Include Pet
+                .Include(a => a.PetService)   // Include Pet Service
+                .Include(a => a.ComboService) // Include Combo Service (if applicable)
+                .FirstOrDefaultAsync(a => a.Id == appointmentId && !a.IsDeleted);
 
-            var schedule = await _context.VeterinarianSchedules
-                .FirstOrDefaultAsync(s => s.VeterinarianId == veterinarianId
-                    && s.Date == appointmentDate.Date
-                    && s.StartTime <= appointmentTime
-                    && s.EndTime >= appointmentTime);
-
-            if (schedule != null)
-            {
-                schedule.IsAvailable = false;
-                _context.VeterinarianSchedules.Update(schedule);
-                await _context.SaveChangesAsync();
-            }
+            return appointment ?? throw new KeyNotFoundException($"Appointment with ID {appointmentId} was not found.");
         }
+
+        public async Task<IEnumerable<Appointment>> GetAppointmentsByUserIdAsync(Guid userId)
+        {
+            return await _context.Appointments
+                .Where(a => a.CustomerId == userId && !a.IsDeleted) // Filter by CustomerId and exclude deleted appointments
+                .Include(a => a.Customer)
+                .Include(a => a.Pet)
+                .Include(a => a.PetService)
+                .Include(a => a.ComboService)
+                .ToListAsync();
+        }
+
+
+
 
 
         //DELETE

@@ -13,6 +13,9 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
         public Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate);
         public Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate);
 
+        //UPDATE
+        Task<Appointment> UpdateAppointmentAsync(Guid appointmentId, Appointment updatedAppointment);
+
         //DELETE
         Task<bool> DeleteAppointmentAsync(Guid appointmentId);
     }

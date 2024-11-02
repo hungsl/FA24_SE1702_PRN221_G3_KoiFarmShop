@@ -31,6 +31,51 @@ namespace KoiFarmShop.Service.Implement.Service
             _logger = logger;
         }
 
+
+        public async Task<Result> UpdateAppointmentAsync(Guid appointmentId, MakeAppointmentForServiceRequest request)
+        {
+            try
+            {
+                _logger.LogInformation("Attempting to update appointment with ID: {AppointmentId}", appointmentId);
+
+                // Validate the request
+                var validationResult = await _serviceValidator.ValidateAsync(request);
+                if (!validationResult.IsValid)
+                {
+                    var errors = validationResult.Errors.Select(e => (Error)e.CustomState).ToList();
+                    _logger.LogWarning("Validation failed for appointment update. Errors: {Errors}", errors);
+                    return Result.Failures(errors);
+                }
+
+                var existingAppointment = await _unitOfWork.AppointmentRepository.GetByIdAsync(appointmentId);
+                if (existingAppointment == null)
+                {
+                    _logger.LogWarning("Appointment with ID {AppointmentId} not found.", appointmentId);
+                    return Result.Failure(Error.NotFound("Appointment", "Appointment not found."));
+                }
+
+                // Update the appointment using the values from MakeAppointmentForServiceRequest
+                existingAppointment.CustomerId = request.CustomerId;
+                existingAppointment.PetId = request.PetId;
+                existingAppointment.PetServiceId = request.PetServiceId;
+                existingAppointment.AppointmentDate = request.AppointmentDate;
+
+                var updatedResult = await _unitOfWork.AppointmentRepository.UpdateAppointmentAsync(appointmentId, existingAppointment);
+
+                _logger.LogInformation("Successfully updated appointment with ID: {AppointmentId}", appointmentId);
+                return Result.SuccessWithObject(updatedResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating appointment with ID: {AppointmentId}", appointmentId);
+                return Result.Failure(Error.Failure("UpdateError", "An unexpected error occurred while updating the appointment."));
+            }
+        }
+
+
+
+
+
         //DELETE
         public async Task<Result> DeleteAppointmentAsync(Guid appointmentId)
         {
