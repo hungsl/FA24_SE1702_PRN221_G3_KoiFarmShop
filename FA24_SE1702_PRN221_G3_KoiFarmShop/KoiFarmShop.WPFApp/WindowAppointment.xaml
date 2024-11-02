@@ -1,0 +1,50 @@
+﻿<Window x:Class="KoiFarmShop.WPFApp.WindowAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KoiFarmShop.WPFApp"
+        mc:Ignorable="d"
+        Title="Appointment Management" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Appointment Details Panel -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,10,0,10">
+            <Label Content="Customer ID:" Width="100"/>
+            <TextBox Name="CustomerIdTextBox" Width="150" TextChanged="CustomerIdTextBox_TextChanged"/>
+
+            <Label Content="Pet:" Width="100" Margin="20,0,0,0"/>
+            <ComboBox Name="PetComboBox" Width="150" DisplayMemberPath="Name" SelectedValuePath="Id" />
+
+            <Label Content="Service:" Width="100" Margin="20,0,0,0"/>
+            <ComboBox Name="ServiceComboBox" Width="150" DisplayMemberPath="Name" SelectedValuePath="Id" />
+
+            <Label Content="Date:" Width="100" Margin="20,0,0,0"/>
+            <DatePicker Name="AppointmentDatePicker" Width="150"/>
+        </StackPanel>
+
+        <!-- Appointments Data Grid -->
+        <DataGrid Name="AppointmentsDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Appointment ID" Binding="{Binding Id}" Width="*"/>
+                <DataGridTextColumn Header="Customer ID" Binding="{Binding CustomerId}" Width="*"/>
+                <DataGridTextColumn Header="Pet ID" Binding="{Binding PetId}" Width="*"/>
+                <DataGridTextColumn Header="Service ID" Binding="{Binding ServiceId}" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding AppointmentDate}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Action Buttons -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Create" Name="CreateButton" Width="75" Margin="5" Click="CreateButton_Click"/>
+            <Button Content="Delete" Name="DeleteButton" Width="75" Margin="5" Click="DeleteButton_Click"/>
+            <Button Content="Refresh" Name="RefreshButton" Width="75" Margin="5" Click="RefreshButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

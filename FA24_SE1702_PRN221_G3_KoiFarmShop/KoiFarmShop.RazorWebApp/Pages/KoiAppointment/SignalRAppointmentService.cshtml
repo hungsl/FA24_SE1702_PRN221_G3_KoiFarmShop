@@ -1,0 +1,54 @@
+﻿@page
+@using KoiFarmShop.Domain.Entities
+@model KoiFarmShop.RazorWebApp.Pages.KoiAppointment.SignalRAppointmentServiceModel
+@{
+}
+<h1>Send Appointment Service</h1>
+
+<div class="form-group">
+    <label for="appointmentSelect">Select Appointment Service:</label>
+    <select id="appointmentSelect" class="form-control">
+        <option value="">-- Select an Appointment --</option>
+        @foreach (var appointment in Model.AppointmentServices ?? new List<Appointment>())
+        {
+            <option value="@appointment.Id">@appointment.Id</option>
+        }
+    </select>
+</div>
+
+<button onclick="sendAppointment()" class="btn btn-primary">Send Appointment</button>
+
+<ul id="appointmentsList"></ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/appointmenthub")
+        .build();
+
+    connection.on("ReceiveAppointment", (appointment) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+                <strong style="color: #${randomColor()}">${appointment.name}</strong>
+                - Date: ${new Date(appointment.date).toLocaleString()}
+                - Duration: ${appointment.duration} minutes
+                - Status: ${appointment.status}`;
+        document.getElementById("appointmentsList").appendChild(li);
+    });
+
+    connection.start().catch(err => console.error(err.toString()));
+
+    function sendAppointment() {
+        const appointmentId = document.getElementById("appointmentSelect").value;
+        if (appointmentId) {
+            connection.invoke("SendAppointment", appointmentId).catch(err => console.error(err.toString()));
+        } else {
+            alert("Please select an appointment.");
+        }
+    }
+
+    function randomColor() {
+        const colors = ['FF5733', '33FF57', '3357FF', 'FF33B5', 'FFD633'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+</script>

@@ -1,0 +1,164 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\FPT\\7_Semester\\PRN221\\projects\\KoiFarmShop.SignalR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\koiappointment\\signalrappointmentservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\koiappointment\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\koiappointment\\signalrappointmentservice.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\koiappointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\koiservice\\signalrpetservice.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\pages\\koiservice\\signalrpetservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34B95B8F-FA4E-437F-B1A2-13879FB37A2A}|..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\KoiFarmShop.RazorWebApp.csproj|d:\\fpt\\7_semester\\prn221\\projects\\fa24_se1702_prn221_g3_koifarmshop\\koifarmshop.razorwebapp\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Create.cshtml.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Create.cshtml.cs",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Create.cshtml.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwBcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T04:14:41.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-31T04:09:57.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Index.cshtml",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Index.cshtml",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Index.cshtml",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-31T04:09:38.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SignalRPetService.cshtml.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml.cs",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml.cs",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T04:02:49.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SignalRAppointmentService.cshtml.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml.cs",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml.cs",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBMAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T03:55:20.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SignalRAppointmentService.cshtml",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiAppointment\\SignalRAppointmentService.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-31T03:53:18.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SignalRPetService.cshtml",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Pages\\KoiService\\SignalRPetService.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwAwAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-31T03:52:37.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Program.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAwCwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T03:51:39.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "ToolTip": "D:\\FPT\\7_Semester\\PRN221\\projects\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "..\\FA24_SE1702_PRN221_G3_KoiFarmShop\\KoiFarmShop.RazorWebApp\\Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T03:50:20.915Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

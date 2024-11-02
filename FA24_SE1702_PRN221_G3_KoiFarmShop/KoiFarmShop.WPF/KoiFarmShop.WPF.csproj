@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KoiFarmShop.Application\KoiFarmShop.Application.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.Domain\KoiFarmShop.Domain.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.Infrastructure\KoiFarmShop.Infrastructure.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.RazorWebApp\KoiFarmShop.RazorWebApp.csproj" />
+  </ItemGroup>
+
+</Project>
