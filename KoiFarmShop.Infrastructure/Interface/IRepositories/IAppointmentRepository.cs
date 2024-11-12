@@ -4,6 +4,8 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 {
     public interface IAppointmentRepository : IGenericRepository<Appointment>
     {
+
+        Task<IEnumerable<Appointment>> SearchAppointmentsAsync(string customerName = null, string petName = null, DateTime? appointmentDate = null);
         public Task<Appointment> CreateAppointmentAsync(Appointment appointment);
 
         // READ (các phương thức khác nếu cần)
@@ -12,6 +14,9 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 
         public Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate);
         public Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate);
+
+        //UPDATE
+        Task<Appointment> UpdateAppointmentAsync(Guid appointmentId, Appointment updatedAppointment);
 
         //DELETE
         Task<bool> DeleteAppointmentAsync(Guid appointmentId);

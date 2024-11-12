@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.RazorWebApp", "KoiFarmShop.RazorWebApp\KoiFarmShop.RazorWebApp.csproj", "{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.WPFApp", "KoiFarmShop.WPFApp\KoiFarmShop.WPFApp.csproj", "{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.Application", "KoiFarmShop.Application\KoiFarmShop.Application.csproj", "{5F0221EB-94AF-4607-A111-18961DDE2900}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiFarmShop.WPFApp", "KoiFarmShop.WPFApp\KoiFarmShop.WPFApp.csproj", "{2860790A-DC2A-4333-B5A0-67C275000184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC4AA9E3-B1D3-4BB1-AA23-2C53F4834F14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D3A35D7-6660-4558-AAD4-A03ABFC6B13D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F0221EB-94AF-4607-A111-18961DDE2900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F0221EB-94AF-4607-A111-18961DDE2900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F0221EB-94AF-4607-A111-18961DDE2900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F0221EB-94AF-4607-A111-18961DDE2900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2860790A-DC2A-4333-B5A0-67C275000184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2860790A-DC2A-4333-B5A0-67C275000184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2860790A-DC2A-4333-B5A0-67C275000184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2860790A-DC2A-4333-B5A0-67C275000184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

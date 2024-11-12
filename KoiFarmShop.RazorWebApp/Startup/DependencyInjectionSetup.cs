@@ -16,6 +16,7 @@ using KoiFarmShop.Infrastructure.DTOs.User.Register;
 using KoiFarmShop.Infrastructure.Implement.Repositories;
 using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
+using KoiFarmShop.Service.Implement.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
 namespace KoiFarmShop.RazorWebApp.Startup
 {

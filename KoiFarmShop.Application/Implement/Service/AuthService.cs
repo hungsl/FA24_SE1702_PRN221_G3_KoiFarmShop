@@ -85,56 +85,56 @@ namespace KoiFarmShop.Application.Implement.Service
 
         // Login user
         public async Task<Result> LoginUserAsync(LoginUserRequest request)
-{
-    _logger.LogInformation("Starting login process for username: {Username}", request.Username);
-
-    try
-    {
-        // Attempt to find and verify the user
-        var user = await _userRepository.LoginUserAsync(request.Username, request.Password);
-
-        if (user == null)
         {
-            _logger.LogWarning("Login failed: Invalid username or password for username: {Username}", request.Username);
-            return Result.Failure(Error.Validation("InvalidLogin", "Invalid username or password."));
-        }
+            _logger.LogInformation("Starting login process for username: {Username}", request.Username);
 
-        _logger.LogInformation("Login successful for username: {Username}", request.Username);
+            try
+            {
+                // Attempt to find and verify the user
+                var user = await _userRepository.LoginUserAsync(request.Username, request.Password);
 
-        // Set up claims for the user
-        var claims = new List<Claim>
+                if (user == null)
+                {
+                    _logger.LogWarning("Login failed: Invalid username or password for username: {Username}", request.Username);
+                    return Result.Failure(Error.Validation("InvalidLogin", "Invalid username or password."));
+                }
+
+                _logger.LogInformation("Login successful for username: {Username}", request.Username);
+
+                // Set up claims for the user
+                var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, user.Username),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Role, user.role.ToString())
         };
 
-        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-        var authProperties = new AuthenticationProperties
-        {
-            IsPersistent = true, // Keeps the user logged in across sessions
-            ExpiresUtc = DateTimeOffset.UtcNow.AddHours(1) // Set a session timeout, if desired
-        };
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = true, // Keeps the user logged in across sessions
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(1) // Set a session timeout, if desired
+                };
 
-        // Use HttpContext from IHttpContextAccessor to SignIn
-        await _httpContextAccessor.HttpContext.SignInAsync(
-            CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(claimsIdentity),
-            authProperties);
+                // Use HttpContext from IHttpContextAccessor to SignIn
+                await _httpContextAccessor.HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity),
+                    authProperties);
 
-        // Return success with user information
-        var userInfo = new { UserId = user.Id, user.Username, user.role };
-        return Result.SuccessWithObject(userInfo);
-    }
-    catch (Exception ex)
-    {
-        // Log the exception details
-        _logger.LogError(ex, "An error occurred during login for username: {Username}", request.Username);
-        
-        // Return a general failure result
-        return Result.Failure(Error.Failure("LoginError", "An error occurred during login. Please try again later."));
-    }
-}
+                // Return success with user information
+                var userInfo = new { UserId = user.Id, user.Username, user.role };
+                return Result.SuccessWithObject(userInfo);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                _logger.LogError(ex, "An error occurred during login for username: {Username}", request.Username);
+
+                // Return a general failure result
+                return Result.Failure(Error.Failure("LoginError", "An error occurred during login. Please try again later."));
+            }
+        }
 
 
 
