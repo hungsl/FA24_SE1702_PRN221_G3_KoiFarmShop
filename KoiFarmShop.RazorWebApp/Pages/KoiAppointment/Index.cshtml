@@ -59,6 +59,7 @@
                         <td>@Html.DisplayFor(modelItem => appointment.Status)</td>
                         <td class="text-center">
                             <a asp-page="Details" asp-route-id="@appointment.Id" class="btn btn-sm btn-info mx-1">Details</a>
+                            <a asp-page="Edit" asp-route-id="@appointment.Id" class="btn btn-sm btn-info mx-1">Edit</a>
                             <a asp-page="Delete" asp-route-id="@appointment.Id"
                                class="btn btn-sm btn-warning text-white mx-1"
                                onclick="return confirm('Are you sure you want to cancel this appointment?');">
