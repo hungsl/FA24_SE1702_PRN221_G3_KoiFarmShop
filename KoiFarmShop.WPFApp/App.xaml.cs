@@ -5,24 +5,24 @@ using KoiFarmShop.Application.Common.Validator.PetService;
 using KoiFarmShop.Application.Common.Validator.User;
 using KoiFarmShop.Application.Implement.Service;
 using KoiFarmShop.Application.Interface.IService;
+using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.Common;
+using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.DTOs.Appointment.MakeAppointment;
 using KoiFarmShop.Infrastructure.DTOs.ComboService.AddComboService;
 using KoiFarmShop.Infrastructure.DTOs.Pet.AddPet;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
-using KoiFarmShop.Infrastructure.Implement.Repositories;
-using KoiFarmShop.Infrastructure.Interface.IRepositories;
-using KoiFarmShop.Infrastructure.Interface;
-using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using System.Data;
-using System.Windows;
 using KoiFarmShop.Infrastructure.DTOs.User.Login;
 using KoiFarmShop.Infrastructure.DTOs.User.Register;
-using KoiFarmShop.Domain.Entities;
-using KoiFarmShop.Infrastructure.DB;
+using KoiFarmShop.Infrastructure.Implement.Repositories;
+using KoiFarmShop.Infrastructure.Interface;
+using KoiFarmShop.Infrastructure.Interface.IRepositories;
+using KoiFarmShop.Service.Implement.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System.Windows;
 
 namespace KoiFarmShop.WPFApp
 {
@@ -33,12 +33,12 @@ namespace KoiFarmShop.WPFApp
     {
         public IServiceProvider ServiceProvider { get; private set; }
         public IConfiguration Configuration { get; private set; }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-
-            // Tạo IConfiguration
+            // Set up IConfiguration
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -46,20 +46,22 @@ namespace KoiFarmShop.WPFApp
 
             var services = new ServiceCollection();
 
+            // Register DbContext with a scoped lifetime
             services.AddDbContext<KVSCContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyDb")));
+                options.UseSqlServer(Configuration.GetConnectionString("MyDb")));
 
-            #region Common
-            //Common
+            // Register logging
+            services.AddLogging(configure => configure.AddConsole());
+
+            #region Common Services
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
-            services.AddSingleton<UnitOfWork>();
+            // Register UnitOfWork as both IUnitOfWork and its concrete type
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<UnitOfWork>(); // Register the concrete type separately
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
-            //Comon
             #endregion
 
-            #region Validator
-            //Validator
+            #region Validators
             services.AddSingleton<IValidator<LoginRequest>, LoginValidator>();
             services.AddSingleton<IValidator<RegisterRequest>, RegisterValidator>();
             services.AddSingleton<IValidator<AddPetRequest>, AddPetValidator>();
@@ -68,48 +70,42 @@ namespace KoiFarmShop.WPFApp
             services.AddSingleton<IValidator<AddPetServiceCategoryRequest>, AddPetServiceCategoryValidator>();
             services.AddSingleton<IValidator<MakeAppointmentForServiceRequest>, MakeAppointmentForServiceValidator>();
             services.AddSingleton<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
-
-            //Validator
             #endregion
 
             #region Repositories
-            services.AddSingleton<IUserRepository, UserRepository>();
-            services.AddSingleton<IPetRepository, PetRepository>();
-
-            services.AddSingleton<IFirebaseRepository, FirebaseRepository>();
-
-            services.AddSingleton<IPetServiceRepository, PetServiceRepository>();
-            services.AddSingleton<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
-            services.AddSingleton<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
-            services.AddSingleton<IComboServiceRepository, ComboServiceRepository>();
-            services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
-
-
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPetRepository, PetRepository>();
+            services.AddScoped<IFirebaseRepository, FirebaseRepository>();
+            services.AddScoped<IPetServiceRepository, PetServiceRepository>();
+            services.AddScoped<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
+            services.AddScoped<IComboServiceRepository, ComboServiceRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IVeterinarianRepository, VeterinarianRepository>();
             #endregion
 
-
-            #region GenericRepositories
-            services.AddSingleton<IGenericRepository<User>, GenericRepository<User>>();
+            #region Generic Repositories
+            services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
             #endregion
 
-
-
-            #region Service
-            services.AddSingleton<IAuthService, AuthService>();
-            services.AddSingleton<IFirebaseService, FirebaseService>();
-            services.AddSingleton<IPetServiceService, PetServiceService>();
-            services.AddSingleton<IPetServiceCategoryService, PetServiceCategoryService>();
-            services.AddSingleton<IComboServiceService, ComboServiceService>();
-            services.AddSingleton<IAppointmentService, AppointmentService>();
-            services.AddSingleton<IPetServiceLogic, PetServiceLogic>();
-
+            #region Application Services
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IFirebaseService, FirebaseService>();
+            services.AddScoped<IPetServiceService, PetServiceService>();
+            services.AddScoped<IVeterinarianService, VeterinarianService>();
+            services.AddScoped<IPetServiceLogic, PetServiceLogic>();
+            services.AddScoped<IPetServiceCategoryService, PetServiceCategoryService>();
+            services.AddScoped<IComboServiceService, ComboServiceService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
             #endregion
 
-            services.AddSingleton<WindowPet>();
+            // Register MainWindow with DI
+            services.AddSingleton<MainWindow>();
 
-            // Tạo ServiceProvider và khởi động MainWindow
+            // Build the service provider
             ServiceProvider = services.BuildServiceProvider();
-            var mainWindow = ServiceProvider.GetRequiredService<WindowPet>(); // Chỉ gọi từ DI
+
+            // Start MainWindow
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
         }
     }
