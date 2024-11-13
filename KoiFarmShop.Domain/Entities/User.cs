@@ -1,4 +1,11 @@
-﻿namespace KoiFarmShop.Domain.Entities
+﻿using KVSC.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KoiFarmShop.Domain.Entities
 {
     public class User : BaseEntity
     {
@@ -19,5 +26,6 @@
 
         // Thêm quan hệ với Appointment
         public ICollection<Appointment> Appointments { get; set; } // Quan hệ nhiều với Appointment
+        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
     }
 }

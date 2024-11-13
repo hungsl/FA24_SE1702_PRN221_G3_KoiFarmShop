@@ -1,5 +1,6 @@
 ﻿using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
+using KoiFarmShop.Infrastructure.DTOs.PetService;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -102,6 +103,16 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                             s.AvailableTo > DateTime.UtcNow && s.AvailableTo <= oneHourFromNow)// check xem dich vu con 1 tieng nua het han
                 .ToListAsync();
             return result;
+        }
+        public async Task<List<ServiceFrequency>> GetTopServicesAsync()
+        {
+                var topServices = await _context.PetServices
+                    .OrderByDescending(s => s.Frequency) // Sắp xếp theo tần suất dịch vụ
+                    .Take(5) // Giới hạn số lượng kết quả, ví dụ 5 dịch vụ phổ biến nhất
+                    .Select(s => new ServiceFrequency { ServiceName = s.Name, Frequency = s.Frequency })
+                    .ToListAsync();
+
+                return topServices;
         }
 
     }

@@ -1,4 +1,11 @@
-﻿namespace KoiFarmShop.Domain.Entities
+﻿using KVSC.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KoiFarmShop.Domain.Entities
 {
     public class PetService : BaseEntity
     {
@@ -12,12 +19,14 @@
         public decimal TravelCost { get; set; }
         public string Description { get; set; }
         public int MaxNumberOfPets { get; set; }
+        public int Frequency { get; set; }
 
         // Relationships
         public PetServiceCategory PetServiceCategory { get; set; } // Navigation property
 
         // New relationship: ComboServiceItems (for many-to-many relation with ComboService)
         public ICollection<ComboServiceItem> ComboServiceItems { get; set; }
+        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 
     }
 }

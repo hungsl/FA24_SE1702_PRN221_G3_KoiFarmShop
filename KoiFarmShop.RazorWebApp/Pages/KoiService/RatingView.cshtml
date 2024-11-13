@@ -1,0 +1,47 @@
+﻿@page
+@model KoiService.RatingViewModel
+@{
+}
+<div id="ratingResults" class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    @if (Model.Ratings != null && Model.Ratings.Count > 0)
+    {
+    <h2 class="text-center text-primary my-4">@Model.Ratings[0].ServiceName</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Customer Name</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rating in Model.Ratings)
+            {
+            <tr>
+                <td>@rating.CustomerName</td>
+                <td>
+                    @for (int i = 0; i < rating.Score; i++)
+                    {
+                    <span>⭐</span>
+                    }
+                </td>
+                <td>@rating.Feedback</td>
+                <td>@rating.CreatedDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+    else
+    {
+    <div class="alert alert-warning" role="alert">
+        No ratings found.
+    </div>
+    }
+</div>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

@@ -10,5 +10,6 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
 
         Task<User> RegisterUserAsync(User user);
         public Task<User> LoginUserAsync(string username, string password);
+        Task<User> GetUserByIdAsync(Guid id);
     }
 }

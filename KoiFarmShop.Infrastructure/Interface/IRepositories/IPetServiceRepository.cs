@@ -1,4 +1,5 @@
 ﻿using KoiFarmShop.Domain.Entities;
+using KoiFarmShop.Infrastructure.DTOs.PetService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,6 @@ namespace KoiFarmShop.Infrastructure.Interface.IRepositories
         string searchName, string searchDuration, string searchCategoryName,
         int pageIndex, int pageSize);
         Task<List<PetService>> GetServicesExpiringSoonAsync();
+        Task<List<ServiceFrequency>> GetTopServicesAsync();
     }
 }

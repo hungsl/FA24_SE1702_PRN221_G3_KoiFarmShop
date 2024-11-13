@@ -66,6 +66,12 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         {
             return BCrypt.Net.BCrypt.Verify(password, hash); // Replace with actual verification implementation
         }
+        public async Task<User> GetUserByIdAsync(Guid id)
+        {
+            return await _context.Users
+                .Where(u => u.Id == id && !u.IsDeleted)
+                .FirstOrDefaultAsync();
+        }
 
 
 

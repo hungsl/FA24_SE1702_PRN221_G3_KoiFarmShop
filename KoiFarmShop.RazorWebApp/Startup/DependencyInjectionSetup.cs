@@ -16,6 +16,18 @@ using KoiFarmShop.Infrastructure.DTOs.User.Register;
 using KoiFarmShop.Infrastructure.Implement.Repositories;
 using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
+using KoiFarmShop.Infrastructure.DTOs.User.Login;
+using Microsoft.AspNetCore.Identity;
+using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
+using KoiFarmShop.Infrastructure.DTOs.ComboService.AddComboService;
+using KVSC.Infrastructure.Interface.IRepositories;
+using KVSC.Infrastructure.Implement.Repositories;
+using KVSC.Application.Interface.IService;
+using KVSC.Application.Implement.Service;
+using KVSC.Infrastructure.DTOs.Rating.AddRating;
+using KVSC.Application.Common.Validator.Abstract;
+using KVSC.Application.Common.Validator.Rating;
+using KVSC.Infrastructure.DTOs.Rating.UpdateRating;
 using KoiFarmShop.Service.Implement.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
 namespace KoiFarmShop.RazorWebApp.Startup
@@ -55,6 +67,8 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IValidator<AddPetServiceCategoryRequest>, AddPetServiceCategoryValidator>();
             services.AddTransient<IValidator<MakeAppointmentForServiceRequest>, MakeAppointmentForServiceValidator>();
             services.AddTransient<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
+            services.AddTransient<IValidator<AddRatingRequest>, AddRatingValidator>();
+            services.AddTransient<IValidator<UpdateRatingRequest>, UpdateRatingValidator>();
 
             //Validator
             #endregion
@@ -68,6 +82,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IPetServiceCategoryRepository, PetServiceCategoryRepository>();
             services.AddTransient<IComboServiceRepository, ComboServiceRepository>();
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            services.AddTransient<IRatingRepository, RatingRepository>();
             services.AddTransient<IVeterinarianRepository, VeterinarianRepository>();
 
 
@@ -87,6 +102,7 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IPetServiceCategoryService, PetServiceCategoryService>();
             services.AddTransient<IComboServiceService, ComboServiceService>();
             services.AddTransient<IAppointmentService, AppointmentService>();
+            services.AddTransient<IRatingService, RatingService>();
             services.AddTransient<IPetServiceLogic, PetServiceLogic>();
             services.AddTransient<IVeterinarianService, VeterinarianService>();
 
