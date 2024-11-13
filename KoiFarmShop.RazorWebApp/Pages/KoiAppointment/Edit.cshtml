@@ -1,0 +1,70 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.KoiAppointment.EditModel
+@{
+}
+
+<h1>Edit Appointment</h1>
+
+@if (!ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <p>There were some errors with your request:</p>
+        <ul>
+            @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="AppointmentId" />
+
+    <div class="form-group">
+        <label asp-for="CustomerId"></label>
+        <input asp-for="CustomerId" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PetId">Pet</label>
+        <select asp-for="PetId" class="form-control">
+            <option value="">Select a pet</option>
+            @foreach (var pet in Model.Pets)
+            {
+                <option value="@pet.Id">@pet.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PetServiceId">Pet Service</label>
+        <select asp-for="PetServiceId" class="form-control">
+            <option value="">Select a service</option>
+            @foreach (var service in Model.PetServices)
+            {
+                <option value="@service.Id">@service.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="VeterinarianIds" class="control-label">Select Veterinarian(s)</label>
+        <select asp-for="VeterinarianIds" class="form-control" multiple>
+            @foreach (var veterinarian in Model.Veterinarians)
+            {
+                <option value="@veterinarian.UserId">
+                    @veterinarian.User.FullName - @veterinarian.Specialty
+                </option>
+            }
+        </select>
+        <span asp-validation-for="VeterinarianIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AppointmentDate">Appointment Date</label>
+        <input asp-for="AppointmentDate" type="datetime-local" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

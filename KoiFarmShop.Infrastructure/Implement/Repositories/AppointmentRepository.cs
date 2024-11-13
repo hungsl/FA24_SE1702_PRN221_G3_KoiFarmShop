@@ -68,7 +68,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             appointment.CustomerId = updatedAppointment.CustomerId;
             appointment.PetId = updatedAppointment.PetId;
             appointment.PetServiceId = updatedAppointment.PetServiceId;
-            appointment.ComboServiceId = updatedAppointment.ComboServiceId;
             appointment.AppointmentDate = updatedAppointment.AppointmentDate;
             appointment.Status = updatedAppointment.Status;
 
@@ -111,6 +110,8 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                 .ToListAsync();
         }
 
+
+
         public async Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate)
         {
             var appointmentDay = appointmentDate.Date;
@@ -129,17 +130,17 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
             return availableVeterinarian;
         }
-        public async Task<Appointment> GetByIdAsync(Guid appointmentId)
+        public async Task<Appointment?> GetByIdAsync(Guid appointmentId)
         {
-            var appointment = await _context.Appointments
+            return await _context.Appointments
                 .Include(a => a.Customer)     // Include Customer
                 .Include(a => a.Pet)          // Include Pet
                 .Include(a => a.PetService)   // Include Pet Service
                 .Include(a => a.ComboService) // Include Combo Service (if applicable)
                 .FirstOrDefaultAsync(a => a.Id == appointmentId && !a.IsDeleted);
-
-            return appointment ?? throw new KeyNotFoundException($"Appointment with ID {appointmentId} was not found.");
         }
+
+
 
         public async Task<IEnumerable<Appointment>> GetAppointmentsByUserIdAsync(Guid userId)
         {

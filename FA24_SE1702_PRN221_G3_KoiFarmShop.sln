@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.RazorWebApp", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.Application", "KoiFarmShop.Application\KoiFarmShop.Application.csproj", "{5F0221EB-94AF-4607-A111-18961DDE2900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiFarmShop.WPFApp", "KoiFarmShop.WPFApp\KoiFarmShop.WPFApp.csproj", "{2860790A-DC2A-4333-B5A0-67C275000184}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiFarmShop.WPFApp", "KoiFarmShop.WPFApp\KoiFarmShop.WPFApp.csproj", "{2860790A-DC2A-4333-B5A0-67C275000184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
