@@ -34,7 +34,12 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return await _context.Users.FirstOrDefaultAsync(x => x.Email.Equals(email) && x.PasswordHash.Equals(password));
         }
 
-
+        public async Task<User> GetUserByIdAsync(Guid id)
+        {
+            return await _context.Users
+                .Where(u => u.Id == id && !u.IsDeleted)
+                .FirstOrDefaultAsync();
+        }
 
 
 

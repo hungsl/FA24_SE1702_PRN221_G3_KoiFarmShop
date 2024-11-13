@@ -10,6 +10,8 @@ using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Application.Interface.IService;
 using System.Linq.Dynamic.Core;
 using KoiFarmShop.Infrastructure.DTOs.Common;
+using KVSC.Application.Interface.IService;
+using KVSC.Infrastructure.DTOs.Rating.AddRating;
 
 namespace KoiFarmShop.RazorWebApp.Pages.KoiService
 {
@@ -17,10 +19,12 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
     {
         private readonly IPetServiceService _petServiceService;
         private readonly IPetServiceCategoryService _petCategoryService;
-        public IndexModel(IPetServiceService petServiceService, IPetServiceCategoryService petCategoryService)
+        private readonly IRatingService _ratingService;
+        public IndexModel(IPetServiceService petServiceService, IPetServiceCategoryService petCategoryService, IRatingService ratingService)
         {
             _petServiceService = petServiceService;
             _petCategoryService = petCategoryService;
+            _ratingService = ratingService;
         }
 
         public PagedResultSearch<PetService> PetService { get;set; } = default!;
@@ -36,7 +40,9 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
 
         [BindProperty(SupportsGet = true)]
         public int PageIndex { get; set; } = 1;
-        public int PageSize { get; set; } = 10;
+        public int PageSize { get; set; } = 3;
+        [BindProperty]
+        public AddRatingRequest RatingRequest { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -57,6 +63,21 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiService
                     TotalItems = 0,
                     Items = new List<PetService>()
                 };
+            }
+        }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            var result = await _ratingService.CreateRatingAsync(RatingRequest);
+
+            if (result.IsSuccess)
+            {
+                TempData["SuccessMessageRating"] = "Rating successfully!";
+                return RedirectToPage();
+            }
+            else
+            {
+                TempData["ErrorMessageRating"] = "Rating fail!";
+                return RedirectToPage();
             }
         }
     }

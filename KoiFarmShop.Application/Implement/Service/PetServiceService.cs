@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
 using System.Linq.Dynamic.Core;
 using KoiFarmShop.Infrastructure.DTOs.Common;
+using KoiFarmShop.Infrastructure.DTOs.PetService;
 
 namespace KoiFarmShop.Application.Implement.Service
 {
@@ -181,6 +182,11 @@ namespace KoiFarmShop.Application.Implement.Service
 
             var response = new CreateResponse { Id = service.Id };
             return Result.SuccessWithObject(response);
+        }
+        public async Task<List<ServiceFrequency>> GetTopServicesAsync()
+        {
+            var result = await _unitOfWork.PetServiceRepository.GetTopServicesAsync();
+            return result;
         }
     }
 }

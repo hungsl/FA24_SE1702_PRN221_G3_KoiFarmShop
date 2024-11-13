@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KoiFarmShop.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initDb : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -99,6 +99,9 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     AvailableFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AvailableTo = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TravelCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaxNumberOfPets = table.Column<int>(type: "int", nullable: false),
+                    Frequency = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -195,6 +198,36 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         principalTable: "PetService",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rating",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Score = table.Column<int>(type: "int", nullable: false),
+                    Feedback = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rating", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Rating_PetService_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "PetService",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Rating_User_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -344,6 +377,16 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 column: "PetServiceCategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Rating_CustomerId",
+                table: "Rating",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rating_ServiceId",
+                table: "Rating",
+                column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Veterinarian_UserId",
                 table: "Veterinarian",
                 column: "UserId",
@@ -366,6 +409,9 @@ namespace KoiFarmShop.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Payment");
+
+            migrationBuilder.DropTable(
+                name: "Rating");
 
             migrationBuilder.DropTable(
                 name: "VeterinarianSchedule");

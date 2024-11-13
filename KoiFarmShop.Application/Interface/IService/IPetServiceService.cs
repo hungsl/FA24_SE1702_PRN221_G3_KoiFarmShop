@@ -1,5 +1,6 @@
 ﻿using KoiFarmShop.Application.Common.Result;
 using KoiFarmShop.Domain.Entities;
+using KoiFarmShop.Infrastructure.DTOs.PetService;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace KoiFarmShop.Application.Interface.IService
         public Task<Result> DeletePetServiceAsync(Guid id);
         Task<List<PetService>> GetServicesExpiringSoonAsync();
         public Task<Result> UpdatePetServiceAsync(PetService service);
+        Task<List<ServiceFrequency>> GetTopServicesAsync();
         Task<Result> GetAllPetServicesAsync(string searchName, string searchDuration, string searchCategoryName, int pageIndex, int pageSize);
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoiFarmShop.Infrastructure.Interface.IRepositories
+namespace KVSC.Infrastructure.Interface.IRepositories
 {
     public interface IFirebaseRepository
     {

@@ -1,15 +1,13 @@
 ﻿using Google.Cloud.Storage.V1;
-using KoiFarmShop.Infrastructure.DTOs.Common;
-using KoiFarmShop.Infrastructure.DTOs.Firebase.AddImage;
-using KoiFarmShop.Infrastructure.DTOs.Firebase.GetImage;
-using KoiFarmShop.Infrastructure.Interface.IRepositories;
+using KVSC.Infrastructure.Interface.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoiFarmShop.Infrastructure.Implement.Repositories
+
+namespace KVSC.Infrastructure.Implement.Repositories
 {
     public class FirebaseRepository : IFirebaseRepository
     {

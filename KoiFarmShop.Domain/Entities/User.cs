@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KVSC.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,5 +26,6 @@ namespace KoiFarmShop.Domain.Entities
 
         // Thêm quan hệ với Appointment
         public ICollection<Appointment> Appointments { get; set; } // Quan hệ nhiều với Appointment
+        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
     }
 }

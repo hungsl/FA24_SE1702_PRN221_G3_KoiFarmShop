@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KoiFarmShop.Infrastructure.Migrations
 {
     [DbContext(typeof(KVSCContext))]
-    [Migration("20241023135002_init")]
+    [Migration("20241102094035_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -24,6 +24,43 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("KVSC.Domain.Entities.Rating", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Feedback")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("Rating", (string)null);
+                });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.Appointment", b =>
                 {
@@ -279,6 +316,9 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Frequency")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -477,6 +517,25 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.ToTable("VeterinarianSchedule", (string)null);
                 });
 
+            modelBuilder.Entity("KVSC.Domain.Entities.Rating", b =>
+                {
+                    b.HasOne("KoiFarmShop.Domain.Entities.User", "Customer")
+                        .WithMany("Ratings")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KoiFarmShop.Domain.Entities.PetService", "Service")
+                        .WithMany("Ratings")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Service");
+                });
+
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.Appointment", b =>
                 {
                     b.HasOne("KoiFarmShop.Domain.Entities.ComboService", "ComboService")
@@ -606,6 +665,8 @@ namespace KoiFarmShop.Infrastructure.Migrations
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetService", b =>
                 {
                     b.Navigation("ComboServiceItems");
+
+                    b.Navigation("Ratings");
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetServiceCategory", b =>
@@ -620,6 +681,8 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Navigation("Appointments");
 
                     b.Navigation("Pets");
+
+                    b.Navigation("Ratings");
 
                     b.Navigation("Veterinarian")
                         .IsRequired();

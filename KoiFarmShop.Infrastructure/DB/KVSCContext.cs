@@ -1,4 +1,5 @@
 ﻿using KoiFarmShop.Domain.Entities;
+using KVSC.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace KoiFarmShop.Infrastructure.DB
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Veterinarian> Veterinarians { get; set; }
         public DbSet<VeterinarianSchedule> VeterinarianSchedules { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,6 +46,7 @@ namespace KoiFarmShop.Infrastructure.DB
             modelBuilder.Entity<Appointment>().ToTable("Appointment");
             modelBuilder.Entity<Veterinarian>().ToTable("Veterinarian");
             modelBuilder.Entity<VeterinarianSchedule>().ToTable("VeterinarianSchedule");
+            modelBuilder.Entity<Rating>().ToTable("Rating");
 
             // User has many Pets
             modelBuilder.Entity<User>()
@@ -117,6 +120,19 @@ namespace KoiFarmShop.Infrastructure.DB
                 .HasOne(vs => vs.Veterinarian)
                 .WithMany(v => v.VeterinarianSchedules)
                 .HasForeignKey(vs => vs.VeterinarianId);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Ratings)
+                .WithOne(r => r.Customer)
+                .HasForeignKey(r => r.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Cấu hình quan hệ giữa PetService và Rating
+            modelBuilder.Entity<PetService>()
+                .HasMany(s => s.Ratings)
+                .WithOne(r => r.Service)
+                .HasForeignKey(r => r.ServiceId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Call base method
             base.OnModelCreating(modelBuilder);
