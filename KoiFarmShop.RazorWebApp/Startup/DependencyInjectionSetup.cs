@@ -30,6 +30,12 @@ using KVSC.Application.Common.Validator.Rating;
 using KVSC.Infrastructure.DTOs.Rating.UpdateRating;
 using KoiFarmShop.Service.Implement.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using KVSC.Application.Common.Validator.Product;
+using KVSC.Application.Common.Validator.ProductCategory;
+using KVSC.Infrastructure.DTOs.Product.AddProduct;
+using KVSC.Infrastructure.DTOs.Product.UpdateProduct;
+using KVSC.Infrastructure.DTOs.ProductCategory.AddProductCategory;
+using KVSC.Infrastructure.DTOs.ProductCategory.UpdateProductCategory;
 namespace KoiFarmShop.RazorWebApp.Startup
 {
     public static class DependencyInjectionSetup
@@ -69,6 +75,10 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IValidator<MakeAppointmentForComboRequest>, MakeAppointmentForComboValidator>();
             services.AddTransient<IValidator<AddRatingRequest>, AddRatingValidator>();
             services.AddTransient<IValidator<UpdateRatingRequest>, UpdateRatingValidator>();
+            services.AddTransient<IValidator<AddProductRequest>, AddProductValidator>();
+            services.AddTransient<IValidator<UpdateProductRequest>, UpdateProductValidator>();
+            services.AddTransient<IValidator<AddProductCategoryRequest>, AddProductCategoryValidator>();
+            services.AddTransient<IValidator<UpdateProductCategoryRequest>, UpdateProductCategoryValidator>();
 
             //Validator
             #endregion
@@ -84,6 +94,8 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
             services.AddTransient<IRatingRepository, RatingRepository>();
             services.AddTransient<IVeterinarianRepository, VeterinarianRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
 
 
             #endregion
@@ -105,6 +117,8 @@ namespace KoiFarmShop.RazorWebApp.Startup
             services.AddTransient<IRatingService, RatingService>();
             services.AddTransient<IPetServiceLogic, PetServiceLogic>();
             services.AddTransient<IVeterinarianService, VeterinarianService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
             #endregion
 

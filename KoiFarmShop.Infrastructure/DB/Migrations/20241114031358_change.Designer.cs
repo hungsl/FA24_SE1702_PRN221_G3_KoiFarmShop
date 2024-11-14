@@ -4,6 +4,7 @@ using KoiFarmShop.Infrastructure.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KoiFarmShop.Infrastructure.DB.Migrations
 {
     [DbContext(typeof(KVSCContext))]
-    partial class KVSCContextModelSnapshot : ModelSnapshot
+    [Migration("20241114031358_change")]
+    partial class change
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -17,7 +17,8 @@ namespace KoiFarmShop.Infrastructure.Interface
         IComboServiceRepository ComboServiceRepository { get; }
         IAppointmentRepository AppointmentRepository { get; }
         IRatingRepository RatingRepository { get; }
-
+        IProductCategoryRepository ProductCategoryRepository { get; }
+        IProductRepository ProductRepository { get; }
         int Complete();
     }
 }

@@ -23,6 +23,8 @@ namespace KoiFarmShop.Infrastructure.Common
         public IPetServiceCategoryRepository PetServiceCategoryRepository { get; private set; }
         public IComboServiceRepository ComboServiceRepository { get; private set; }
         public IAppointmentRepository AppointmentRepository { get; private set; }
+        public IProductRepository ProductRepository { get; private set; }
+        public IProductCategoryRepository ProductCategoryRepository { get; private set; }
         public IRatingRepository RatingRepository { get; private set; }
         public UnitOfWork(KVSCContext context)
         {
@@ -34,6 +36,8 @@ namespace KoiFarmShop.Infrastructure.Common
             ComboServiceRepository = new ComboServiceRepository(_context);
             AppointmentRepository = new AppointmentRepository(_context);
             RatingRepository = new RatingRepository(_context);
+            ProductRepository = new ProductRepository(_context);
+            ProductCategoryRepository = new ProductCategoryRepository(_context);
         }
 
         public int Complete()

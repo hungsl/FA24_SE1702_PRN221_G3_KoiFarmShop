@@ -18,6 +18,10 @@ namespace KoiFarmShop.Infrastructure.DB
         public DbSet<User> Users { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
+
         public DbSet<PetService> PetServices { get; set; }
         public DbSet<PetServiceCategory> PetServiceCategories { get; set; }
         public DbSet<ComboService> ComboServices { get; set; }
@@ -50,6 +54,9 @@ namespace KoiFarmShop.Infrastructure.DB
             modelBuilder.Entity<Appointment>().ToTable("Appointment");
             modelBuilder.Entity<Veterinarian>().ToTable("Veterinarian");
             modelBuilder.Entity<VeterinarianSchedule>().ToTable("VeterinarianSchedule");
+
+            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<ProductCategory>().ToTable("ProductCategory");
             modelBuilder.Entity<Rating>().ToTable("Rating");
 
             // User has many Pets
@@ -105,7 +112,14 @@ namespace KoiFarmShop.Infrastructure.DB
                .WithOne(a => a.Appointment)
                .HasForeignKey(av => av.AppointmentId)
                .OnDelete(DeleteBehavior.Restrict);
+        
 
+            // ProductCategory has many Products
+            modelBuilder.Entity<ProductCategory>()
+                    .HasMany(pc => pc.Products)
+                    .WithOne(p => p.ProductCategory)
+                    .HasForeignKey(p => p.ProductCategoryId)
+                    .OnDelete(DeleteBehavior.Cascade); // Adjust behavior based on your requirements
 
             modelBuilder.Entity<AppointmentVeterinarian>()
                 .HasOne(av => av.Veterinarian)
