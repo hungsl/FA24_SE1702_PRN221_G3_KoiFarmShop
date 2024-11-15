@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\ComboService\**" />
+    <Compile Remove="Pages\SignalR\**" />
+    <Content Remove="Pages\ComboService\**" />
+    <Content Remove="Pages\SignalR\**" />
+    <EmbeddedResource Remove="Pages\ComboService\**" />
+    <EmbeddedResource Remove="Pages\SignalR\**" />
+    <None Remove="Pages\ComboService\**" />
+    <None Remove="Pages\SignalR\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="4.10.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KoiFarmShop.Application\KoiFarmShop.Application.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.Domain\KoiFarmShop.Domain.csproj" />
+    <ProjectReference Include="..\KoiFarmShop.Infrastructure\KoiFarmShop.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

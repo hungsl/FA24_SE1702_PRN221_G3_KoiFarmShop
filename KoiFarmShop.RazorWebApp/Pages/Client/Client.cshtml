@@ -1,0 +1,16 @@
+﻿@page
+@model KoiFarmShop.RazorWebApp.Pages.Client.ClientModel
+@{
+    ViewData["Title"] = "Client Page";
+}
+<h2>TCP Client</h2>
+<form method="post">
+    <label for="message">Enter message:</label>
+    <input type="text" id="message" name="message" required>
+    <button type="submit">Send</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p>Response from server: @Model.Message</p>
+}
