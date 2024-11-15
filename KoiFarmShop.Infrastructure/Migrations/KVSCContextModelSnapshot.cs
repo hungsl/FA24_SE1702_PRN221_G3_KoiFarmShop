@@ -17,11 +17,16 @@ namespace KoiFarmShop.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+<<<<<<< HEAD
                 .HasAnnotation("ProductVersion", "8.0.8")
+=======
+                .HasAnnotation("ProductVersion", "8.0.10")
+>>>>>>> Dev_Danh_skibidi
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+<<<<<<< HEAD
             modelBuilder.Entity("KVSC.Domain.Entities.Rating", b =>
                 {
                     b.Property<Guid>("Id")
@@ -59,6 +64,8 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.ToTable("Rating", (string)null);
                 });
 
+=======
+>>>>>>> Dev_Danh_skibidi
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.Appointment", b =>
                 {
                     b.Property<Guid>("Id")
@@ -240,10 +247,13 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<string>("Breed")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> Dev_Danh_skibidi
                     b.Property<string>("Color")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -251,7 +261,15 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+<<<<<<< HEAD
                     b.Property<int>("HealthStatus")
+=======
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HealthStatus")
+>>>>>>> Dev_Danh_skibidi
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -274,9 +292,22 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
 
+=======
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+>>>>>>> Dev_Danh_skibidi
                     b.Property<double>("Weight")
                         .HasColumnType("float");
 
@@ -313,9 +344,12 @@ namespace KoiFarmShop.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
                     b.Property<int>("Frequency")
                         .HasColumnType("int");
 
+=======
+>>>>>>> Dev_Danh_skibidi
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -514,6 +548,7 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.ToTable("VeterinarianSchedule", (string)null);
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("KVSC.Domain.Entities.Rating", b =>
                 {
                     b.HasOne("KoiFarmShop.Domain.Entities.User", "Customer")
@@ -533,6 +568,8 @@ namespace KoiFarmShop.Infrastructure.Migrations
                     b.Navigation("Service");
                 });
 
+=======
+>>>>>>> Dev_Danh_skibidi
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.Appointment", b =>
                 {
                     b.HasOne("KoiFarmShop.Domain.Entities.ComboService", "ComboService")
@@ -604,9 +641,13 @@ namespace KoiFarmShop.Infrastructure.Migrations
                 {
                     b.HasOne("KoiFarmShop.Domain.Entities.User", "Owner")
                         .WithMany("Pets")
+<<<<<<< HEAD
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+=======
+                        .HasForeignKey("OwnerId");
+>>>>>>> Dev_Danh_skibidi
 
                     b.Navigation("Owner");
                 });
@@ -662,8 +703,11 @@ namespace KoiFarmShop.Infrastructure.Migrations
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetService", b =>
                 {
                     b.Navigation("ComboServiceItems");
+<<<<<<< HEAD
 
                     b.Navigation("Ratings");
+=======
+>>>>>>> Dev_Danh_skibidi
                 });
 
             modelBuilder.Entity("KoiFarmShop.Domain.Entities.PetServiceCategory", b =>
@@ -679,8 +723,11 @@ namespace KoiFarmShop.Infrastructure.Migrations
 
                     b.Navigation("Pets");
 
+<<<<<<< HEAD
                     b.Navigation("Ratings");
 
+=======
+>>>>>>> Dev_Danh_skibidi
                     b.Navigation("Veterinarian")
                         .IsRequired();
                 });

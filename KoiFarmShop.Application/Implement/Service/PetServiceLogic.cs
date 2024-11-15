@@ -78,7 +78,7 @@ namespace KoiFarmShop.Application.Implement.Service
                 Quantity = addPet.Quantity,
                 LastHealthCheck = addPet.LastHealthCheck,
                 Note = addPet.Note,
-                HealthStatus = addPet.HealthStatus
+                OwnerId = addPet.OwnerId,
             };
 
             var createResult = await _unitOfWork.PetRepository.CreatePetAsync(pet);
@@ -119,7 +119,7 @@ namespace KoiFarmShop.Application.Implement.Service
             pet.Quantity = updatePet.Quantity;
             pet.LastHealthCheck = updatePet.LastHealthCheck;
             pet.Note = updatePet.Note;
-            pet.HealthStatus = updatePet.HealthStatus;
+            pet.OwnerId = updatePet.OwnerId;
 
             var updateResult = await _unitOfWork.PetRepository.UpdatePetAsync(pet);
             if (updateResult == 0)
@@ -148,16 +148,35 @@ namespace KoiFarmShop.Application.Implement.Service
             return Result.SuccessWithObject(deleteResult);
         }
 
-        public async Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote)
+        public async Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote, int pageIndex, int pageSize)
         {
-            var pet = await _unitOfWork.PetRepository.GetAllPetWithSearchAsync(searchName, searchColor, searchNote);
+            var pet = await _unitOfWork.PetRepository.GetAllPetWithSearchAsync(searchName, searchColor, searchNote, pageIndex, pageSize);
 
-            var pagedResult = new ResultSearch<Pet>
+            var pagedResult = new PagedResultSearch<Pet>
             {
-                Items = pet
+                Items = pet.Pets,
+                TotalItems = pet.totalItems,
+                PageIndex = pageIndex,
+                PageSize = pageSize
             };
 
             return Result.SuccessWithObject(pagedResult);
+        }
+
+        public async Task<Result> GetAllOwnerAsync()
+        {
+            var owners = await _unitOfWork.PetRepository.GetAllOwnerAsync();
+            return Result.SuccessWithObject(owners);
+        }
+
+        public async Task<Result> GetOwnerByIdAsync(Guid? id)
+        {
+            var owner = await _unitOfWork.PetRepository.GetOwnerByIdAsync(id);
+            if (owner == null)
+            {
+                return Result.Failure(PetErrorMessage.OwnerNotFound());
+            }
+            return Result.SuccessWithObject(owner);
         }
     }
 }

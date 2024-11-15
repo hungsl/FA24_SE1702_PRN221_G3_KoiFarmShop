@@ -18,7 +18,7 @@ namespace KoiFarmShop.Domain.Entities
         public int Quantity { get; set; }
         public DateTime LastHealthCheck { get; set; }
         public string Note { get; set; }
-        public int HealthStatus { get; set; }
+        public int? HealthStatus { get; set; }
 
         // Foreign key relationship
         public Guid? OwnerId { get; set; }

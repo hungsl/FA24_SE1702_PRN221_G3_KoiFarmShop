@@ -11,6 +11,7 @@
 <form method="get" class="row g-3 mb-3">
     <div class="col-auto">
         <label for="searchName" class="form-label">Search by Name:</label>
+<<<<<<< HEAD
         <input type="text" id="searchName" name="searchName" value="@Model.searchName" class="form-control" placeholder="Enter pet name" />
     </div>
     <div class="col-auto">
@@ -20,6 +21,17 @@
     <div class="col-auto">
         <label for="searchNote" class="form-label">Search by Note:</label>
         <input type="text" id="searchNote" name="searchNote" value="@Model.searchNote" class="form-control" placeholder="Enter pet note" />
+=======
+        <input type="text" id="searchName" name="searchName" value="@Model.SearchName" class="form-control" placeholder="Enter pet name" />
+    </div>
+    <div class="col-auto">
+        <label for="searchColor" class="form-label">Search by Color:</label>
+        <input type="text" id="searchColor" name="searchColor" value="@Model.SearchColor" class="form-control" placeholder="Enter pet color" />
+    </div>
+    <div class="col-auto">
+        <label for="searchNote" class="form-label">Search by Note:</label>
+        <input type="text" id="searchNote" name="searchNote" value="@Model.SearchNote" class="form-control" placeholder="Enter pet note" />
+>>>>>>> Dev_Danh_skibidi
     </div>
     <div class="col-auto d-flex align-items-end">
         <button type="submit" class="btn btn-primary">Search</button>
@@ -28,6 +40,7 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<<<<<<< HEAD
 <table class="table">
     <thead>
         <tr>
@@ -137,3 +150,145 @@
 }
     </tbody>
 </table>
+=======
+@if (Model.Pet != null && Model.Pet.Items.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].ImageUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Length)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Weight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].LastHealthCheck)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Note)
+                </th>
+                @* <th>
+            @Html.DisplayNameFor(model => model.Pet.Items[0].HealthStatus)
+            </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.Pet.Items[0].Owner)
+                </th>
+                @* <th>
+            @Html.DisplayNameFor(model => model.Pet[0].CreatedDate)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.Pet[0].ModifiedDate)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.Pet[0].IsDeleted)
+            </th> *@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Pet.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageUrl)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Length)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastHealthCheck)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Note)
+                    </td>
+                    @* <td>
+            @Html.DisplayFor(modelItem => item.HealthStatus)
+            </td> *@
+                    <td>
+                        @if (item.Owner != null)
+                        {
+                            @Html.DisplayFor(modelItem => item.Owner.FullName)
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                    @* <td>
+                        @Html.DisplayFor(modelItem => item.Owner.FullName)
+                    </td> *@
+                    @* <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td> *@
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- Phân trang -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @for (var i = 1; i <= (int)Math.Ceiling((double)Model.Pet.TotalItems / Model.PageSize); i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-route-pageIndex="@i"
+                       asp-route-SearchName="@Model.SearchName"
+                       asp-route-SearchColor="@Model.SearchColor"
+                       asp-route-SearchNote="@Model.SearchNote">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+else
+{
+    <p>No Pet found.</p>
+}
+>>>>>>> Dev_Danh_skibidi

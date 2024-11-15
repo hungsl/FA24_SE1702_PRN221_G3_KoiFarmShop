@@ -18,6 +18,10 @@ namespace KoiFarmShop.Infrastructure.DTOs.Pet.AddPet
         public int Quantity { get; set; }
         public DateTime LastHealthCheck { get; set; }
         public string Note { get; set; }
+<<<<<<< HEAD
         public int HealthStatus { get; set; }
+=======
+        public Guid? OwnerId { get; set; }
+>>>>>>> Dev_Danh_skibidi
     }
 }

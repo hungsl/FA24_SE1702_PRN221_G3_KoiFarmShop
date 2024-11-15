@@ -1,6 +1,9 @@
 ﻿using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DB;
+<<<<<<< HEAD
 using KoiFarmShop.Infrastructure.DTOs.PetService;
+=======
+>>>>>>> Dev_Danh_skibidi
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -104,6 +107,7 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                 .ToListAsync();
             return result;
         }
+<<<<<<< HEAD
         public async Task<List<ServiceFrequency>> GetTopServicesAsync()
         {
                 var topServices = await _context.PetServices
@@ -114,6 +118,8 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
                 return topServices;
         }
+=======
+>>>>>>> Dev_Danh_skibidi
 
     }
 }

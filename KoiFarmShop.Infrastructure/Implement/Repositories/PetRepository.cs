@@ -2,6 +2,14 @@
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
+=======
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> Dev_Danh_skibidi
 
 namespace KoiFarmShop.Infrastructure.Implement.Repositories
 {
@@ -10,6 +18,7 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
         public PetRepository(KVSCContext context) : base(context) { }
 
+<<<<<<< HEAD
         // Get all pets by OwnerId
         public async Task<IEnumerable<Pet>> GetPetsByOwnerIdAsync(Guid ownerId)
         {
@@ -18,6 +27,8 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                 .ToListAsync();
         }
 
+=======
+>>>>>>> Dev_Danh_skibidi
         public async Task<Pet> GetPetByIdAsync(Guid id)
         {
             return await _context.Pets.FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted);
@@ -52,9 +63,19 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return 0;
         }
 
+<<<<<<< HEAD
         public async Task<List<Pet>> GetAllPetWithSearchAsync(string searchName, string searchColor, string searchNote)
         {
             var query = _context.Set<Pet>().AsQueryable().Where(p => !p.IsDeleted);
+=======
+        public async Task<(int totalItems, List<Pet> Pets)> GetAllPetWithSearchAsync(
+        string searchName, string searchColor, string searchNote,
+        int pageIndex, int pageSize)
+        {
+            var query = _context.Set<Pet>()
+                .Include(i => i.Owner)
+                .AsQueryable().Where(p => !p.IsDeleted);
+>>>>>>> Dev_Danh_skibidi
 
             // Tìm kiếm theo tên dịch vụ
             if (!string.IsNullOrEmpty(searchName))
@@ -74,7 +95,30 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                 query = query.Where(p => p.Note.Contains(searchNote));
             }
 
+<<<<<<< HEAD
             return await query.ToListAsync();
+=======
+            // Phân trang
+            var totalItems = await query.CountAsync();
+            var pet = await query
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToListAsync();
+
+            return (totalItems, pet);
+        }
+
+        public async Task<List<User>> GetAllOwnerAsync()
+        {
+            return await _context.Users
+                                 .Where(u => u.role == 5)
+                                 .ToListAsync();
+        }
+
+        public async Task<User> GetOwnerByIdAsync(Guid? id)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted);
+>>>>>>> Dev_Danh_skibidi
         }
     }
 }

@@ -1,8 +1,11 @@
 ﻿using FluentValidation;
+using KoiFarmShop.Application.Interface.IService;
 using KoiFarmShop.Application.Common.Result;
 using KoiFarmShop.Application.Interface.IService;
 using KoiFarmShop.Domain.Entities;
 using KoiFarmShop.Infrastructure.DTOs.Appointment.MakeAppointment;
+using KoiFarmShop.Infrastructure.DTOs.Common.Message;
+using KoiFarmShop.Infrastructure.Interface;
 using KoiFarmShop.Infrastructure.DTOs.Common;
 using KoiFarmShop.Infrastructure.DTOs.Common.Message;
 using KoiFarmShop.Infrastructure.DTOs.PetService.AddPetService;
@@ -22,7 +25,7 @@ namespace KoiFarmShop.Service.Implement.Service
 
         public AppointmentService(
             IUnitOfWork unitOfWork,
-            IValidator<MakeAppointmentForServiceRequest> serviceValidator,
+                             IValidator<MakeAppointmentForServiceRequest> serviceValidator,
             IValidator<MakeAppointmentForComboRequest> comboValidator,
             ILogger<AppointmentService> logger)
         {
@@ -138,7 +141,7 @@ namespace KoiFarmShop.Service.Implement.Service
 
                 _logger.LogInformation("Successfully retrieved {Count} appointments.", appointments.Count());
                 return Result.SuccessWithObject(appointments);
-            }
+        }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving all appointments.");
@@ -198,74 +201,75 @@ namespace KoiFarmShop.Service.Implement.Service
             {
                 _logger.LogInformation("Attempting to create appointment for service. Customer ID: {CustomerId}, Pet ID: {PetId}", request.CustomerId, request.PetId);
 
-                // Validate the input
-                var validationResult = await _serviceValidator.ValidateAsync(request);
-                if (!validationResult.IsValid)
-                {
+            // Validate the input
+            var validationResult = await _serviceValidator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
                     var errors = validationResult.Errors.Select(e => (Error)e.CustomState).ToList();
                     _logger.LogWarning("Validation failed for appointment request. Errors: {Errors}", errors);
-                    return Result.Failures(errors);
-                }
+                return Result.Failures(errors);
+            }
 
-                var pet = await _unitOfWork.PetRepository.GetByIdAsync(request.PetId);
-                if (pet == null)
-                {
+            var pet = await _unitOfWork.PetRepository.GetByIdAsync(request.PetId);
+            if (pet == null)
+            {
                     _logger.LogWarning("Pet with ID {PetId} not found.", request.PetId);
-                    return Result.Failure(PetErrorMessage.FieldIsEmpty("pet"));
-                }
+                return Result.Failure(PetErrorMessage.FieldIsEmpty("pet"));
+            }
 
-                var appointment = new Appointment
-                {
-                    CustomerId = request.CustomerId,
-                    PetId = request.PetId,
-                    PetServiceId = request.PetServiceId,
-                    Status = "Pending",
-                    AppointmentDate = request.AppointmentDate,
+            var appointment = new Appointment
+            {
+                CustomerId = request.CustomerId,
+                PetId = request.PetId,
+                PetServiceId = request.PetServiceId,
+                Status = "Pending",
+                AppointmentDate = request.AppointmentDate,
                     AppointmentVeterinarians = new List<AppointmentVeterinarian>() // Initialize as empty list
-                };
+            };
 
 
                 // Assigning Veterinarian(s)
-                if (request.VeterinarianIds == null || !request.VeterinarianIds.Any())
+            if (request.VeterinarianIds == null || !request.VeterinarianIds.Any())
+            {
+                var availableVeterinarian = await _unitOfWork.AppointmentRepository.GetAvailableVeterinarianAsync(appointment.AppointmentDate);
+                if (availableVeterinarian != null)
                 {
-                    var availableVeterinarian = await _unitOfWork.AppointmentRepository.GetAvailableVeterinarianAsync(appointment.AppointmentDate);
-                    if (availableVeterinarian != null)
-                    {
                         appointment.AppointmentVeterinarians.Add(new AppointmentVeterinarian { VeterinarianId = availableVeterinarian.Id });
                         _logger.LogInformation("Assigned available veterinarian ID {VeterinarianId} to the appointment.", availableVeterinarian.Id);
                     }
                     else
                     {
                         _logger.LogWarning("No available veterinarian found for the appointment date.");
-                    }
                 }
-                else
+            }
+            else
+            {
+                // Nếu có bác sĩ được chọn, thêm vào cuộc hẹn
+                appointment.AppointmentVeterinarians = request.VeterinarianIds.Select(v => new AppointmentVeterinarian
                 {
-                    appointment.AppointmentVeterinarians = request.VeterinarianIds.Select(v => new AppointmentVeterinarian
-                    {
-                        VeterinarianId = v
-                    }).ToList();
+                    VeterinarianId = v
+                }).ToList();
                     _logger.LogInformation("Assigned {Count} veterinarian(s) to the appointment.", appointment.AppointmentVeterinarians.Count);
-                }
+            }
 
                 // Save the Appointment
-                await _unitOfWork.AppointmentRepository.CreateAppointmentAsync(appointment);
+            await _unitOfWork.AppointmentRepository.CreateAppointmentAsync(appointment);
                 _logger.LogInformation("Successfully created appointment with ID: {AppointmentId}", appointment.Id);
 
                 // Update Veterinarian Schedule Availability
-                foreach (var veterinarian in appointment.AppointmentVeterinarians)
-                {
+            foreach (var veterinarian in appointment.AppointmentVeterinarians)
+            {
                     if (veterinarian.VeterinarianId != Guid.Empty)
                     {
                         await _unitOfWork.AppointmentRepository.UpdateScheduleAvailabilityAsync(veterinarian.VeterinarianId, appointment.AppointmentDate);
                         _logger.LogInformation("Updated schedule availability for veterinarian ID {VeterinarianId}.", veterinarian.VeterinarianId);
                     }
-                }
-
-
-                var response = new CreateResponse { Id = appointment.Id };
-                return Result.SuccessWithObject(response);
             }
+
+
+            var response = new CreateResponse { Id = appointment.Id };
+            return Result.SuccessWithObject(response);
+        }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error creating appointment for service. Customer ID: {CustomerId}, Pet ID: {PetId}", request.CustomerId, request.PetId);
@@ -279,30 +283,36 @@ namespace KoiFarmShop.Service.Implement.Service
             {
                 _logger.LogInformation("Attempting to create combo appointment. Customer ID: {CustomerId}, Pet ID: {PetId}", request.CustomerId, request.PetId);
 
-                // Validate the input
-                var validationResult = await _comboValidator.ValidateAsync(request);
-                if (!validationResult.IsValid)
-                {
+            // Validate the input
+            var validationResult = await _comboValidator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
                     var errors = validationResult.Errors.Select(e => (Error)e.CustomState).ToList();
                     _logger.LogWarning("Validation failed for combo appointment request. Errors: {Errors}", errors);
-                    return Result.Failures(errors);
-                }
+                return Result.Failures(errors);
+            }
 
-                var appointment = new Appointment
-                {
-                    CustomerId = request.CustomerId,
-                    PetId = request.PetId,
-                    ComboServiceId = request.ComboServiceId,
+            //var pet = await _unitOfWork.PetRepository.GetByIdAsync(request.PetId);
+            //if (pet == null)
+            //{
+            //    return Result.Failure("Pet not found.");
+            //}
+
+            var appointment = new Appointment
+            {
+                CustomerId = request.CustomerId,
+                PetId = request.PetId,
+                ComboServiceId = request.ComboServiceId,
                     AppointmentDate = DateTime.UtcNow, // User-selected date if applicable
-                    Status = "Pending"
-                };
+                Status = "Pending"
+            };
 
-                await _unitOfWork.AppointmentRepository.CreateAppointmentAsync(appointment);
+            await _unitOfWork.AppointmentRepository.CreateAppointmentAsync(appointment);
                 _logger.LogInformation("Successfully created combo appointment with ID: {AppointmentId}", appointment.Id);
 
-                var response = new CreateResponse { Id = appointment.Id };
-                return Result.SuccessWithObject(response);
-            }
+            var response = new CreateResponse { Id = appointment.Id };
+            return Result.SuccessWithObject(response);
+        }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error creating combo appointment. Customer ID: {CustomerId}, Pet ID: {PetId}", request.CustomerId, request.PetId);

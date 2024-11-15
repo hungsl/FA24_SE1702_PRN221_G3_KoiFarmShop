@@ -19,6 +19,11 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
 
         public IActionResult OnGet()
         {
+<<<<<<< HEAD
+=======
+            var owners = _petServiceLogic.GetAllOwnerAsync().Result.Object as List<User>;
+            ViewData["OwnerId"] = new SelectList(owners, "Id", "FullName");
+>>>>>>> Dev_Danh_skibidi
             return Page();
         }
 
@@ -33,6 +38,11 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
             }
 
             var result = await _petServiceLogic.CreatePetAsync(Pet);
+<<<<<<< HEAD
+=======
+            var owners = _petServiceLogic.GetAllOwnerAsync().Result.Object as List<User>;
+            ViewData["OwnerId"] = new SelectList(owners, "Id", "FullName");
+>>>>>>> Dev_Danh_skibidi
 
             if (!result.IsSuccess) 
             {
