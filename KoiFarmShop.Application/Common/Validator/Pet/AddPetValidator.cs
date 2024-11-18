@@ -23,7 +23,6 @@ namespace KoiFarmShop.Application.Common.Validator.Pet
             AddPetQuantityRules(request => request.Quantity);
             AddPetLastHealthCheckRules(request => request.LastHealthCheck);
             AddPetNoteRules(request => request.Note);
-            AddPetHealthStatusRules(request => request.HealthStatus);
         }
 
     }

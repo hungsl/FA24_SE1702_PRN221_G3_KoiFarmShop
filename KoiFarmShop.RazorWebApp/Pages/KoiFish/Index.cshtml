@@ -29,116 +29,7 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<<<<<<< HEAD
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Length)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Weight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].LastHealthCheck)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet.Items[0].HealthStatus)
-            </th>
-            @* <th>
-                @Html.DisplayNameFor(model => model.Pet[0].Owner)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet[0].CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet[0].ModifiedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pet[0].IsDeleted)
-            </th> *@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Pet.Items)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Length)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastHealthCheck)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HealthStatus)
-            </td>
-            @* <td>
-                @Html.DisplayFor(modelItem => item.Owner.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td> *@
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
 @if (Model.Pet != null && Model.Pet.Items.Any())
 {
     <table class="table">
@@ -174,21 +65,11 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Pet.Items[0].Note)
                 </th>
-                @* <th>
-            @Html.DisplayNameFor(model => model.Pet.Items[0].HealthStatus)
-            </th> *@
+
                 <th>
                     @Html.DisplayNameFor(model => model.Pet.Items[0].Owner)
                 </th>
-                @* <th>
-            @Html.DisplayNameFor(model => model.Pet[0].CreatedDate)
-            </th>
-            <th>
-            @Html.DisplayNameFor(model => model.Pet[0].ModifiedDate)
-            </th>
-            <th>
-            @Html.DisplayNameFor(model => model.Pet[0].IsDeleted)
-            </th> *@
+
                 <th></th>
             </tr>
         </thead>
@@ -226,9 +107,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Note)
                     </td>
-                    @* <td>
-            @Html.DisplayFor(modelItem => item.HealthStatus)
-            </td> *@
+
                     <td>
                         @if (item.Owner != null)
                         {
@@ -239,18 +118,7 @@
                             <span>N/A</span>
                         }
                     </td>
-                    @* <td>
-                        @Html.DisplayFor(modelItem => item.Owner.FullName)
-                    </td> *@
-                    @* <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td> *@
+
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

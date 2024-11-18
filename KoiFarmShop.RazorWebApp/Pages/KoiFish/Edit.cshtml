@@ -63,45 +63,14 @@
                 <input asp-for="Pet.Note" class="form-control" />
                 <span asp-validation-for="Pet.Note" class="text-danger"></span>
             </div>
-<<<<<<< HEAD
-            <div class="form-group">
-                <label asp-for="Pet.HealthStatus" class="control-label"></label>
-                <input asp-for="Pet.HealthStatus" class="form-control" />
-                <span asp-validation-for="Pet.HealthStatus" class="text-danger"></span>
-            </div>
-            @* <div class="form-group">
-                <label asp-for="Pet.OwnerId" class="control-label"></label>
-                <select asp-for="Pet.OwnerId" class="form-control" asp-items="ViewBag.OwnerId"></select>
-                <span asp-validation-for="Pet.OwnerId" class="text-danger"></span>
-            </div> *@
-=======
-            @* <div class="form-group">
-                <label asp-for="Pet.HealthStatus" class="control-label"></label>
-                <input asp-for="Pet.HealthStatus" class="form-control" />
-                <span asp-validation-for="Pet.HealthStatus" class="text-danger"></span>
-            </div> *@
+
             <div class="form-group">
                 <label asp-for="Pet.OwnerId" class="control-label"></label>
                 <select asp-for="Pet.OwnerId" class="form-control" asp-items="ViewBag.OwnerId"></select>
                 <span asp-validation-for="Pet.OwnerId" class="text-danger"></span>
             </div>
->>>>>>> Dev_Danh_skibidi
             <input type="hidden" asp-for="Pet.Id" />
-            @* <div class="form-group">
-                <label asp-for="Pet.CreatedDate" class="control-label"></label>
-                <input asp-for="Pet.CreatedDate" class="form-control" />
-                <span asp-validation-for="Pet.CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Pet.ModifiedDate" class="control-label"></label>
-                <input asp-for="Pet.ModifiedDate" class="form-control" />
-                <span asp-validation-for="Pet.ModifiedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Pet.IsDeleted" /> @Html.DisplayNameFor(model => model.Pet.IsDeleted)
-                </label>
-            </div> *@
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
