@@ -8,11 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Pages\ComboService\**" />
-<<<<<<< HEAD
-    <Content Remove="Pages\ComboService\**" />
-    <EmbeddedResource Remove="Pages\ComboService\**" />
-    <None Remove="Pages\ComboService\**" />
-=======
+
     <Compile Remove="Pages\SignalR\**" />
     <Content Remove="Pages\ComboService\**" />
     <Content Remove="Pages\SignalR\**" />
@@ -20,7 +16,6 @@
     <EmbeddedResource Remove="Pages\SignalR\**" />
     <None Remove="Pages\ComboService\**" />
     <None Remove="Pages\SignalR\**" />
->>>>>>> Dev_Danh_skibidi
   </ItemGroup>
 
   <ItemGroup>
@@ -40,15 +35,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KoiFarmShop.Application\KoiFarmShop.Application.csproj" />
-    <ProjectReference Include="..\KoiFarmShop.Domain\KoiFarmShop.Domain.csproj" />
-    <ProjectReference Include="..\KoiFarmShop.Infrastructure\KoiFarmShop.Infrastructure.csproj" />
   </ItemGroup>
 
-<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="Pages\SignalR\" />
   </ItemGroup>
 
-=======
->>>>>>> Dev_Danh_skibidi
 </Project>

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-using KoiFarmShop.Infrastructure.DB;
-using KoiFarmShop.RazorWebApp.Startup;
-using KVSC.WebAPI.Startup;
-=======
+
 using KoiFarmShop.Application.Implement.Service;
 using KoiFarmShop.Application.Interface.IService;
 using KoiFarmShop.Domain.Entities;
@@ -10,7 +6,6 @@ using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Implement.Repositories;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using KoiFarmShop.RazorWebApp.Startup;
->>>>>>> Dev_Danh_skibidi
 using Microsoft.EntityFrameworkCore;
 
 namespace KoiFarmShop.RazorWebApp
@@ -53,11 +48,7 @@ namespace KoiFarmShop.RazorWebApp
             app.UseAuthorization();
 
             app.MapRazorPages();
-<<<<<<< HEAD
-            app.MigrateDatabases();
-=======
 
->>>>>>> Dev_Danh_skibidi
             app.MapHub<Hubs.ChatHub>("/chathub");
 
             app.Run();

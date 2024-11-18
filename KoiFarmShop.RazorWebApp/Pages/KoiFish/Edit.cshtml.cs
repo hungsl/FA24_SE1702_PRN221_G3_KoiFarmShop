@@ -36,12 +36,9 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
             }
 
             Pet = result.Object as Pet;
-<<<<<<< HEAD
 
-=======
             var owners = _petServiceLogic.GetAllOwnerAsync().Result.Object as List<User>;
             ViewData["OwnerId"] = new SelectList(owners, "Id", "FullName");
->>>>>>> Dev_Danh_skibidi
             return Page();
         }
 
@@ -62,11 +59,7 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
                     Quantity = Pet.Quantity,
                     LastHealthCheck = Pet.LastHealthCheck,
                     Note = Pet.Note,
-<<<<<<< HEAD
-                    HealthStatus = Pet.HealthStatus
-=======
                     OwnerId = Pet.OwnerId,
->>>>>>> Dev_Danh_skibidi
                 };
                 var result = await _petServiceLogic.UpdatePetAsync(Pet.Id, addPetRequest);
 
@@ -112,11 +105,9 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
                                 break;
                         }
                     }
-<<<<<<< HEAD
-=======
+
                     var owners = _petServiceLogic.GetAllOwnerAsync().Result.Object as List<User>;
                     ViewData["OwnerId"] = new SelectList(owners, "Id", "FullName");
->>>>>>> Dev_Danh_skibidi
                     return Page();
                 }
             }

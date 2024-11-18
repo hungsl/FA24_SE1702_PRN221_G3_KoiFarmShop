@@ -1,9 +1,6 @@
 ﻿using KoiFarmShop.Domain.Entities;
-<<<<<<< HEAD
 using KVSC.Domain.Entities;
 using KVSC.Infrastructure.DB.Configuration;
-using Microsoft.EntityFrameworkCore;
-=======
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +8,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
->>>>>>> Dev_Danh_skibidi
 
 namespace KoiFarmShop.Infrastructure.DB
 {
@@ -35,15 +31,11 @@ namespace KoiFarmShop.Infrastructure.DB
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Veterinarian> Veterinarians { get; set; }
         public DbSet<VeterinarianSchedule> VeterinarianSchedules { get; set; }
-<<<<<<< HEAD
         public DbSet<Rating> Ratings { get; set; }
-=======
->>>>>>> Dev_Danh_skibidi
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-<<<<<<< HEAD
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new AppointmentConfiguration());
@@ -53,8 +45,6 @@ namespace KoiFarmShop.Infrastructure.DB
             modelBuilder.ApplyConfiguration(new VeterinarianConfiguration());
 
 
-=======
->>>>>>> Dev_Danh_skibidi
             // Define table names
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Pet>().ToTable("Pet");
@@ -66,10 +56,7 @@ namespace KoiFarmShop.Infrastructure.DB
             modelBuilder.Entity<Appointment>().ToTable("Appointment");
             modelBuilder.Entity<Veterinarian>().ToTable("Veterinarian");
             modelBuilder.Entity<VeterinarianSchedule>().ToTable("VeterinarianSchedule");
-<<<<<<< HEAD
             modelBuilder.Entity<Rating>().ToTable("Rating");
-=======
->>>>>>> Dev_Danh_skibidi
 
             // User has many Pets
             modelBuilder.Entity<User>()
@@ -77,11 +64,6 @@ namespace KoiFarmShop.Infrastructure.DB
                 .WithOne(p => p.Owner)
                 .HasForeignKey(p => p.OwnerId);
 
-<<<<<<< HEAD
-
-=======
-         
->>>>>>> Dev_Danh_skibidi
             // PetServiceCategory has many PetServices
             modelBuilder.Entity<PetServiceCategory>()
                 .HasMany(psc => psc.PetServices)
@@ -148,7 +130,6 @@ namespace KoiFarmShop.Infrastructure.DB
                 .WithMany(v => v.VeterinarianSchedules)
                 .HasForeignKey(vs => vs.VeterinarianId);
 
-<<<<<<< HEAD
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Ratings)
                 .WithOne(r => r.Customer)
@@ -162,8 +143,6 @@ namespace KoiFarmShop.Infrastructure.DB
                 .HasForeignKey(r => r.ServiceId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-=======
->>>>>>> Dev_Danh_skibidi
             // Call base method
             base.OnModelCreating(modelBuilder);
         }

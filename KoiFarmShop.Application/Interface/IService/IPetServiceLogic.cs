@@ -19,7 +19,6 @@ namespace KoiFarmShop.Application.Interface.IService
         Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote, int pageIndex, int pageSize);
         Task<Result> GetAllOwnerAsync();
         Task<Result> GetOwnerByIdAsync(Guid? id);
-        Task<Result> GetSearchPetAsync(string searchName, string searchColor, string searchNote);
 
         public Task<Result> GetPetsByOwnerIdAsync(Guid ownerId);
     }

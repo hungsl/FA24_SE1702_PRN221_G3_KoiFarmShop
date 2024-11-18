@@ -2,14 +2,11 @@
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-=======
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
->>>>>>> Dev_Danh_skibidi
 
 namespace KoiFarmShop.Infrastructure.Implement.Repositories
 {
@@ -37,7 +34,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return await _context.Users.FirstOrDefaultAsync(x => x.Email.Equals(email) && x.PasswordHash.Equals(password));
         }
 
-<<<<<<< HEAD
         // Register a new user
         public async Task<User> RegisterUserAsync(User user)
         {
@@ -81,9 +77,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
                 .Where(u => u.Id == id && !u.IsDeleted)
                 .FirstOrDefaultAsync();
         }
-=======
-
->>>>>>> Dev_Danh_skibidi
 
 
 

@@ -25,10 +25,7 @@ namespace KoiFarmShop.Infrastructure.DTOs.Common.Message
 
         public static Error PetNotFound()
             => Error.NotFound("Pet.NotFound", "The specified pet was not found.");
-<<<<<<< HEAD
-=======
         public static Error OwnerNotFound()
             => Error.NotFound("Owner.NotFound", "The specified owner was not found.");
->>>>>>> Dev_Danh_skibidi
     }
 }

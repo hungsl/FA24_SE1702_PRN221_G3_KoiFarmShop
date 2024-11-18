@@ -33,12 +33,9 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
             if (result.IsSuccess)
             {
                 Pet = result.Object as Pet;
-<<<<<<< HEAD
-=======
                 var owner = await _petServiceLogic.GetOwnerByIdAsync(Pet.OwnerId);
                 var ownerResult = owner.Object as User;
                 Pet.Owner = ownerResult;
->>>>>>> Dev_Danh_skibidi
             }
             else
             {

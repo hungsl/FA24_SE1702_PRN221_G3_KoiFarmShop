@@ -11,17 +11,7 @@
 <form method="get" class="row g-3 mb-3">
     <div class="col-auto">
         <label for="searchName" class="form-label">Search by Name:</label>
-<<<<<<< HEAD
-        <input type="text" id="searchName" name="searchName" value="@Model.searchName" class="form-control" placeholder="Enter pet name" />
-    </div>
-    <div class="col-auto">
-        <label for="searchColor" class="form-label">Search by Color:</label>
-        <input type="text" id="searchColor" name="searchColor" value="@Model.searchColor" class="form-control" placeholder="Enter pet color" />
-    </div>
-    <div class="col-auto">
-        <label for="searchNote" class="form-label">Search by Note:</label>
-        <input type="text" id="searchNote" name="searchNote" value="@Model.searchNote" class="form-control" placeholder="Enter pet note" />
-=======
+
         <input type="text" id="searchName" name="searchName" value="@Model.SearchName" class="form-control" placeholder="Enter pet name" />
     </div>
     <div class="col-auto">
@@ -31,7 +21,6 @@
     <div class="col-auto">
         <label for="searchNote" class="form-label">Search by Note:</label>
         <input type="text" id="searchNote" name="searchNote" value="@Model.SearchNote" class="form-control" placeholder="Enter pet note" />
->>>>>>> Dev_Danh_skibidi
     </div>
     <div class="col-auto d-flex align-items-end">
         <button type="submit" class="btn btn-primary">Search</button>
@@ -150,7 +139,6 @@
 }
     </tbody>
 </table>
-=======
 @if (Model.Pet != null && Model.Pet.Items.Any())
 {
     <table class="table">
@@ -291,4 +279,3 @@ else
 {
     <p>No Pet found.</p>
 }
->>>>>>> Dev_Danh_skibidi

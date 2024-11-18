@@ -16,29 +16,6 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
             _petServiceLogic = petServiceLogic;
         }
 
-<<<<<<< HEAD
-        public ResultSearch<Pet> Pet { get;set; } = default!;
-
-        [BindProperty(SupportsGet = true)]
-        public string searchName { get; set; } = string.Empty;
-
-        [BindProperty(SupportsGet = true)]
-        public string searchColor { get; set; } = string.Empty;
-
-        [BindProperty(SupportsGet = true)]
-        public string searchNote { get; set; } = string.Empty;
-        public async Task OnGetAsync()
-        {
-            var result = await _petServiceLogic.GetSearchPetAsync(searchName, searchColor, searchNote);
-            if (result.IsSuccess)
-            {
-                Pet = result.Object as ResultSearch<Pet>;
-            }
-            else
-            {
-                Pet = new ResultSearch<Pet>
-                {
-=======
         public PagedResultSearch<Pet> Pet { get;set; } = default!;
 
         [BindProperty(SupportsGet = true)]
@@ -71,7 +48,6 @@ namespace KoiFarmShop.RazorWebApp.Pages.KoiFish
                 Pet = new PagedResultSearch<Pet>
                 {
                     TotalItems = 0,
->>>>>>> Dev_Danh_skibidi
                     Items = new List<Pet>()
                 };
             }

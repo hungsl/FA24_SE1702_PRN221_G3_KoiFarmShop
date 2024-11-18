@@ -2,14 +2,11 @@
 using KoiFarmShop.Infrastructure.DB;
 using KoiFarmShop.Infrastructure.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-=======
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
->>>>>>> Dev_Danh_skibidi
 
 namespace KoiFarmShop.Infrastructure.Implement.Repositories
 {
@@ -17,7 +14,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
     {
         public AppointmentRepository(KVSCContext context) : base(context) { }
 
-<<<<<<< HEAD
         public async Task<IEnumerable<Appointment>> SearchAppointmentsAsync(string customerName = null, string petName = null, DateTime? appointmentDate = null)
         {
             var query = _context.Appointments
@@ -52,8 +48,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
         }
 
 
-=======
->>>>>>> Dev_Danh_skibidi
         // CREATE
         public async Task<Appointment> CreateAppointmentAsync(Appointment appointment)
         {
@@ -62,7 +56,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             return appointment;
         }
 
-<<<<<<< HEAD
 
 
         //UPDATE
@@ -124,13 +117,7 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
 
 
-=======
-        // READ (các phương thức khác nếu cần)
-        public async Task<IEnumerable<Appointment>> GetAllAppointmentsAsync()
-        {
-            return await _context.Appointments.Where(a => !a.IsDeleted).ToListAsync();
-        }
->>>>>>> Dev_Danh_skibidi
+       
         public async Task<Veterinarian> GetAvailableVeterinarianAsync(DateTime appointmentDate)
         {
             var appointmentDay = appointmentDate.Date;
@@ -149,7 +136,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
 
             return availableVeterinarian;
         }
-<<<<<<< HEAD
         public async Task<Appointment?> GetByIdAsync(Guid appointmentId)
         {
             return await _context.Appointments
@@ -193,25 +179,6 @@ namespace KoiFarmShop.Infrastructure.Implement.Repositories
             await _context.SaveChangesAsync();
 
             return true;
-=======
-        public async Task UpdateScheduleAvailabilityAsync(Guid veterinarianId, DateTime appointmentDate)
-        {
-            var appointmentDay = appointmentDate.Date;
-            var appointmentTime = appointmentDate.TimeOfDay;
-
-            var schedule = await _context.VeterinarianSchedules
-                .FirstOrDefaultAsync(s => s.VeterinarianId == veterinarianId
-                    && s.Date == appointmentDate.Date
-                    && s.StartTime <= appointmentTime
-                    && s.EndTime >= appointmentTime);
-
-            if (schedule != null)
-            {
-                schedule.IsAvailable = false;
-                _context.VeterinarianSchedules.Update(schedule);
-                await _context.SaveChangesAsync();
-            }
->>>>>>> Dev_Danh_skibidi
         }
     }
 }
